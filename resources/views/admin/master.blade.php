@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{asset('assets')}}/css/style.css" />
   <script src="{{asset('assets')}}/js/angular.min.js"></script>
   <script src="{{asset('assets')}}/js/app.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -53,5 +54,11 @@
 <script src="tinymce/tinymce.min.js"></script>
 <script src="tinymce/config.js"></script>
 <script src="{{asset('assets')}}/js/function.js"></script>
+<script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+<script>
+  // Replace the <textarea id="editor1"> with a CKEditor 4
+  // instance, using default configuration.
+  CKEDITOR.replace( 'editor1' );
+</script>
 </body>
 </html>

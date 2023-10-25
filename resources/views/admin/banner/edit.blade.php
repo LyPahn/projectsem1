@@ -18,7 +18,7 @@
     <section class="content">
 
       <!-- Default box -->
-     <div class="col-md-8">
+    <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -26,29 +26,60 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" enctype="multipart/form-data" action="{{route('banner.store')}}">
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{route('banner.update',$banner)}}">
                 @csrf
+                @method('PUT')
+                {{-- <input type="hidden" name="" value="{{$banner->id}}"> --}}
                 <div class="box-body">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Tên banner</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="banner_name" value="{{$banner->banner_name}}">
-                    @error('banner_name')
-                        <small class="text-danger">{{$message}}</small>
-                    @enderror
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">link banner</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="banner_link" value="{{$banner->banner_link}}">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Chọn banner</label>
-                  <div class="radio">
-                    <label>
-                      <input type="file" name="photo" id="input " value="">
-                      
-                    </label>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Tên banner</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" name="banner_name" value="{{$banner->banner_name}}">
+                          @error('banner_name')
+                              <small class="text-danger">{{$message}}</small>
+                          @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">link banner</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="banner_link" value="{{$banner->banner_link}}">
+                        @error('banner_link')
+                              <small class="text-danger">{{$message}}</small>
+                          @enderror
+                      </div>
+                    </div>
+                  </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Caption</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" name="caption" value="{{$banner->caption}}">
+                      @error('caption')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Chọn banner</label>
+                      <div class="radio">
+                        <label>
+                          <input type="file" name="photo" id="input " value="{{$banner->banner_image}}">
+                          @error('photo')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                          
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                
+                
+                
+              
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Chọn trạng thái</label>
@@ -61,14 +92,18 @@
                       <input type="radio" name="status" id="input" value="1" {{$banner->status ? 'checked' : ''}}>
                       Ẩn
                     </label>
+                    @error('status')
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                   </div>
                 </div>
                 
               </div>
               <!-- /.box-body -->
+              
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Thêm mới</button>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
               </div>
             </form>
           </div>

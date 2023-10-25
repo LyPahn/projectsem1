@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('banner_link', 255);
             $table->string('banner_image', 255);
             $table->tinyInteger('status')->default(0);
+            $table->text('caption')->nullable()->default('text');
             $table->timestamps();
         });
     }

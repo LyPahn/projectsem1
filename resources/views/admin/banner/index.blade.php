@@ -50,7 +50,12 @@
                 <td>{!!$item->status ? '<span class="label label-danger"> ẩn hiển thị</span>' : '<span class="label label-success">Hiển thị</span>'!!}</td>
                 <td>
                 <a href="{{route('banner.edit',$item)}}" class="btn btn-success">Sửa</a>
-                <a href="" class="btn btn-danger">Xóa</a>
+                <form action="{{route('banner.destroy',$item->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('chắc chắn chứ')">Xoá</button>
+                </form>
+                
                   
                 </td>
               </tr>  

@@ -24,7 +24,8 @@ class bannerStoreRequest extends FormRequest
         return [
             'banner_name' => 'required | unique:banners',
             'banner_link' => 'required',
-            'banner_image' => 'required | image'
+            'photo' => 'required | image',
+            'caption' => 'required'
         ];
     }
 
@@ -34,8 +35,9 @@ class bannerStoreRequest extends FormRequest
             'banner_name.required' => 'Tên banner không được để trống',
             'banner_name.unique' => 'Tên banner đã tồn tại',
             'banner_link' => 'Đường liên kết không được để trống',
-            'banner_image.required' => 'Ảnh banner không được để trống',
-            'banner_image.image' => 'Đuôi ảnh không hợp lệ'
+            'photo.required' => 'Ảnh banner không được để trống',
+            'photo.image' => 'Đuôi ảnh không hợp lệ',
+            'caption.required' => 'Cation không được để trống'
         ];
     }
 }

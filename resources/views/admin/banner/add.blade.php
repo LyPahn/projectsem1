@@ -39,13 +39,25 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">link banner</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="banner_link">
+                  @error('banner_link')
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Caption</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="caption">
+                  @error('caption')
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Chọn banner</label>
                   <div class="radio">
                     <label>
                       <input type="file" name="photo" id="input " value="">
-                      
+                      @error('photo')
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                     </label>
                   </div>
                 </div>
@@ -61,6 +73,9 @@
                       <input type="radio" name="status" id="input" value="1" >
                       Ẩn
                     </label>
+                    @error('status')
+                        <small class="text-danger">{{$message}}</small>
+                    @enderror
                   </div>
                 </div>
                 

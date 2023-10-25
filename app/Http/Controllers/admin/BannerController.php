@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\banner\bannerStoreRequest;
+use App\Http\Requests\banner\BannerUpdateRequest;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class BannerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(bannerStoreRequest $request)
     {
         try {
             $fileName = $request->photo->getClientOriginalName();
@@ -62,9 +63,24 @@ class BannerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BannerUpdateRequest $request,Banner $banner)
     {
-        //
+        try {
+            $fileName = '';
+            if ($request->photo == '') {
+                $fileName = $banner->banner_image;
+            }else{
+                $fileName = $request->photo->getClientOriginalName();
+                $request->photo->storeAs('public/images/',$fileName);
+            }
+            
+            $request->merge(['banner_image' => $fileName]);
+            $banner->update($request->all());
+            return redirect()->route('banner.index')->with('success','Cập nhật thành công');
+        } catch (\Throwable $th) {
+            dd($th);
+            return redirect()->back()->with('error','Cập nhật thất bại');
+        }
     }
 
     /**
@@ -72,6 +88,7 @@ class BannerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Banner::where('id',$id)->delete();
+        return redirect()->route('banner.index')->with('success','Xoá thành công');
     }
 }

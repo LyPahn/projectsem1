@@ -26,7 +26,7 @@
       <ul class="sidebar-menu" data-widget="tree">
 
         <li>
-          <a href="{{route('banner.index')}}">
+          <a href="#">
             <i class="fa fa-th"></i> <span>Quản lý Banner </span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
@@ -35,7 +35,7 @@
         </li>
 
         <li>
-          <a href="menu.html">
+          <a href="{{route('rooms_type.index')}}">
             <i class="fa fa-th"></i> <span>Quản lý hạng phòng </span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
@@ -44,8 +44,16 @@
         </li>
         
         <li>
-          <a href="menu.html">
+          <a href="{{route('rooms.index')}}">
             <i class="fa fa-th"></i> <span>Quản lý đặt phòng </span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">FE</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="{{route('blog.index')}}">
+            <i class="fa fa-th"></i> <span>Quản lý Blog </span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
             </span>
