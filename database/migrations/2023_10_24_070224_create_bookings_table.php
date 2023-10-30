@@ -20,7 +20,7 @@ return new class extends Migration
             $table->tinyInteger('status')->default(1);
             $table->dateTime('check_in');
             $table->dateTime('check_out');
-            $table->text('description')->nullable()->default('text');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

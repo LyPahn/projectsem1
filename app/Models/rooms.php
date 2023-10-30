@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class rooms extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','name','image','type_id','isBooked','price','people'];
+    protected $fillable = ['id','name','image','type_id','isBooked','price','people' , 'status','room_code'];
     
     /**
      * Get the user that owns the rooms

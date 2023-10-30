@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50)->unique()->default();
+            $table->string('room_code', 50)->unique()->unique();
+            $table->string('name', 50)->default();
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type_rooms')->onDelete('cascade');
             $table->tinyInteger('isBooked')->default(1);
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->integer('people')->nullable()->default(2);
             $table->string('image', 255);
             $table->text('description')->nullable()->default();
+            $table->tinyInteger('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

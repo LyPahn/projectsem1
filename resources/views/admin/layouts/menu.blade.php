@@ -25,14 +25,14 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
 
-        <li>
+        {{-- <li>
           <a href="#">
             <i class="fa fa-th"></i> <span>Quản lý Banner </span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
             </span>
           </a>
-        </li>
+        </li> --}}
 
         <li>
           <a href="{{route('rooms_type.index')}}">
@@ -45,7 +45,7 @@
         
         <li>
           <a href="{{route('rooms.index')}}">
-            <i class="fa fa-th"></i> <span>Quản lý đặt phòng </span>
+            <i class="fa fa-th"></i> <span>Quản lý phòng </span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
             </span>

@@ -22,9 +22,27 @@ class RoomPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','unique:rooms'],
+            'name' => ['required'],
             'photo' => ['required','image'],
             'price' => ['required','numeric'],
+            'room_code' => 'required | unique:rooms',
+            'people' => 'required | min:0 | max:30'
+        ];
+    }
+
+    public function messages()
+    {
+        return[
+            'name.required'=> 'Không được để trống',
+            'photo.required' => 'Không được để trống',
+            'photo.image' => 'Đuôi ảnh không hợp lệ',
+            'price.required' => 'Không được để trống',
+            'price.numeric' => 'Sai định dạng',
+            'room_code.required' => 'Không được để trống',
+            'room_code.unique' => 'Mã phòng đã tồn tại',
+            'people.required' => 'Không được để trống',
+            'people.min' => 'Số người phải lớn hơn 0',
+            'people.max' => 'Số người phải nhỏ hơn 30'
         ];
     }
 }

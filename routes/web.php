@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\admin\DashBoardController;
 use App\Http\Controllers\admin\TabController;
 use App\Http\Controllers\user\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Admin\RoomsController;
 use App\Http\Controllers\Admin\RoomsTypeController;
@@ -23,8 +25,18 @@ use App\Http\Controllers\Admin\BookingsController;
 */
 
 route::get('/',[HomeController::class,'index'])->name('user.index');
+route::get('/list-room',[HomeController::class,'listRoom'])->name('user.listRoom');
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/loginPost', [UserController::class, 'loginPost'])->name('login.store');
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/registerPost', [UserController::class, 'registerPost'])->name('register.store');
+Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 
-Route::prefix('admin')->group(function () {
+Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
+Route::post('/logonPost', [AdminController::class, 'logonstore'])->name('logon.store');
+Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');
+
+Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',[DashBoardController::class,'index'])->name('admin.index');
     // Route::resource('banner', BannerController::class);
     // route::resource('tabs',TabController::class);
