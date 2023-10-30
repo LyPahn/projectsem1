@@ -59,7 +59,14 @@
             </span>
           </a>
         </li>
-
+        <li>
+          <a href="{{route('booking.index')}}">
+            <i class="fa fa-th"></i> <span>Quản lý Booking </span>  
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">FE</small>
+            </span>
+          </a>
+        </li>
         <li>
           <a href="">
             <i class="fa fa-th"></i> <span>Widgets</span>

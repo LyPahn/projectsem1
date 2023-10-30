@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Booking\BookingStoreRequest;
+use App\Models\bookings;
+use App\Models\rooms;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -12,7 +16,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $bookings = bookings::all();
+        return view('admin.booking.index',compact('bookings'));
     }
 
     /**
@@ -20,15 +25,18 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        $rooms = rooms::all();
+        $users = User::all();
+        return view('admin.booking.add',compact('rooms','users'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BookingStoreRequest $request)
     {
-        //
+        bookings::create($request->all());
+        return redirect()->route('booking.index');
     }
 
     /**
@@ -42,17 +50,25 @@ class BookingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(bookings $booking)
     {
-        //
+        $rooms = rooms::all();
+        $users = User::all();
+        return view('admin.booking.edit',compact('booking','rooms','users'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,bookings $booking)
     {
-        //
+        try {
+            //code...
+            $booking->update($request->all());
+            return redirect()->route('booking.index')->with('success','Update successful');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**
@@ -60,6 +76,20 @@ class BookingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        bookings::where('id',$id)->delete();
+        return redirect()->route('booking.index');
+    }
+
+    public function trash(){
+        $deleted_at = bookings::onlyTrashed()->get();
+        return view('admin.booking.trash',compact('deleted_at'));
+    }
+    public function restore($id) {
+        bookings::withTrashed()->where('id',$id)->restore();
+        return redirect()->route('booking.index');
+    }
+    public function forceDeleted($id) {
+        bookings::withTrashed()->where('id',$id)->forceDelete();
+        return redirect()->route('booking.trash');
     }
 }

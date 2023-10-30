@@ -11,7 +11,7 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Admin\RoomsController;
 use App\Http\Controllers\Admin\RoomsTypeController;
-use App\Http\Controllers\Admin\BookingsController;
+use App\Http\Controllers\Admin\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +43,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('blog', BlogController::class);
     Route::resource('rooms', RoomsController::class);
     Route::resource('rooms_type', RoomsTypeController::class);
-    Route::resource('bookings', BookingsController::class);
+    Route::resource('booking', BookingController::class);
     Route::get('/trash', [RoomsTypeController::class, 'trash'])->name('rooms_type.trash');
     Route::get('/restore/{id}', [RoomsTypeController::class, 'restore'])->name('rooms_type.restore');
     Route::get('/forceDelete/{id}', [RoomsTypeController::class, 'forceDeleted'])->name('rooms_type.forceDeleted');
+    Route::get('/trash_booking', [BookingController::class, 'trash'])->name('booking.trash');
+    Route::get('/restore_booking/{id}', [BookingController::class, 'restore'])->name('booking.restore');
+    Route::get('/forceDelete_booking/{id}', [BookingController::class, 'forceDeleted'])->name('booking.forceDeleted');
 });
