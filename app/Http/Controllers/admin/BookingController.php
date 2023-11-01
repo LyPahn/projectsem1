@@ -35,8 +35,13 @@ class BookingController extends Controller
      */
     public function store(BookingStoreRequest $request)
     {
-        bookings::create($request->all());
-        return redirect()->route('booking.index');
+        try {
+            bookings::create($request->all());
+            return redirect()->route('booking.index')->with('success','Thêm mới thành công');
+            
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error','Thêm mới thất bại');
+        }
     }
 
     /**
@@ -65,9 +70,9 @@ class BookingController extends Controller
         try {
             //code...
             $booking->update($request->all());
-            return redirect()->route('booking.index')->with('success','Update successful');
+            return redirect()->route('booking.index')->with('success','Cập nhật thành công');
         } catch (\Throwable $th) {
-            dd($th);
+            return redirect()->back()->with('error','Cập nhật thất bại');
         }
     }
 
@@ -77,7 +82,7 @@ class BookingController extends Controller
     public function destroy(string $id)
     {
         bookings::where('id',$id)->delete();
-        return redirect()->route('booking.index');
+        return redirect()->route('booking.index')->with('success','Xoá thành công');
     }
 
     public function trash(){

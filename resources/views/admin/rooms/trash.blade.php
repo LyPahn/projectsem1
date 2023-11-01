@@ -4,14 +4,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Quản lý Blog trang giao diện
+        Quản lý phòng trang giao diện
       
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank page</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -37,7 +37,7 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>STT</th>
-                  <th>Room Name</th>
+                  <th>Tên phòng</th>
                   <th>Tùy chọn</th>
                 </tr>
                 @forelse ($deleted_at   as $item)

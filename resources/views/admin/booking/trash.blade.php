@@ -4,14 +4,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Quản lý Blog trang giao diện
+        Quản lý đặt phòng trang giao diện
       
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank page</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -39,7 +39,7 @@
                   <th>STT</th>
                   <th>Tên phòng đã đặt</th>
                   <th>Tên khách hàng</th>
-                  <th>status</th>
+                  <th>Trạng thái</th>
                   <th>check_in</th>
                   <th>check_out</th>
                   <th>Tùy chọn</th>

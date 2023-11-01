@@ -7,11 +7,11 @@
         Quản lý Blog trang giao diện
        
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank page</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->

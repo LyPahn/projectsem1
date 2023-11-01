@@ -4,14 +4,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Quản lý banner trang giao diện
+        Quản lý hạng phòng trang giao diện
        
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank page</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -22,7 +22,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Thêm mới blog</h3>
+              <h3 class="box-title">Thêm mới hạng phòng</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -30,9 +30,11 @@
                 @csrf
                 <div class="box-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Name</label>
+                    <label for="exampleInputEmail1">Hạng phòng</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="room_type">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    @error('room_type')
+                      <span class="text-danger">{{$message}}</span>
+                    @enderror
                   </div>
 
               </div>

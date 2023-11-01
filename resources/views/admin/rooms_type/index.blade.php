@@ -4,14 +4,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Quản lý Blog trang giao diện
+        Quản lý hạng phòng trang giao diện
        
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank page</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -21,7 +21,7 @@
       <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="{{route('rooms_type.create')}}" class="btn btn-success">+Thêm mới blog</a>
+              <a href="{{route('rooms_type.create')}}" class="btn btn-success">+Thêm mới hạng phòng</a>
               <a href="{{route('rooms_type.trash')}}" class="btn btn-primary "><i class="fa-solid fa-trash"></i>Thùng rác</a>
 
               <div class="box-tools">
@@ -36,10 +36,32 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
+              @if ($message = Session::get('error'))
+
+<div class="alert alert-danger alert-block">
+
+	<button type="button" class="close" data-dismiss="alert">×</button>	
+
+        <strong>{{ $message }}</strong>
+
+</div>
+
+@endif
+@if ($message = Session::get('success'))
+
+<div class="alert alert-success alert-block">
+
+	<button type="button" class="close" data-dismiss="alert">×</button>	
+
+        <strong>{{ $message }}</strong>
+
+</div>
+
+@endif
               <table class="table table-hover">
                 <tbody><tr>
                   <th>STT</th>
-                  <th>Room Name</th>
+                  <th>Hạng phòng</th>
                   <th>Tùy chọn</th>
                 </tr>
                 @forelse ($listTypeRooms  as $item)
@@ -47,7 +69,7 @@
                 <td>{{$item->room_type}}</td>
                 <td>
 
-                  <a href="{{route('rooms_type.edit',$item)}}" class="btn btn-success">Sửa</a>
+                  {{-- <a href="{{route('rooms_type.edit',$item)}}" class="btn btn-success">Sửa</a> --}}
                   <form action="{{route('rooms_type.destroy',$item)}}" method="post">
                     @csrf
                     @method('DELETE')

@@ -24,6 +24,17 @@
             <div class="box-header with-border">
               <h3 class="box-title">Thêm mới blog</h3>
             </div>
+            @if ($message = Session::get('error'))
+
+<div class="alert alert-danger alert-block">
+
+	<button type="button" class="close" data-dismiss="alert">×</button>	
+
+        <strong>{{ $message }}</strong>
+
+</div>
+
+@endif
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" method="POST" enctype="multipart/form-data" action="{{route('rooms.update',$room)}}">

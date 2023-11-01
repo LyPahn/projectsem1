@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\BookingController;
 
 route::get('/',[HomeController::class,'index'])->name('user.index');
 route::get('/list-room',[HomeController::class,'listRoom'])->name('user.listRoom');
+route::get('/room-detail',[HomeController::class,'roomDetail'])->name('user.roomDetail');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/loginPost', [UserController::class, 'loginPost'])->name('login.store');
 Route::get('/register', [UserController::class, 'register'])->name('register');

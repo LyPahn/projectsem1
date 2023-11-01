@@ -9,6 +9,7 @@ use App\Models\type_rooms;
 use App\Models\images;
 use App\Http\Requests\Admin\RoomPostRequest;
 use App\Http\Requests\Admin\RoomEditRequest;
+use App\Models\bookings;
 
 class RoomsController extends Controller
 {
@@ -52,10 +53,11 @@ class RoomsController extends Controller
                     ]);
                 }
             }
+            return redirect()->route('rooms.index')->with('success','Thêm mới thành công');
         } catch (\Throwable $th) {
-            dd($th);
+            return redirect()->back()->with('error','Thêm mới thất bại');
         }
-        return redirect()->route('rooms.index')->with('success','added successfully');
+        
     }
 
     /**
@@ -106,9 +108,9 @@ class RoomsController extends Controller
                 }
             }
         } catch (\Throwable $th) {
-            dd($th) ;
+            return redirect()->back()->with('error','Cập nhật thất bại');
         }
-        return redirect()->route('rooms.index');
+        return redirect()->route('rooms.index')->with('success','Cập nhật thành công');
     }
 
     /**
@@ -117,10 +119,14 @@ class RoomsController extends Controller
     public function destroy(string $id)
     {
         try {
-            rooms::where('id',$id)->delete();
-            return redirect()->route('rooms.index');
+            if(bookings::where('room_id', $id) == ''){
+
+                rooms::where('id',$id)->delete();
+                return redirect()->route('rooms.index')->with('error','Xoá thành công');
+            }
+            return redirect()->back()->with('error','Phòng đã đặt không thể xoá');
         } catch (\Throwable $th) {
-            dd($th);
+            return redirect()->back('error','Xoá thất bại');
         }
     }
 }
