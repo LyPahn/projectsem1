@@ -23,7 +23,7 @@ class BookingStoreRequest extends FormRequest
     {
         return [
             'check_in' => ['required'],
-            'check_out' => 'required|gt:check_in'
+            'check_out' => ['required']
         ];
     }
 
