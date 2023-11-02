@@ -1,48 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="{{asset('fe')}}/image/favicon.png" type="{{asset('fe')}}/image/png">
-        <title>Royal Hotel</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{asset('fe')}}/css/bootstrap.css">
-        <link rel="stylesheet" href="{{asset('fe')}}/vendors/linericon/style.css">
-        <link rel="stylesheet" href="{{asset('fe')}}/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{asset('fe')}}/vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="{{asset('fe')}}/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" href="{{asset('fe')}}/vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="{{asset('fe')}}/vendors/owl-carousel/owl.carousel.min.css">
-        <!-- main css -->
-        <link rel="stylesheet" href="{{asset('fe')}}/css/style.css">
-        <link rel="stylesheet" href="{{asset('fe')}}/css/responsive.css">
-    </head>
-    <body>
-        <!--================Header Area =================-->
-        @include('user.layouts.header')
-        <!--================Header Area =================-->
-        
-        @yield('main-content')
-        
-        <!--================ start footer Area  =================-->	
-        @include('user.layouts.footer')
-		<!--================ End footer Area  =================-->
-        
-        
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{{asset('fe')}}/js/jquery-3.2.1.min.js"></script>
-        <script src="{{asset('fe')}}/js/popper.js"></script>
-        <script src="{{asset('fe')}}/js/bootstrap.min.js"></script>
-        <script src="{{asset('fe')}}vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="{{asset('fe')}}/js/jquery.ajaxchimp.min.js"></script>
-        <script src="{{asset('fe')}}/js/mail-script.js"></script>
-        <script src="{{asset('fe')}}/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
-        <script src="{{asset('fe')}}/vendors/nice-select/{{asset('fe')}}/js/jquery.nice-select.js"></script>
-        <script src="{{asset('fe')}}/js/mail-script.js"></script>
-        <script src="{{asset('fe')}}/js/stellar.js"></script>
-        <script src="{{asset('fe')}}/vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="{{asset('fe')}}/js/custom.js"></script>
-    </body>
+
+<!-- Mirrored from kodesolution.com/html/2023/hoexr-html/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Nov 2023 07:33:24 GMT -->
+<head>
+<meta charset="utf-8">
+<title>Hoexr | Hotel HTML Template | Home Page 02</title>
+<!-- Stylesheets -->
+<link href="{{asset('fe')}}/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{asset('fe')}}/css/flatpickr.min.css" rel="stylesheet">
+<link href="{{asset('fe')}}/css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{asset('fe')}}/css/slick-theme.css">
+<link rel="stylesheet" type="text/css" href="{{asset('fe')}}/css/slick.css">
+
+<link rel="shortcut icon" href="{{asset('fe')}}/images/favicon.png" type="image/x-icon">
+<link rel="icon" href="{{asset('fe')}}/images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+<div class="page-wrapper">
+
+  @include('user.layouts.header')
+
+  @yield('main-content')
+
+ @include('user.layouts.footer')
+</div><!-- End Page Wrapper -->
+@yield('add-js')
+</body>
+
+<!-- Mirrored from kodesolution.com/html/2023/hoexr-html/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Nov 2023 07:33:29 GMT -->
 </html>
