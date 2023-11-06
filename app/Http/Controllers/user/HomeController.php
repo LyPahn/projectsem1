@@ -14,7 +14,8 @@ class HomeController extends Controller
     public function index(){
         $tab = tab::where('status',0)->get();
         $blog = Blog::where('status',0)->get();
-        return view('user.index',compact('blog','tab'));
+        $banner = Banner::where('status',0)->get();
+        return view('user.index',compact('blog','tab','banner'));
     }
 
     public function listRoom(){

@@ -3,7 +3,21 @@
    <!-- banner section two -->
    <section class="banner-section-two">
     <div class="banner-slider">
-      <div class="banner-slide-v2">
+    @forelse ($banner as $item)
+    <div class="banner-slide-v2">
+      <div class="outer-box">
+        <figure class="image wow fadeInUp"><img src="{{asset('storage/images/'.$item->banner_image)}}" alt=""></figure>
+        <div class="content-box">
+          <span class="sub-title" data-animation-in="fadeInUp" data-delay-in="0.1">unique place and luxury hotel</span>
+          <h1 data-animation-in="fadeInUp" data-delay-in="0.3">{{$item->caption}}</h1>
+          <a href="page-about.html" class="btn" data-animation-in="fadeInUp" data-delay-in="0.5">rooms & suites</a>
+        </div>
+      </div>
+    </div>
+    @empty
+        <h1>no data</h1>
+    @endforelse
+      {{-- <div class="banner-slide-v2">
         <div class="outer-box">
           <figure class="image wow fadeInUp"><img src="{{asset('fe')}}/images/banner/banner-2.jpg" alt=""></figure>
           <div class="content-box">
@@ -22,17 +36,7 @@
             <a href="page-about.html" class="btn" data-animation-in="fadeInUp" data-delay-in="0.5">rooms & suites</a>
           </div>
         </div>
-      </div>
-      <div class="banner-slide-v2">
-        <div class="outer-box">
-          <figure class="image wow fadeInUp"><img src="{{asset('fe')}}/images/banner/banner-2.jpg" alt=""></figure>
-          <div class="content-box">
-            <span class="sub-title" data-animation-in="fadeInUp" data-delay-in="0.1">unique place and luxury hotel</span>
-            <h1 data-animation-in="fadeInUp" data-delay-in="0.3">life enjoy with <br>the great moments</h1>
-            <a href="page-about.html" class="btn" data-animation-in="fadeInUp" data-delay-in="0.5">rooms & suites</a>
-          </div>
-        </div>
-      </div>
+      </div> --}}
     </div>
   </section>
   <!-- End banner section -->
@@ -294,22 +298,26 @@
       <div class="sec-title text-center wow fadeInUp"> <span class="sub-title">Hoexr Hotel News</span>
         <h2>Cập nhật tin tức mới nhất</h2>
       </div>
-      <div class="row"> 
-        <!-- News Block -->
+      <div class="row">
+        @forelse ($blog as $item)
+          <!-- News Block -->
         <div class="news-block-two col-lg-4 col-sm-6 wow fadeInUp">
           <div class="inner-box wow fadeInLeft">
             <div class="image-box">
-              <figure class="image overlay-anim"><a href="news-details.html"><img src="{{asset('fe')}}/images/resource/news2-1.jpg" alt=""></a></figure>
+              <figure class="image overlay-anim"><a href="news-details.html"><img src="{{asset('storage/images/'.$item->image)}}" alt=""></a></figure>
             </div>
             <div class="content-box">
-                <h4 class="title"><a href="news-details.html">Retore Lighting Design <br> in The Hotel</a></h4>
+                <h4 class="title"><a href="news-details.html">{{$item->description}}</a></h4>
               <div class="btn-box">
-                <span><i class="icon fa fa-comments"></i>0 Comments</span>
+                <span>{{$item->created_at}}</span>
                 <a href="news-details.html" class="read-more">Read More<i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </div>
-        </div>
+        </div>  
+        @empty
+            
+        @endforelse 
         <!-- News Block -->
         <div class="news-block-two col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="300ms">
           <div class="inner-box wow fadeInLeft" data-wow-delay="200ms">
