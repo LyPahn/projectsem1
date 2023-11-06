@@ -39,7 +39,7 @@ Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',[DashBoardController::class,'index'])->name('admin.index');
-    // Route::resource('banner', BannerController::class);
+    Route::resource('banner', BannerController::class);
     // route::resource('tabs',TabController::class);
     Route::resource('blog', BlogController::class);
     Route::resource('rooms', RoomsController::class);
