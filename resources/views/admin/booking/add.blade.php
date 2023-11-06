@@ -37,40 +37,48 @@
                     <!-- form start -->
                     <form role="form" method="POST" enctype="multipart/form-data" action="{{ route('booking.store') }}">
                         @csrf
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tên khách hàng</label>
-                            <select name="user_id" id="input" class="form-control">
-                                @foreach ($users as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tên phòng</label>
-                            <select name="room_id" id="input" class="form-control">
-                                @foreach ($rooms as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Chọn trạng thái</label>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="status" id="input" value="1" checked="checked">
-                                    Còn trống
-                                </label>
-                                <label>
-                                    <input type="radio" name="status" id="input" value="0">
-                                    Đã đặt
-                                </label>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tên khách hàng</label>
+                                    <select name="user_id" id="input" class="form-control">
+                                        @foreach ($users as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tên phòng</label>
+                                    <select name="room_id" id="input" class="form-control">
+                                        @foreach ($rooms as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Chọn trạng thái</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="status" id="input" value="1" checked="checked">
+                                            Còn trống
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="status" id="input" value="0">
+                                            Đã đặt
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">check_in</label>
-                                    <input type="datetime" name="check_in" class="form-control">
+                                    <input type="date" name="check_in" class="form-control" value="{{old('check_in')}}">
                                     @error('check_in')
                                         <span class="help-block " style="color: red">{{ $message }}</span>
                                     @enderror
@@ -79,7 +87,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">check_out</label>
-                                    <input type="datetime" name="check_out" class="form-control">
+                                    <input type="date" name="check_out" class="form-control" value="{{old('check_out')}}">
                                     @error('check_out')
                                         <span class="help-block " style="color: red">{{ $message }}</span>
                                     @enderror
@@ -88,9 +96,7 @@
                         </div>
                         <div class="form-group">
                             <label for="disabledTextInput" class="fs-4 text-uppercase">Descripton</label>
-                            <textarea name="description" id="editor1" rows="10" cols="80">
-                  
-                  </textarea>
+                            <textarea name="description" id="editor1" rows="10" cols="80">{{old('description')}}"</textarea>
                         </div>
                         <!-- /.box-body -->
 

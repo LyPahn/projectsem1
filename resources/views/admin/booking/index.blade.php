@@ -66,25 +66,18 @@
                                     <td>{{ $item->check_in }}</td>
                                     <td>{{ $item->check_out }}</td>
                                     <td>
-
-                                        <a href="{{ route('booking.edit', $item) }}" class="btn btn-success">Sửa</a>
+                                        <a href="{{ route('booking.edit', $item) }}" class="btn btn-success"><i class="fa-solid fa-wrench"></i></a>
                                         <form action="{{ route('booking.destroy', $item) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"
-                                                onclick="return confirm('chắc chắn chứ')">Xoá</button>
+                                                onclick="return confirm('chắc chắn chứ')"><i class="fa-solid fa-trash"></i></button>
                                         </form>
-
-
                                     </td>
-                                    </tr>
+                                </tr>
                                 @empty
                                     <p>CHưa có dữ liệu</p>
                                 @endforelse
-
-
-
-
                             </tbody>
                         </table>
                     </div>

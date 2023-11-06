@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('room_id')->nullable()->default(12);
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->tinyInteger('status')->default(1);
-            $table->dateTime('check_in');
-            $table->dateTime('check_out');
+            $table->date('check_in');
+            $table->date('check_out');
             $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();

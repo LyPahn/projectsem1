@@ -8,6 +8,7 @@ use App\Models\bookings;
 use App\Models\rooms;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Rules\CheckOutDateGreaterThanCheckInDate;
 
 class BookingController extends Controller
 {
@@ -34,7 +35,11 @@ class BookingController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(BookingStoreRequest $request)
-    {
+    {   
+        $request->validate([
+            'check_in' => 'required|date',
+            'check_out' => ['required', 'date', new CheckOutDateGreaterThanCheckInDate('check_in')],
+        ]);
         try {
             bookings::create($request->all());
             return redirect()->route('booking.index')->with('success','Thêm mới thành công');

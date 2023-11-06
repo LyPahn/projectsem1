@@ -73,7 +73,7 @@
                   <form action="{{route('rooms_type.destroy',$item)}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('chắc chắn chứ')">Xoá</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('chắc chắn chứ')"><i class="fa-solid fa-trash"></i></button>
                   </form>
                 
                   

@@ -40,53 +40,58 @@
                         @csrf
                         @method('PUT')
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Tên khách hàng</label>
-                                <select name="user_id" id="input" class="form-control">
-                                    @foreach ($users as $item)
-                                        <option value="{{ $item->id }}"
-                                            {{ $booking->user_id === $item->id ? 'selected' : '' }}>{{ $item->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Tên phòng</label>
-                                <select name="room_id" id="input" class="form-control">
-                                    @foreach ($rooms as $item)
-                                        <option value="{{ $item->id }}"
-                                            {{ $booking->room_id === $item->id ? 'selected' : '' }}>{{ $item->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Chọn trạng thái</label>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="status" id="input" value="1"
-                                            {{ $booking->status ? 'checked' : '' }}>
-                                        Còn trống
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="status" id="input" value="0"
-                                            {{ !$booking->status ? 'checked' : '' }}>
-                                        Đã đặt
-                                    </label>
-                                </div>
-                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tên khách hàng</label>
+                                        <select name="user_id" id="input" class="form-control">
+                                            @foreach ($users as $item)
+                                                <option value="{{ $item->id }}"
+                                                    {{ $booking->user_id === $item->id ? 'selected' : '' }}>{{ $item->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div></div> 
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tên phòng</label>
+                                        <select name="room_id" id="input" class="form-control">
+                                            @foreach ($rooms as $item)
+                                                <option value="{{ $item->id }}"
+                                                    {{ $booking->room_id === $item->id ? 'selected' : '' }}>{{ $item->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div></div> 
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Chọn trạng thái</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="status" id="input" value="1"
+                                                    {{ $booking->status ? 'checked' : '' }}>
+                                                Còn trống
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="status" id="input" value="0"
+                                                    {{ !$booking->status ? 'checked' : '' }}>
+                                                Đã đặt
+                                            </label>
+                                        </div>
+                                    </div></div> 
+                            </div>        
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">check_in</label>
-                                        <input type="datetime" name="check_in" class="form-control"
+                                        <input type="date" name="check_in" class="form-control"
                                             value="{{ old('check_in') ? old('check_in') : $booking->check_in }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">check_out</label>
-                                        <input type="datetime" name="check_out" class="form-control"
+                                        <input type="date" name="check_out" class="form-control"
                                             value="{{ old('check_out') ? old('check_out') : $booking->check_out }}">
 
                                     </div>
