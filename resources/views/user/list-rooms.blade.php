@@ -18,18 +18,19 @@
   <section class="rooms-section pb-100">
     <div class="auto-container">
       <div class="row">
-        <!-- room-block -->
+        @forelse ($room as $item)
+           <!-- room-block -->
         <div class="room-block col-lg-6 col-md-6">
           <div class="inner-box wow fadeIn">
             <div class="image-box">
-              <figure class="image-2 overlay-anim"><img src="{{asset('fe')}}/images/resource/room-1.jpg" alt=""></figure>
+              <figure class="image-2 overlay-anim"><img width="100%" src="{{asset('storage/images/'.$item->image)}}" alt=""></figure>
             </div>
             <div class="content-box">
-              <h6 class="title"><a href="room-details.html">Junior Suite</a></h6>
-              <span class="price">150$ / NIGHT</span>
+              <h6 class="title"><a href="room-details.html">{{$item->name}}</a></h6>
+              <span class="price">{{$item->price}}đ / Đêm</span>
             </div>
             <div class="box-caption">
-              <a href="room-details.html" title="" class="book-btn">book now</a>
+              <a href="{{route('room.detail',$item->id)}}" title="" class="book-btn">book now</a>
               <ul class="bx-links">
                 <li><a href="room-details.html" title=""><i class="fa fa-wifi"></i></a></li>
                 <li><a href="room-details.html" title=""><i class="fa fa-bed"></i></a></li>
@@ -38,29 +39,12 @@
               </ul>
             </div>
           </div>
-        </div>
-        <!-- room-block -->
-        <div class="room-block col-lg-6 col-md-6">
-          <div class="inner-box wow fadeIn" data-wow-delay="200ms">
-            <div class="image-box">
-              <figure class="image-2 overlay-anim"><img src="{{asset('fe')}}/images/resource/room-2.jpg" alt=""></figure>
-            </div>
-            <div class="content-box">
-              <h6 class="title"><a href="room-details.html">Family Room</a></h6>
-              <span class="price">200$ / NIGHT</span>
-            </div>
-            <div class="box-caption">
-              <a href="room-details.html" title="" class="book-btn">book now</a>
-              <ul class="bx-links">
-                <li><a href="room-details.html" title=""><i class="fa fa-wifi"></i></a></li>
-                <li><a href="room-details.html" title=""><i class="fa fa-bed"></i></a></li>
-                <li><a href="room-details.html" title=""><i class="fa fa-bath"></i></a></li>
-                <li><a href="room-details.html" title=""><i class="fa fa-shower"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- room-block -->
+        </div> 
+        @empty
+            
+        @endforelse
+        <div class="text-center">{{ $room->links() }}</div>
+        {{-- <!-- room-block -->
         <div class="room-block col-lg-3 col-md-6">
           <div class="inner-box wow fadeIn" data-wow-delay="300ms">
             <div class="image-box">
@@ -122,7 +106,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </section>

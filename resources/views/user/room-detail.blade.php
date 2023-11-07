@@ -20,50 +20,20 @@
 			<div class="row">
 				<div class="col-xl-8 col-lg-7 product-details rd-page">
 					<div class="bxslider">
+						@foreach ($detail->images as $item)
+							
 						<div class="slider-content">
-							<figure class="image-box"><a href="{{asset('fe')}}/images/resource/room-1.jpg" class="lightbox-image" data-fancybox="gallery"><img src="{{asset('fe')}}/images/resource/room-1.jpg" alt=""></a></figure>
+							<figure class="image-box"><a href="{{asset('storage/images/'.$item->image)}}" class="lightbox-image" data-fancybox="gallery"><img src="{{asset('storage/images/'.$item->image)}}" alt=""></a></figure>
 							<div class="slider-pager">
 								<ul class="thumb-box">
-									<li class="mb-0"><a class="active" data-slide-index="0" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-1.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="1" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-2.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="2" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-4.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="3" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-6.jpg" alt=""></figure></a></li>
+									@foreach ($detail->images as $item)
+									<li class="mb-0"><a class="{{$loop->index == 0 ? 'active' : ''}}" data-slide-index="{{$loop->index}}" href="#"><figure><img src="{{asset('storage/images/'.$item->image)}}" alt=""></figure></a></li>
+									@endforeach
 								</ul>
 							</div>
 						</div>
-						<div class="slider-content">
-							<figure class="image-box"><a href="{{asset('fe')}}/images/resource/room-2.jpg" class="lightbox-image" data-fancybox="gallery"><img src="{{asset('fe')}}/images/resource/room-2.jpg" alt=""></a></figure>
-							<div class="slider-pager">
-								<ul class="thumb-box">
-									<li class="mb-0"><a class="active" data-slide-index="0" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-1.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="1" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-2.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="2" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-4.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="3" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-6.jpg" alt=""></figure></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="slider-content">
-							<figure class="image-box"><a href="{{asset('fe')}}/images/resource/room-4.jpg" class="lightbox-image" data-fancybox="gallery"><img src="{{asset('fe')}}/images/resource/room-4.jpg" alt=""></a></figure>
-							<div class="slider-pager">
-								<ul class="thumb-box">
-									<li class="mb-0"><a class="active" data-slide-index="0" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-1.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="1" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-2.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="2" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-4.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="3" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-6.jpg" alt=""></figure></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="slider-content">
-							<figure class="image-box"><a href="{{asset('fe')}}/images/resource/room-6.jpg" class="lightbox-image" data-fancybox="gallery"><img src="{{asset('fe')}}/images/resource/room-6.jpg" alt=""></a></figure>
-							<div class="slider-pager">
-								<ul class="thumb-box">
-									<li class="mb-0"><a class="active" data-slide-index="0" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-1.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="1" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-2.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="2" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-4.jpg" alt=""></figure></a></li>
-									<li class="mb-0"><a data-slide-index="3" href="#"><figure><img src="{{asset('fe')}}/images/resource/room-6.jpg" alt=""></figure></a></li>
-								</ul>
-							</div>
-						</div>
+						@endforeach
+					
 					</div>
 					<div class="room-details__left">
 						<div class="wrapper">

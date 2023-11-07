@@ -45,16 +45,15 @@
           <div class="footer-column col-lg-3 col-sm-6">
             <div class="footer-widget news-widget wow fadeInLeft" data-wow-delay="300ms">
               <h4 class="widget-title">Latest News</h4>
+              @forelse ($news as $item)
               <div class="news-info">
-                <figure class="image overlay-anim"><a href="#"><img src="{{asset('fe')}}/images/resource/news-info-1.jpg" alt=""></a></figure>
-                <h6 class="title"><a href="#" title="">Quisque at Felis <br>Port Titordga</a></h6>
-                <span class="date">14 May 2023</span>
+                <figure class="image overlay-anim"><a href="#"><img style="width: 70px; height: 70px;" src="{{asset('storage/images/'.$item->image)}}" alt=""></a></figure>
+                <h6 class="title"><a href="#" title="">{{$item->description}}</a></h6>
+                <span class="date">{{$item->created_at}}</span>
               </div>
-              <div class="news-info">
-                <figure class="image overlay-anim"><a href="#"><img src="{{asset('fe')}}/images/resource/news-info-2.jpg" alt=""></a></figure>
-                <h6 class="title"><a href="#" title="">Tips For Picking <br>Vacation</a></h6>
-                <span class="date">14 May 2023</span>
-              </div>
+              @empty
+                   
+              @endforelse
             </div>
           </div>
           <!-- Footer Column -->

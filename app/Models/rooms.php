@@ -19,4 +19,14 @@ class rooms extends Model
     {
         return $this->belongsTo(type_rooms::class, 'type_id', 'id');
     }
+
+    /**
+     * Get all of the comments for the rooms
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany(images::class, 'room_id', 'id');
+    }
 }

@@ -32,7 +32,7 @@ Route::post('/loginPost', [UserController::class, 'loginPost'])->name('login.sto
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/registerPost', [UserController::class, 'registerPost'])->name('register.store');
 Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
-
+Route::get('detail/{id}',[HomeController::class, 'roomDetail'])->name('room.detail');
 Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
 Route::post('/logonPost', [AdminController::class, 'logonstore'])->name('logon.store');
 Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');

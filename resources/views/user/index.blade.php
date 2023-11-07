@@ -318,46 +318,6 @@
         @empty
             
         @endforelse 
-        <!-- News Block -->
-        <div class="news-block-two col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="300ms">
-          <div class="inner-box wow fadeInLeft" data-wow-delay="200ms">
-            <div class="image-box">
-              <figure class="image overlay-anim"><a href="news-details.html"><img src="{{asset('fe')}}/images/resource/news-2.jpg" alt=""></a></figure>
-              <span class="date">DEC<br>
-              <small>20</small></span> </div>
-            <div class="content-box">
-              <div class="info-box">
-                <figure class="thumb"><a href="news-details.html"><img src="{{asset('fe')}}/images/resource/news-thumb.jpg" alt=""></a></figure>
-                <span class="designation">Jonica Michel</span>
-              </div>
-              <h4 class="title"><a href="news-details.html">Swiming Benefits is <br> Good For Your Health</a></h4>
-              <div class="btn-box">
-                <span><i class="icon fa fa-comments"></i>0 Comments</span>
-                <a href="news-details.html" class="read-more">Read More<i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- News Block -->
-        <div class="news-block-two col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="600ms">
-          <div class="inner-box wow fadeInLeft" data-wow-delay="300ms">
-            <div class="image-box">
-              <figure class="image overlay-anim"><a href="news-details.html"><img src="{{asset('fe')}}/images/resource/news-3.jpg" alt=""></a></figure>
-              <span class="date">DEC<br>
-              <small>20</small></span> </div>
-            <div class="content-box">
-              <div class="info-box">
-                <figure class="thumb"><a href="news-details.html"><img src="{{asset('fe')}}/images/resource/news-thumb.jpg" alt=""></a></figure>
-                <span class="designation">Jonica Michel</span>
-              </div>
-              <h4 class="title"><a href="news-details.html">Avalible Now Health <br> Club For Your Fitness </a></h4>
-              <div class="btn-box">
-                <span><i class="icon fa fa-comments"></i>0 Comments</span>
-                <a href="news-details.html" class="read-more">Read More<i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
