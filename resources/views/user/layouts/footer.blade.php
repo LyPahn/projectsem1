@@ -1,89 +1,83 @@
- <!-- Main Footer -->
- <footer class="main-footer footer-style-two"> 
-    <!-- Widgets Section -->
-    <div class="widgets-section">
-      <div class="auto-container">
-        <div class="row"> 
-          <!-- Footer Column -->
-          <div class="footer-column col-lg-3 col-sm-6">
-            <div class="footer-widget about-widget wow fadeInLeft">
-              <div class="widget-content">
-                <div class="logo"><a href="#"> <img src="{{asset('fe')}}/images/logo-2.png" alt="" title=""></a></div>
-                <div class="text">Welcome to the best five-star deluxe<br> hotel in New York. Hotel elementum<br>sesue the aucan volutpat.</div>
-                <ul class="social-icon-two">
-                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                  <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Footer Column -->
-          <div class="footer-column col-lg-3 col-sm-6 mb-0">
-            <div class="footer-widget links-widget wow fadeInLeft" data-wow-delay="200ms">
-              <h4 class="widget-title">Services Links</h4>
-              <div class="widget-content">
-                <ul class="user-links">
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Home</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Suites</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Restaurant</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>News</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>About Hotel</a></li>
-                </ul>
-                <ul class="user-links">
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Rooms</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Wellness</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Spa</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Gallery</a></li>
-                  <li><a href="#"><i class="fa-solid fa-crosshairs"></i>Contact</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- footer column -->
-          <div class="footer-column col-lg-3 col-sm-6">
-            <div class="footer-widget news-widget wow fadeInLeft" data-wow-delay="300ms">
-              <h4 class="widget-title">Latest News</h4>
-              @forelse ($news as $item)
-              <div class="news-info">
-                <figure class="image overlay-anim"><a href="#"><img style="width: 70px; height: 70px;" src="{{asset('storage/images/'.$item->image)}}" alt=""></a></figure>
-                <h6 class="title"><a href="#" title="">{{$item->description}}</a></h6>
-                <span class="date">{{$item->created_at}}</span>
-              </div>
-              @empty
-                   
-              @endforelse
-            </div>
-          </div>
-          <!-- Footer Column -->
-          <div class="footer-column col-lg-3 col-sm-6">
-            <div class="footer-widget blog-widget wow fadeInLeft" data-wow-delay="400ms">
-              <h4 class="widget-title">Information</h4>
-              <div class="widget-content"> 
-                <!-- Recent Post -->
-                <article class="recent-post">
-                  <div class="inner">
-                    <div class="post-info"><i class="fas fa-phone"></i> 1800-121-3637<br> +91-7052-101-786</div>
-                    <div class="post-info"><i class="fa fa-envelope"></i> info@example.com</div>
-                    <div class="post-info"><i class="fas fa-location"></i> 1247/Plot No. 39, 15th Phase, <br>United States of America</div>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!--  Footer Bottom -->
-    <div class="footer-bottom">
-      <div class="auto-container">
-        <div class="inner-container">
-          <div class="copyright-text">© Copyrights 2023 Hoexr All rights reserved.</div>
-          <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--End Main Footer -->
+<!--========== FOOTER ==========-->
+<section>
+    <div id="footer-top" class="banner-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-4 text-left" id="more-about">
+                    <h2 class="footer-heading"><span>STAR</span>HOTEL</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                        nostrud exerci tation ullamcorper suscipit.</p>
+                    <ul class="social-links list-inline list-unstyled">
+                        <li class="list-inline-item"><a href="#"><span><i class="fa fa-facebook"></i></span></a>
+                        </li>
+                        <li class="list-inline-item"><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+                        <li class="list-inline-item"><a href="#"><span><i class="fa fa-google-plus"></i></span></a>
+                        </li>
+                        <li class="list-inline-item"><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a>
+                        </li>
+                    </ul>
+                </div><!-- end more-about -->
+
+                <div class="col-12 col-md-6 col-lg-2 col-xl-2 text-left" id="company">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">Dinning</a></li>
+                        <li><a href="#">Staff</a></li>
+                        <li><a href="#">Blog's</a></li>
+                    </ul>
+                </div><!-- end useful-links -->
+
+                <div class="col-12 col-md-6 col-lg-3 col-xl-3 text-left" id="f-services">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Restaurant</a></li>
+                        <li><a href="#">Spa</a></li>
+                        <li><a href="#">Meeting Rooms</a></li>
+                        <li><a href="#">Free Wifi</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">Food & Drinks</a></li>
+                    </ul>
+                </div><!-- end visit-us -->
+
+                <div class="col-12 col-md-6 col-lg-3 col-xl-3 text-left" id="f-newsletter">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed nonummy nibh euismod.</p>
+                    <form>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your Email" />
+                                <span class="input-group-btn"><button class="btn"><span><i
+                                                class="fa fa-paper-plane"></i></span></button></span>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- end social-links -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end footer-top -->
+
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6" id="copyright">
+                    <p>© 2017 <a href="#">StarHotel</a>. All rights reserved.</p>
+                </div><!-- end columns -->
+
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6" id="terms">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item"><a href="#">Terms & Condition</a></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div><!-- end columns -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end footer-bottom -->
+
+</section>
+<!--Footer Section Ends-->
