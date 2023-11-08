@@ -1,100 +1,103 @@
 @extends('admin.master')
 @section('main-content')
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Quản lý hạng phòng trang giao diện
-       
-      </h1>
-      {{-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-      </ol> --}}
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <a href="{{route('rooms_type.create')}}" class="btn btn-success">+Thêm mới hạng phòng</a>
-              <a href="{{route('rooms_type.trash')}}" class="btn btn-primary "><i class="fa-solid fa-trash"></i>Thùng rác</a>
-
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
+<section>
+			<div class="content listing-content">
+				<div class="in-content-wrapper">
+					<div class="row no-gutters">
+						<div class="col">
+							<div class="heading-messages">
+								<h3>Hotel Listing</h3>
+							</div><!-- End heading-messages -->
+						</div><!-- End column -->
+						<div class="col-md-4">
+							<div class="breadcrumb">
+								<div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+								</div>
+								<div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>All
+								</div>
+							</div><!-- end breadcrumb -->
+						</div><!-- End column -->
+					</div><!-- end row -->
+					<div class="box">
+						<div class="row no-gutters">
+							<div class="col text-left">
+								<div class="add-new">
+									<a href="{{route('rooms_type.create')}}">Thêm mới<i class="fas fa-plus"></i></a>
+									<a href="{{route('rooms_type.trash')}}">Thùng rác<i class="fas"></i></a>
+								</div><!-- End add-new-->
+							</div><!-- End column-->
+							<div class="col text-right">
+								<div class="tools-btns">
+									<a href="#"><i class="fas fa-print" data-toggle="tooltip" data-html="true"
+											title="Print"></i></a>
+									<a href="#"><i class="fas fa-file-pdf" data-toggle="tooltip" data-html="true"
+											title="Pdf"></i></a>
+									<a href="#"><i class="fas fa-file-excel" data-toggle="tooltip" data-html="true"
+											title="Excel"></i></a>
+								</div><!-- End tool-btns-->
+							</div><!-- End text-right-->
+						</div><!-- end row -->
+            @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>	
+              <strong>{{ $message }}</strong>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              @if ($message = Session::get('error'))
-
-<div class="alert alert-danger alert-block">
-
-	<button type="button" class="close" data-dismiss="alert">×</button>	
-
-        <strong>{{ $message }}</strong>
-
-</div>
-
-@endif
-@if ($message = Session::get('success'))
-
-<div class="alert alert-success alert-block">
-
-	<button type="button" class="close" data-dismiss="alert">×</button>	
-
-        <strong>{{ $message }}</strong>
-
-</div>
-
-@endif
-              <table class="table table-hover">
-                <tbody><tr>
-                  <th>STT</th>
-                  <th>Hạng phòng</th>
-                  <th>Tùy chọn</th>
-                </tr>
-                @forelse ($listTypeRooms  as $item)
-                <td>{{$loop->iteration}}</td>
-                <td>{{$item->room_type}}</td>
-                <td>
-
-                  {{-- <a href="{{route('rooms_type.edit',$item)}}" class="btn btn-success">Sửa</a> --}}
-                  <form action="{{route('rooms_type.destroy',$item)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('chắc chắn chứ')"><i class="fa-solid fa-trash"></i></button>
-                  </form>
-                
-                  
-                </td>
-              </tr>  
-                @empty
-                    <p>CHưa có dữ liệu</p>
-                @endforelse
-
-                  
-                
-                
-              </tbody></table>
+            @endif
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>	
+              <strong>{{ $message }}</strong>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-      <!-- /.box -->
-
-    </section>
-    <!-- /.content -->
-</div>
+            @endif
+						<div class="row no-gutters">
+							<div class="col">
+								<table id="example" class="display table-hover table-responsive-xl listing">
+									<thead>
+										<tr>
+											<th>STT</th>
+											<th>Tên hạng phòng</th>
+                      <th>Ngày tạo</th>
+                      <th>Ngày cập nhật</th>
+                      <th>Tùy chọn</th>
+										</tr>
+									</thead>
+									<tbody>
+                    @forelse ($listTypeRooms as $item)
+										<tr>
+                        <td>{{$loop->iteration}}</td>
+											  <td>{{$item->room_type}}</td>
+											  <td>{{$item->created_at}}</td>
+											  <td>{{$item->updated_at}}</td>
+										    <td>
+												<a href="{{route('rooms_type.edit',$item)}}"><i class="fas fa-edit"></i></a>
+                        <form action="{{route('rooms_type.destroy',$item)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="fas fa-trash-alt" onclick="return confirm('chắc chắn chứ')"></button>
+                        </form>
+                      </td>
+                    </tr>
+                    @empty
+                        
+                    @endforelse
+									</tbody>
+								</table>
+							</div><!-- end column -->
+						</div><!-- end row -->
+					</div><!-- end box -->
+				</div><!-- end in-content-wrapper -->
+			</div><!-- end listing-content -->
+</section>
+@endsection
+@section('add-js')
+  <script src="{{asset('assets')}}/js/jquery-3.3.1.min.js"></script>
+	<script src="{{asset('assets')}}/js/popper.min.js"></script>
+	<script src="{{asset('assets')}}/js/bootstrap.min4.2.1.js"></script>
+	<script src="{{asset('assets')}}/vendors/datatables/datatables.min.js"></script>
+	<script src="{{asset('assets')}}/js/customscriptfile.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#example').DataTable();
+		});
+	</script>
 @endsection

@@ -1,61 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<!-- Mirrored from kiswa.net/themes/star-hotel/demo/demo-ltr/admin-demo-ltr/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 07:29:05 GMT -->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Blank Page</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{asset('assets')}}/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{asset('assets')}}/css/AdminLTE.css">
-  <link rel="stylesheet" href="{{asset('assets')}}/css/_all-skins.min.css">
-  <link rel="stylesheet" href="{{asset('assets')}}/css/jquery-ui.css">
-  <link rel="stylesheet" href="{{asset('assets')}}/css/style.css" />
-  <script src="{{asset('assets')}}/js/angular.min.js"></script>
-  <script src="{{asset('assets')}}/js/app.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+	<title>Admin Dashboard</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="images/favicon.png" type="{{asset('assets')}}/image/x-icon">
+
+	<!-- Framework Stylesheets Start-->
+
+	<!-- Bootstrap Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/bootstrap.min4.2.1.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/bootstrap-reboot4.2.1.css">
+
+	<!-- Framework Stylesheets End-->
+
+	<!-- Data Tables Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/vendors/datatables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/custom.datatables.css">
+
+	<!-- Font Awsome Stylesheet -->
+	<link rel="stylesheet" href="{{asset('assets')}}/vendors/fontawesome5.7.2/css/all.min.css">
+
+	<!-- Custom Stylesheet Start-->
+
+	<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/responsive.css">
+
+	<!-- Custom Stylesheet End-->
+
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
 
-  @include('admin.layouts.header')
+<body>
 
-  <!-- =============================================== -->
+	<!-- ===========wrapper============= -->
+	<div class="wrapper">
 
-  <!-- Left side column. contains the sidebar -->
-@include('admin.layouts.menu')
+    @include('admin.layouts.header')
 
-  <!-- =============================================== -->
+    @include('admin.layouts.menu')
 
-  <!-- Content Wrapper. Contains page content -->
-@yield('main-content')
-  <!-- /.content-wrapper -->
+    @yield('main-content')
 
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 0.0.1
-    </div>
-    <strong>Copyright &copy; 2018 <a href="https://adminlte.io">TTPM_BKAP</a>.</strong>
-  </footer>
+  </div>
 
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-
-<script src="{{asset('assets')}}/js/jquery.min.js"></script>
-<script src="{{asset('assets')}}/js/jquery-ui.js"></script>
-<script src="{{asset('assets')}}/js/bootstrap.min.js"></script>
-<script src="{{asset('assets')}}/js/adminlte.min.js"></script>
-<script src="{{asset('assets')}}/js/dashboard.js"></script>
-<script src="tinymce/tinymce.min.js"></script>
-<script src="tinymce/config.js"></script>
-<script src="{{asset('assets')}}/js/function.js"></script>
-<script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+@yield('add-js')
 <script>
   // Replace the <textarea id="editor1"> with a CKEditor 4
   // instance, using default configuration.

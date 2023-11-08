@@ -1,150 +1,80 @@
-<header class="main-header">
-    <!-- Logo -->
-    <a href="{{route('admin.index')}}" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">BACKHOA_APTECH</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
+<div class="top-bar">
+			<nav class="navbar">
+				<button class="navbar-toggler d-block sideMenuToggler" type="button">
+					<span class="fa fa-bars"></span>
+				</button>
+				<ul class="ml-auto list-unstyled nav-list list-inline d-flex my-auto">
+					<li class="nav-item list-inline-item">
+						<form class="form-inline my-2 my-lg-0 d-none d-xl-flex">
+							<input class="form-control mr-sm-2" type="search" placeholder="Search"
+								aria-label="Search" />
+							<i class="fas fa-search"></i>
+						</form>
+					</li>
+					<li class="nav-item list-inline-item dropdown messages">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="far fa-envelope"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<span>Messages (5)</span>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#"><i class="far fa-envelope"></i>Your Order is
+								Placed<span>Lorem ipsum
+									dolor sit, amet consectetur adipisicing elit.
+								</span>
+							</a>
+							<a class="dropdown-item" href="#"><i class="far fa-envelope-open"></i>New Message
+								Received<span>Lorem
+									ipsum dolor sit amet.</span></a>
+							<a class="dropdown-item bottom-margin" href="#"><i class="far fa-envelope-open"></i>Your
+								item is
+								Shipped<span>Lorem ipsum dolor sit amet consectetur adipisicing.</span></a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="btn mx-auto d-block">View All</a>
+						</div>
+					</li>
+					<li class="nav-item list-inline-item dropdown notifications">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="far fa-bell"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<span>Notifications (258)</span>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#"><i class="fas fa-cart-plus"></i>Your Order is
+								Placed<span>Lorem ipsum
+									dolor sit, amet consectetur adipisicing elit.
+								</span>
+							</a>
+							<a class="dropdown-item" href="#"><i class="fas fa-sms"></i>New Message Received<span>Lorem
+									ipsum dolor
+									sit amet.</span></a>
+							<a class="dropdown-item bottom-margin" href="#"><i class="fas fa-glass-martini"></i>Your
+								item is
+								Shipped<span>Lorem ipsum dolor sit amet consectetur adipisicing.</span></a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="btn mx-auto d-block">View All</a>
+						</div>
+					</li>
+					<li class="nav-item list-inline-item dropdown profile">
+						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							<img src="{{asset('assets')}}/images/commenter-1.jpg" alt="" class="img-fluid rounded-circle" width="30px" />
+						</a>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="{{asset('assets')}}/images/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('assets')}}/images/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="{{asset('assets')}}/images/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{route('logout')}}" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          
-        </ul>
-      </div>
-    </nav>
-</header>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="profile-view-profile.html"><i class="fas fa-user-alt"></i>
+								<span>View Profile</span></a>
+							<a class="dropdown-item" href="profile-edit-profile.html"><i class="fas fa-cog"></i>
+								<span>Edit Profile</span></a>
+							<a class="dropdown-item" href="profile-change-password.html"><i class="fas fa-unlock"></i>
+								<span>Change Password</span></a>
+							<a class="dropdown-item" href="#"><i class="fas fa-unlock"></i>
+								<span>Lock Screen</span></a>
+							<a href="{{route('logout')}}" class="btn d-block text-left"><i class="fas fa-power-off"></i>Logout</a>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
