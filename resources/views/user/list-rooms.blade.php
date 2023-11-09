@@ -45,7 +45,7 @@
                                 <div class="room-price">
                                     <ul class="list-unstyled">
                                         <li>{{ number_format($item->price) }}đ / đêm <span class="link"><a
-                                                    href="{{ route('user.roomDetail' , $item->id) }}">View Details</a></span>
+                                                    href="{{route('room.detail',$item->id)}}">View Details</a></span>
                                         </li>
                                     </ul>
                                 </div><!-- end room-price -->
