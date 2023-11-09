@@ -24,10 +24,9 @@ class RoomEditRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'name' => ['required'],
             'photo' => ['required','image'],
             'price' => ['required','numeric'],
-            'room_code' => 'required | unique:rooms,room_code'.$this->id,
+            'room_code' => 'required | unique:rooms,room_code,'.$this->id,
             'people' => 'required | min:0 | max:5'
         ];
     }

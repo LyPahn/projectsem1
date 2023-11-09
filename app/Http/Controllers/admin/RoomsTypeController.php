@@ -33,7 +33,7 @@ class RoomsTypeController extends Controller
     public function store(TypeRoomStoreRequest $request)
     {
         type_rooms::create($request->all());
-        return redirect()->route('rooms_type.index')->with('success','Thêm mới thành công');
+        return redirect()->route('rooms_type.index')->with('success', 'Thêm mới thành công');
     }
 
     /**
@@ -71,11 +71,11 @@ class RoomsTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        if (rooms::where('type_id', $id) == '') {
-            type_rooms::where('id', $id)->delete();
-            return redirect()->route('rooms_type.index')->with('success','Xoá thành công');
-        }
-        return redirect()->back()->with('error','Hãy xoá phòng trước khi xoá hạng phòng');
+        // if (rooms::where('type_id', $id) === '') {
+        //     return redirect()->back()->with('error', 'Hãy xoá phòng trước khi xoá hạng phòng');
+        // }
+        type_rooms::where('id', $id)->delete();
+        return redirect()->route('rooms_type.index')->with('success', 'Xoá thành công');
     }
     public function trash()
     {
@@ -90,6 +90,6 @@ class RoomsTypeController extends Controller
     public function forceDeleted($id)
     {
         type_rooms::withTrashed()->where('id', $id)->forceDelete();
-        return redirect()->route('rooms_type.trash');
+        return redirect()->route('rooms_type.index');
     }
 }

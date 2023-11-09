@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('main-content')
-		<section>
+<section>
 			<div class="content add-details">
 				<div class="in-content-wrapper">
 					<div class="row no-gutters">
@@ -36,7 +36,7 @@
 								<div class="form-row">
 									<div class="col-md">
 										<div class="form-group">
-											<label for="inputGroupSelect07" class="">Room Number:</label>
+											<label for="inputGroupSelect07" class="">Hạng phòng</label>
 											<input type="text" class="form-control" required id="inputGroupSelect07" name="room_type">
                       @error('room_type')
                       <span class="text-danger">{{$message}}</span>
@@ -49,7 +49,7 @@
 										<button type="submit" class="btn">Submit</button>
 									</li>
 									<li class="list-inline-item">
-										<button type="submit" class="btn">Cancel</button>
+										<button class="btn"><a href="{{route('rooms_type.index')}}" style="color: #fff">Cancel</a></button>
 									</li>
 								</ul>
 
@@ -58,5 +58,12 @@
 					</div><!-- end box -->
 				</div><!-- end in-content-wrapper -->
 			</div><!-- end add-details -->
-		</section>
+</section>
+@endsection
+@section('add-js')
+	<script src="{{asset('assets')}}/js/jquery-3.3.1.min.js"></script>
+	<script src="{{asset('assets')}}/js/popper.min.js"></script>
+	<script src="{{asset('assets')}}/js/bootstrap.min4.2.1.js"></script>
+	<script src="{{asset('assets')}}/vendors/dropzone-5.5.0/dist/min/dropzone.min.js"></script>
+	<script src="{{asset('assets')}}/js/customscriptfile.js"></script>
 @endsection

@@ -26,7 +26,7 @@ class RoomPostRequest extends FormRequest
             'photo' => ['required','image'],
             'price' => ['required','numeric'],
             'room_code' => 'required | unique:rooms',
-            'people' => 'required | min:0 | max:30'
+            'people' => 'required | min:0 | max:30 | numeric'
         ];
     }
 

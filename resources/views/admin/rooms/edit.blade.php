@@ -1,188 +1,229 @@
 @extends('admin.master')
 @section('main-content')
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Quản lý banner trang giao diện
-       
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-      </ol>
+    <section>
+        <div class="content add-details">
+            <div class="in-content-wrapper">
+                <div class="row no-gutters">
+
+                    <div class="col">
+                        <div class="heading-messages">
+                            <h3>Hotel Listing</h3>
+                        </div><!-- End heading-messages -->
+                    </div><!-- End column -->
+                    <div class="col-md-4">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+                            </div>
+                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Create
+                            </div>
+                        </div><!-- end breadcrumb-->
+                    </div><!-- end column -->
+
+                </div><!-- end row -->
+
+                <div class="box">
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-danger alert-block">
+
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+
+                            <strong>{{ $message }}</strong>
+
+                        </div>
+                    @endif
+                    <div class="row">
+                        <div class="col">
+                            <div class="details-text">
+                                <h4>Add Details</h4>
+                            </div><!-- end details-text -->
+                        </div><!-- End column -->
+                    </div><!-- end row -->
+                    <div class="hotel-listing-form">
+                        <form class="text-center" role="form" method="POST" enctype="multipart/form-data"
+                        action="{{ route('rooms.update', $room) }}">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="id" value="{{ $room->id }}">
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Mã phòng:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="room_code" value="{{ old('room_code') ? old('room_code') : $room->room_code }}">
+                                        @error('room_code')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Tên phòng:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="name" value="{{ old('name') ? old('name') : $room->name }}">
+                                        @error('name')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Hạng
+                                                    phòng:</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="type_id">
+                                                <option selected>Choose...</option>
+                                                @foreach ($type_rooms as $item)
+                                                    <option value="{{ $item->id }}" {{($room->type_id === $item->id)?'selected':''}}>{{ $item->room_type }}</option>
+                                                @endforeach
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Giá:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="price" value="{{ old('price') ? old('price') : $room->price }}">
+                                        @error('price')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group ">
+                                        <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh</label>
+                                        <input type="file" class="form-control" id="file-input" name="photo"
+                                        value="{{ old('photo') ? old('photo') : $room->image }}">
+                                            <img src="{{ asset('storage/images/' . $room->image) }}" id="img-preview"
+                                            alt="" width="100px">
+                                        @error('photo')
+                                            <span class="help-block" style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group ">
+                                        <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh chi tiết</label>
+                                        <input type="file" class="form-control" id="img-preview"
+                                            name="photos[]" onchange="preview(this)" multiple>
+                                            <div class="row mt-3" id="sub-image-preview">
+                                              @foreach ($listimages as $item)
+                                                  <img class="card-img-bottom"
+                                                      src="{{ asset('storage/images/' . $item->image) }}" alt=""
+                                                      width="100px">
+                                              @endforeach
+                                              @error('photo')
+                                                  <span class="help-block">{{ $message }}</span>
+                                              @enderror
+                                          </div>
+                                    </div>
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect03">Trạng
+                                                    thái:</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect03">
+                                                <option name="isBooked" value="1" {{($room->isBooked === $item->id)?'selected':''}}>On</option>
+                                                <option name="isBooked" value="0" {{($room->isBooked === $item->id)?'selected':''}}>Off</option>
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect03">
+                                                <option name="status" value="1" {{($room->status === $item->id)?'selected':''}}>On</option>
+                                                <option name="status" value="0" {{($room->status === $item->id)?'selected':''}}>Off</option>
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Số người:</label>
+                                        <input type="number" class="form-control" required id="inputGroupSelect07"
+                                            name="people" value="{{ old('people') ? old('people') : $room->people }}">
+                                        @error('people')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-group">
+                                <textarea name="descripton" id="editor1" rows="10" cols="80" value="{{ old('descripton') ? old('descripton') : $room->descripton }}"></textarea>
+                                {{-- <textarea class="form-control textarea text-left p-3 h-100" id="exampleFormControlTextarea1" rows="5"
+                              placeholder="Room Details" name="descripton"></textarea> --}}
+                            </div><!-- end form-group -->
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <button type="submit" class="btn">Submit</button>
+                                </li>
+                                <li class="list-inline-item">
+                                    <button type="submit" class="btn">Cancel</button>
+                                </li>
+                            </ul>
+
+                        </form>
+                    </div><!-- end hotel-listing-form -->
+                </div><!-- end box -->
+            </div><!-- end in-content-wrapper -->
+        </div><!-- end add-details -->
     </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-     <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Thêm mới blog</h3>
-            </div>
-            @if ($message = Session::get('error'))
-
-<div class="alert alert-danger alert-block">
-
-	<button type="button" class="close" data-dismiss="alert">×</button>	
-
-        <strong>{{ $message }}</strong>
-
-</div>
-
-@endif
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" method="POST" enctype="multipart/form-data" action="{{route('rooms.update',$room)}}">
-                @csrf
-                @method("PUT")
-                <div class="box-body">
-                  <input type="hidden" name="id" value="{{$room->id}}">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group ">
-                        <label for="disabledTextInput" class="fs-4 text-uppercase">Name</label>
-                        <input type="text" class="form-control" id="productName" name="name" value="{{old('name') ? old('name') : $room->name}}">
-                        @error('name')
-                            <span class="help-block">{{$message}}</span>
-                        @enderror
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group ">
-                        <label for="disabledTextInput" class="fs-4 text-uppercase">Price</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="price" value="{{old('price') ? old('price') : $room->price}}">
-                        @error('price')
-                            <span class="help-block">{{$message}}</span>
-                        @enderror
-                      </div>
-                    </div>
-                  </div>
-              
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group ">
-                        <label for="disabledTextInput" class="fs-4 text-uppercase">Avatar</label>
-                        <input type="file" class="form-control" id="file-input" name="photo" value="{{$room->image}}">
-                        <img src="{{asset('storage/images/'.$room->image)}}" id="img-preview" alt="" width="300px">
-                        @error('photo')
-                        <span class="help-block">{{$message}}</span>
-                        @enderror
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group ">
-                        <label for="disabledTextInput" class="fs-4 text-uppercase">Image_Room</label>
-                        <input type="file" class="form-control" id="file-inputs" name="photos[]" onchange="preview(this)" multiple>
-                        <div class="row mt-3" id="sub-image-preview">
-                        @foreach ($listimages as $item)
-                        
-                            <img class="card-img-bottom" src="{{ asset('storage/images/'.$item->image)  }}" alt="" width="100px">
-                          
-                        @endforeach
-                        @error('photo')
-                            <span class="help-block">{{$message}}</span>
-                        @enderror
-                      </div>
-                    </div>
-                  </div>
-                  
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="disabledTextInput" class="fs-4 text-uppercase">Rooms Type</label>
-                    <select class="form-control" name="type_id" id="">
-                      <option value="">Chọn id Cha</option>
-                      @foreach ($type_rooms as $item)
-                        <option value="{{$item->id}}" {{($room->type_id === $item->id)?'selected':''}}>{{$item->room_type}}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">People</label>
-                    <select class="form-control" name="people" id="">
-                      <option value="2" >2</option>
-                      <option value="4" >4</option>
-                      <option value="6" >6</option>
-                      
-                    </select>
-                  </div>
-                  {{-- @error('name')
-                      <span class="help-block">{{$message}}</span>
-                  @enderror --}}
-                </div>
-              </div>
-              
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <label for="disabledTextInput" class="fs-4 text-uppercase">IsBooked</label>
-                    <div class="d-flex">
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="isBooked" id="" value="1" {{($room->isBooked == 1)?'checked':''}}>
-                          On
-                        </label>
-                      </div>
-                      <div class="form-check ms-2">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="isBooked" id="" value="0" {{($room->isBooked == 0)?'checked':''}}>
-                          Off
-                        </label>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <label for="disabledTextInput" class="fs-4 text-uppercase">Đề Xuất</label>
-                    <div class="d-flex">
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="status" id="" value="1" checked>
-                          On
-                        </label>
-                      </div>
-                      <div class="form-check ms-2">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="status" id="" value="0" >
-                          Off
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              
-              <div class="form-group">
-                <label for="disabledTextInput" class="fs-4 text-uppercase">Descripton</label>
-                <textarea name="descripton" id="editor1" rows="10" cols="80">
-                  This is my textarea to be replaced with CKEditor 4.
-                </textarea>
-              </div>
-
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Thêm mới</button>
-              </div>
-            </form>
-          </div>
-          <!-- /.box -->
-
-        </div>
-      <!-- /.box -->
-
-    </section>
-    <!-- /.content -->
-  </div>
+@endsection
+@section('add-js')
+    <script src="{{ asset('assets') }}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap.min4.2.1.js"></script>
+    <script src="{{ asset('assets') }}/vendors/dropzone-5.5.0/dist/min/dropzone.min.js"></script>
+    <script src="{{ asset('assets') }}/js/customscriptfile.js"></script>
+    <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        CKEDITOR.replace('editor1');
+    </script>
+    <script>
+      const input = document.getElementById('file-input');
+      const image = document.getElementById('img-preview');
+    
+      input.addEventListener('change', (e) => {
+        if (e.target.files.length) {
+            const src = URL.createObjectURL(e.target.files[0]);
+            image.src = src;
+        }
+      });
+    
+      function preview(elem, output = '') {
+            Array.from(elem.files).map((file) => {
+                const blobUrl = window.URL.createObjectURL(file)
+                output +=
+                    `<div class="col-lg-3 js-add-image"  id="img-add">
+                        <div class="card text-left bg-dark border-danger">
+                            <img class="card-img-bottom" src=${blobUrl} alt="">
+                        </div>
+                    </div>`
+                })
+                document.getElementById('sub-image-preview').innerHTML = output
+            }
+        </script>
 @endsection

@@ -10,6 +10,7 @@ use App\Models\images;
 use App\Http\Requests\Admin\RoomPostRequest;
 use App\Http\Requests\Admin\RoomEditRequest;
 use App\Models\bookings;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class RoomsController extends Controller
 {
@@ -55,6 +56,7 @@ class RoomsController extends Controller
             }
             return redirect()->route('rooms.index')->with('success','Thêm mới thành công');
         } catch (\Throwable $th) {
+            dd($th);
             return redirect()->back()->with('error','Thêm mới thất bại');
         }
         
@@ -94,7 +96,7 @@ class RoomsController extends Controller
             $request->merge(['image'=>$room->image]);
         }
         try {
-        
+            
             $room->update($request->all());
             if ($room && $request->photos) {
                 images::where('room_id',$room->id)->delete();  
@@ -119,14 +121,28 @@ class RoomsController extends Controller
     public function destroy(string $id)
     {
         try {
-            if(bookings::where('room_id', $id) == ''){
-
-                rooms::where('id',$id)->delete();
-                return redirect()->route('rooms.index')->with('error','Xoá thành công');
-            }
-            return redirect()->back()->with('error','Phòng đã đặt không thể xoá');
+            // if(bookings::where('room_id', $id) == ''){
+            //     return redirect()->back()->with('error','Phòng đã đặt không thể xoá');
+            // }
+            rooms::where('id',$id)->delete();
+            return redirect()->route('rooms.index')->with('error','Xoá thành công');
         } catch (\Throwable $th) {
             return redirect()->back('error','Xoá thất bại');
         }
+    }
+    public function trash()
+    {
+        $deleted_at = rooms::onlyTrashed()->get();
+        return view('admin.rooms.trash', compact('deleted_at'));
+    }
+    public function restore($id)
+    {
+        rooms::withTrashed()->where('id', $id)->restore();
+        return redirect()->route('rooms.index');
+    }
+    public function forceDeleted($id)
+    {
+        rooms::withTrashed()->where('id', $id)->forceDelete();
+        return redirect()->route('rooms.index');
     }
 }

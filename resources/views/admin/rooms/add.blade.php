@@ -1,29 +1,27 @@
 @extends('admin.master')
 @section('main-content')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Quản lý phòng trang giao diện
+<section>
+        <div class="content add-details">
+            <div class="in-content-wrapper">
+                <div class="row no-gutters">
 
-            </h1>
-            {{-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-      </ol> --}}
-        </section>
+                    <div class="col">
+                        <div class="heading-messages">
+                            <h3>Hotel Listing</h3>
+                        </div><!-- End heading-messages -->
+                    </div><!-- End column -->
+                    <div class="col-md-4">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+                            </div>
+                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Create
+                            </div>
+                        </div><!-- end breadcrumb-->
+                    </div><!-- end column -->
 
-        <!-- Main content -->
-        <section class="content">
+                </div><!-- end row -->
 
-            <!-- Default box -->
-            <div class="col-md-12">
-                <!-- general form elements -->
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Thêm mới Phòng</h3>
-                    </div>
+                <div class="box">
                     @if ($message = Session::get('error'))
                         <div class="alert alert-danger alert-block">
 
@@ -33,36 +31,70 @@
 
                         </div>
                     @endif
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form role="form" method="POST" enctype="multipart/form-data" action="{{ route('rooms.store') }}">
-                        @csrf
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <label for="disabledTextInput" class="fs-4 text-uppercase">Mã phòng</label>
-                                        <input type="text" class="form-control" id="productName" name="room_code"
-                                            value="{{ old('name') }}">
+                    <div class="row">
+                        <div class="col">
+                            <div class="details-text">
+                                <h4>Add Details</h4>
+                            </div><!-- end details-text -->
+                        </div><!-- End column -->
+                    </div><!-- end row -->
+                    <div class="hotel-listing-form">
+                        <form class="text-center" role="form" method="POST" enctype="multipart/form-data"
+                            action="{{ route('rooms.store') }}">
+                            @csrf
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Mã phòng:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="room_code" value="{{ old('room_code') }}">
                                         @error('room_code')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
                                     <div class="form-group">
-                                        <label for="">Tên phòng</label>
-                                        <input type="text" name="name" id="" class="form-control"
-                                            placeholder="" aria-describedby="helpId">
+                                        <label for="inputGroupSelect07" class="">Tên phòng:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="name" value="{{ old('name') }}">
                                         @error('name')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Hạng
+                                                    phòng:</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="type_id">
+                                                <option selected>Choose...</option>
+                                                @foreach ($type_rooms as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->room_type }}</option>
+                                                @endforeach
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Giá:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="price" value="{{ old('price') }}">
+                                        @error('price')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
                                     <div class="form-group ">
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh</label>
                                         <input type="file" class="form-control" id="file-input" name="photo"
@@ -72,8 +104,8 @@
                                             <span class="help-block" style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div><!-- end column -->
+                                <div class="col-md">
                                     <div class="form-group ">
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh chi tiết</label>
                                         <input type="file" class="form-control" id="exampleInputEmail1" name="photos[]"
@@ -84,112 +116,82 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
                                     <div class="form-group">
-                                        <label for="disabledTextInput" class="fs-4 text-uppercase">Hạng phòng</label>
-                                        <select class="form-control" name="type_id" id="">
-
-                                            @foreach ($type_rooms as $item)
-                                                <option value="{{ $item->id }}">{{ $item->room_type }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <label for="disabledTextInput" class="fs-4 text-uppercase">Giá</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" name="price"
-                                            value="{{ old('price') }}">
-                                        @error('price')
-                                            <span class="help-block" style="color: red">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label for="disabledTextInput" class="fs-4 text-uppercase">Trạng thái</label>
-                                        <div class="d-flex">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="isBooked"
-                                                        id="" value="1" checked>
-                                                    On
-                                                </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect03">Trạng
+                                                    thái:</label>
                                             </div>
-                                            <div class="form-check ms-2">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="isBooked"
-                                                        id="" value="0">
-                                                    Off
-                                                </label>
-                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect03">
+                                                <option name="isBooked" value="1" selected>On</option>
+                                                <option name="isBooked" value="0">Off</option>
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label for="disabledTextInput" class="fs-4 text-uppercase">Đề xuất</label>
-                                        <div class="d-flex">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="status"
-                                                        id="" value="1" checked>
-                                                    On
-                                                </label>
-                                            </div>
-                                            <div class="form-check ms-2">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="status"
-                                                        id="" value="0">
-                                                    Off
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
                                     <div class="form-group">
-                                        <label for="">Số Người</label>
-                                        <input type="number" name="people" id="" class="form-control"
-                                            placeholder="" aria-describedby="helpId">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect03">
+                                                <option name="status" value="1" selected>On</option>
+                                                <option name="status" value="0">Off</option>
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Số người:</label>
+                                        <input type="number" class="form-control" required id="inputGroupSelect07"
+                                            name="people" value="{{ old('people') }}">
                                         @error('people')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
                             <div class="form-group">
-                                <label for="disabledTextInput" class="fs-4 text-uppercase">Descripton</label>
-                                <textarea name="descripton" id="editor1" rows="10" cols="80">
-                      This is my textarea to be replaced with CKEditor 4.
-                    </textarea>
-                            </div>
+                                <textarea name="descripton" id="editor1" rows="10" cols="80"></textarea>
+                                {{-- <textarea class="form-control textarea text-left p-3 h-100" id="exampleFormControlTextarea1" rows="5"
+                                    placeholder="Room Details" name="descripton"></textarea> --}}
+                            </div><!-- end form-group -->
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <button type="submit" class="btn">Submit</button>
+                                </li>
+                                <li class="list-inline-item">
+                                    <button type="submit" class="btn">Cancel</button>
+                                </li>
+                            </ul>
 
-
-
-                        </div>
-                        <!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Thêm mới</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.box -->
-
-            </div>
-            <!-- /.box -->
-
-        </section>
-        <!-- /.content -->
-    </div>
+                        </form>
+                    </div><!-- end hotel-listing-form -->
+                </div><!-- end box -->
+            </div><!-- end in-content-wrapper -->
+        </div><!-- end add-details -->
+</section>
+@endsection
+@section('add-js')
+    <script src="{{ asset('assets') }}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap.min4.2.1.js"></script>
+    <script src="{{ asset('assets') }}/vendors/dropzone-5.5.0/dist/min/dropzone.min.js"></script>
+    <script src="{{ asset('assets') }}/js/customscriptfile.js"></script>
+    <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+<script>
+  // Replace the <textarea id="editor1"> with a CKEditor 4
+  // instance, using default configuration.
+  CKEDITOR.replace( 'editor1' );
+</script>
 @endsection

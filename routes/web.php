@@ -45,9 +45,12 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('rooms', RoomsController::class);
     Route::resource('rooms_type', RoomsTypeController::class);
     Route::resource('booking', BookingController::class);
-    Route::get('/trash', [RoomsTypeController::class, 'trash'])->name('rooms_type.trash');
-    Route::get('/restore/{id}', [RoomsTypeController::class, 'restore'])->name('rooms_type.restore');
-    Route::get('/forceDelete/{id}', [RoomsTypeController::class, 'forceDeleted'])->name('rooms_type.forceDeleted');
+    Route::get('/rooms_type_trash', [RoomsTypeController::class, 'trash'])->name('rooms_type.trash');
+    Route::get('/rooms_type_restore/{id}', [RoomsTypeController::class, 'restore'])->name('rooms_type.restore');
+    Route::get('/rooms_type_forceDelete/{id}', [RoomsTypeController::class, 'forceDeleted'])->name('rooms_type.forceDeleted');
+    Route::get('/rooms_trash', [RoomsTypeController::class, 'trash'])->name('rooms.trash');
+    Route::get('/rooms_restore/{id}', [RoomsTypeController::class, 'restore'])->name('rooms.restore');
+    Route::get('/rooms_forceDelete/{id}', [RoomsTypeController::class, 'forceDeleted'])->name('rooms.forceDeleted');
     Route::get('/trash_booking', [BookingController::class, 'trash'])->name('booking.trash');
     Route::get('/restore_booking/{id}', [BookingController::class, 'restore'])->name('booking.restore');
     Route::get('/forceDelete_booking/{id}', [BookingController::class, 'forceDeleted'])->name('booking.forceDeleted');
