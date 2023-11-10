@@ -5,10 +5,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-title">Room Grid Listing</h1>
+                    <h1 class="page-title">Danh sách phòng</h1>
                     <ul class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="active breadcrumb-item">Room Grid Listing</li>
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="active breadcrumb-item">Danh sách phòng</li>
                     </ul>
                 </div><!-- end columns -->
             </div><!-- end row -->
@@ -45,7 +45,7 @@
                                 <div class="room-price">
                                     <ul class="list-unstyled">
                                         <li>{{ number_format($item->price) }}đ / đêm <span class="link"><a
-                                                    href="{{ route('user.roomDetail' , $item->id) }}">View Details</a></span>
+                                                    href="{{ route('room.detail',$item->id) }}">Chi tiết</a></span>
                                         </li>
                                     </ul>
                                 </div><!-- end room-price -->
@@ -58,6 +58,7 @@
 
 
                 </div><!-- end row -->
+                {{ $room->links() }}
             </div><!-- end container -->
         </div><!-- end rooms -->
 

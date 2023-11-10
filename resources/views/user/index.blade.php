@@ -15,15 +15,15 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                                <h1 id="welcome">Welcome To Star Hotel</h1>
-                                <h3 id="tagline">Enjoy Your Life With Us!</h3>
+                                <h1 id="welcome">Chào mừng đến Star Hotel</h1>
+                                <h3 id="tagline">Tận hưởng cuộc sống của bạn</h3>
                                 <div class="hero-text">
                                     <form>
                                         <div class="row">
                                             <div class="col-12 col-md-6 col-lg-3 col-xl-3">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control dpd1"
-                                                        placeholder="Arrival Date" id="datepicker" required />
+                                                        placeholder="Check-in" id="datepicker" required />
                                                     <span><i class="fa fa-calendar"></i></span>
                                                 </div>
                                             </div><!-- end columns -->
@@ -31,7 +31,7 @@
                                             <div class="col-12 col-md-6 col-lg-3 col-xl-3">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control dpd2"
-                                                        placeholder="Departure Date" id="datepicker1" required />
+                                                        placeholder="check-out" id="datepicker1" required />
                                                     <span><i class="fa fa-calendar"></i></span>
                                                 </div>
                                             </div><!-- end columns -->
@@ -40,7 +40,7 @@
                                                 <div class="form-group">
                                                     <span><i class="fa fa-angle-down"></i></span>
                                                     <select class="form-control">
-                                                        <option selected>Adults</option>
+                                                        <option selected>Người lớn</option>
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -52,7 +52,7 @@
                                                 <div class="form-group">
                                                     <span><i class="fa fa-angle-down"></i></span>
                                                     <select class="form-control">
-                                                        <option selected>Children</option>
+                                                        <option selected>Trẻ em</option>
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -61,8 +61,7 @@
                                             </div><!-- end columns -->
 
                                             <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center">
-                                                <a href="#" class="btn btn-default btn-lg btn-padding">Check
-                                                    Availability</a>
+                                                <a href="#" class="btn btn-default btn-lg btn-padding">Tìm kiếm</a>
                                             </div><!-- end columns -->
 
                                         </div><!-- end row -->
@@ -83,13 +82,10 @@
     <div class="container">
         <div class="row" id="about-img">
             <div class="col-12 col-md-6 col-lg-6 col-xl-6" id="about-text">
-                <h2>About Star Hotel</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                    ut laoreet dolore magna aliquam erat volutpat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                    ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                    tation ullamcorper suscipit.</p>
-                <a href="about-1.html" class="btn btn-lg btn-padding">View More</a>
+                <h2>Giới thiệu về Star Hotel</h2>
+                <p>Khách sạn Star Hotel tự hào là một trong những khách sạn 5 sao có chất lượng dịch vụ cao cấp nhất khu vực Đông Nam Á kể từ khi hoạt động vào tháng 10 năm 2013.</p>
+                <p>Được thiết kế bởi công ty kiến trúc Carlos Zapata Studio nổi tiếng lấy cảm hứng từ hình ảnh con rồng huyền thoại trong dân gian và những đường bờ biển tuyệt đẹp của Việt Nam, khách sạn Star Hotel gây được thiện cảm trong lòng khách hàng bởi một phong cách hiện đại nhưng vẫn mang đậm nét văn hóa truyền thống Việt Nam.</p>
+                <a href="about-1.html" class="btn btn-lg btn-padding">Chi tiết</a>
             </div><!-- end columns -->
 
             <div class="col-12 col-md-6 col-lg-6 col-xl-6">
@@ -130,418 +126,50 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="page-heading">
-                    <h2>Our <span>Best Rooms</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <h2>Phòng <span>mới nhất</span> </h2>
+                    {{-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        tincidunt ut laoreet dolore magna aliquam erat volutpat.</p> --}}
                 </div><!-- end page-heading -->
 
                 <div class="owl-carousel owl-theme" id="owl-rooms">
+                    @forelse ($room as $item)
+                        
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="grid">
+                                    <div class="room-block">
+                                        <div class="room-img">
+                                            <img src="{{asset('storage/images/'.$item->image)}}" class="img-fluid" alt="room-image" />
+                                            <div class="room-title">
+                                                <a href="#">
+                                                    <h3>{{$item->name}}</h3>
+                                                </a>
+                                                <div class="rating">
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star-o"></i></span>
+                                                </div><!-- end rating -->
+                                            </div><!-- end room-title -->
+                                        </div><!-- end room-img -->
+        
+                                        <div class="room-price">
+                                            <ul class="list-unstyled">
+                                                <li>{{number_format($item->price)}}đ / Đêm <span class="link"><a
+                                                            href="{{route('room.detail',$item->id)}}">Xem chi tiết</a></span>
+                                                </li>
+                                            </ul>
+                                        </div><!-- end room-price -->
+                                    </div><!-- end room-block -->
+                                </div><!-- end grid -->
 
-                    <div>
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-1.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Single Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-2.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Pro Delux Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-                    </div><!-- end item -->
-
-                    <div>
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-3.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Delux Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-4.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Double Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-                    </div><!-- end item -->
-
-                    <div>
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-5.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Royal Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-6.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Single Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-                    </div><!-- end item -->
-
-                    <div>
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-3.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Delux Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-4.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Double Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-                    </div><!-- end item -->
-
-                    <div>
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-1.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Single Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-2.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Pro Delux Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-                    </div><!-- end item -->
-
-                    <div>
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-5.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Royal Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-6.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Single Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-                    </div><!-- end item -->
-
-                    <div>
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-3.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Delux Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-
-                        <div class="grid">
-                            <div class="room-block">
-                                <div class="room-img">
-                                    <img src="{{asset('fe')}}/images/room-4.jpg" class="img-fluid" alt="room-image" />
-                                    <div class="room-title">
-                                        <a href="#">
-                                            <h3>Double Room</h3>
-                                        </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
-                                    </div><!-- end room-title -->
-                                </div><!-- end room-img -->
-
-                                <div class="room-price">
-                                    <ul class="list-unstyled">
-                                        <li>89$ / Night <span class="link"><a
-                                                    href="room-details-left-sidebar.html">View Details</a></span>
-                                        </li>
-                                    </ul>
-                                </div><!-- end room-price -->
-                            </div><!-- end room-block -->
-                        </div><!-- end grid -->
-                    </div><!-- item -->
+                            </div>
+                        </div>
+                    
+                    @empty
+                        
+                    @endforelse
 
                 </div><!-- end owl-rooms -->
             </div><!-- end columns -->
@@ -623,15 +251,13 @@
 
 
 <!--================ SERVICES ==============-->
-<section id="services" class="section-padding">
+<section id="services" class="section-padding pt-1">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="page-heading">
-                    <h2>Our <span>Awesome Services</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                        nostrud exerci tation ullamcorper suscipit.</p>
+                    <h2>Dịch vụ <span>tuyệt vời</span> của chúng tôi</h2>
+                    <p>Với nhu cầu giải trí, nghỉ dưỡng ngày càng cao, xu hướng sử dụng các dịch vụ đi kèm tiện lợi sẽ đón nhận được sự hài lòng cho khách hàng. Đây là một trong những lý do giúp khách sạn thành công trong việc kinh doanh. Bởi vậy, việc quản trị chất lượng dịch vụ khách sạn cũng vô cùng quan trọng và cần thiết.</p>
                 </div><!-- end page-heading -->
 
                 <div id="service-blocks">
@@ -640,9 +266,8 @@
                         <div class="col-12 col-md-6 col-lg-3 col-xl-3">
                             <div class="service-block">
                                 <span><i class="fa fa-coffee"></i></span>
-                                <h2 class="service-name">Restaurant</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit dicta quae
-                                    natus quasi ratione quis id, tenetur atque blanditiis.</p>
+                                <h2 class="service-name">Nhà hàng</h2>
+                                <p>Nhà hàng cung cấp đầy đủ các món ăn dành cho bữa ăn sáng, trưa, tối cho du khách, không chỉ là du khách trong nước mà còn cả nước ngoài.</p>
                             </div><!-- end service-block -->
                         </div><!-- end columns -->
 
@@ -650,17 +275,15 @@
                             <div class="service-block">
                                 <span><i class="fa fa-leaf"></i></span>
                                 <h2 class="service-name">Spa</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit dicta quae
-                                    natus quasi ratione quis id, tenetur atque blanditiis.</p>
+                                <p>Đối với các chị em phụ nữ, không chỉ đi tham quan nghỉ dưỡng mà các chị em phụ nữ muốn chăm sóc sắc đẹp, sức khỏe cũng như tinh thần cho bản thân.</p>
                             </div><!-- end service-block -->
                         </div><!-- end columns -->
 
                         <div class="col-12 col-md-6 col-lg-3 col-xl-3">
                             <div class="service-block">
                                 <span><i class="fa fa-users"></i></span>
-                                <h2 class="service-name">Meeting Rooms</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit dicta quae
-                                    natus quasi ratione quis id, tenetur atque blanditiis.</p>
+                                <h2 class="service-name">Phòng họp</h2>
+                                <p>Dịch vụ phòng họp tại khách sạn nhằm phục vụ nhu cầu của đối tượng khách hàng là các doanh nghiệp, mong muốn có một nơi nào đó ngoài văn phòng công ty có thể họp, những nơi yên tĩnh để họp, trao đổi.</p>
                             </div><!-- end service-block -->
                         </div><!-- end columns -->
 
@@ -668,15 +291,14 @@
                             <div class="service-block">
                                 <span><i class="fa fa-wifi"></i></span>
                                 <h2 class="service-name">Free Wifi</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit dicta quae
-                                    natus quasi ratione quis id, tenetur atque blanditiis.</p>
+                                <p>Wifi vẫn luôn nằm trong tiêu chuẩn cơ bản của khách sạn. Ở các tầng của khách sạn đều sẽ có thiết bị phát wifi.</p>
                             </div><!-- end service-block -->
                         </div><!-- end columns -->
                     </div><!-- end row -->
                 </div><!-- end service-blocks -->
 
                 <div class="butn text-center">
-                    <a href="services-1.html" class="btn btn-lg btn-padding btn-g-border">More Services</a>
+                    <a href="services-1.html" class="btn btn-lg btn-padding btn-g-border">Chi tiết dịch vụ</a>
                 </div><!-- end butn -->
 
             </div><!-- end columns -->
@@ -889,7 +511,7 @@
 </section><!-- end gallery --> --}}
 
 
-<!--===================== TEAM ===================-->
+{{-- <!--===================== TEAM ===================-->
 <section id="team" class="section-padding no-pd-top">
     <div class="container">
         <div class="row">
@@ -1147,7 +769,7 @@
             </div><!-- end columns -->
         </div><!-- end row -->
     </div><!-- end container -->
-</section><!-- end team -->
+</section><!-- end team --> --}}
 
 
 {{-- <!--=============== TESTIMONIALS ==============-->
@@ -1396,10 +1018,8 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="page-heading">
-                    <h2>Latest <span>Blog</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                        nostrud exerci tation ullamcorper suscipit.</p>
+                    <h2><span>Blog</span> mới nhất</h2>
+                    <p>Để giới thiệu kiến ​​thức địa phương của bạn! Sử dụng blog của bạn để kết nối độc giả với các mẹo và hiểu biết địa phương độc quyền từ nhóm của bạn.</p>
                 </div><!-- end page-heading -->
 
                 <div class="row">
@@ -1464,12 +1084,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center">
-                <h2>Our Newsletter</h2>
-                <p>Sign up here to receive interesting updates</p>
+                <h2>Nhận thông báo từ chúng tôi</h2>
+                <p>Đăng ký tại đây để nhận được những cập nhật thú vị</p>
                 <form>
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="email" class="form-control input-lg" placeholder="your email id"
+                            <input type="email" class="form-control input-lg" placeholder="Email của bạn"
                                 required />
                             <span class="input-group-btn"><button class="btn btn-lg"><i
                                         class="fa fa-paper-plane"></i></button></span>

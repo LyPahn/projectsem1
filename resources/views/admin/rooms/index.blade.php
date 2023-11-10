@@ -58,10 +58,11 @@
                                         <th>Img</th>
                                         <th>Hạng phòng</th>
                                         <th>Tên phòng</th>
+                                        <th>Mã phòng</th>
                                         <th>Giá</th>
                                         <th>Số lượng khách</th>
                                         <th>Trạng thái phòng</th>
-                                        <th>Trạng thái trang chủ</th>
+                                        <th>Ngày tạo</th>
                                         <th>Tùy chọn</th>
                                     </tr>
                                 </thead>
@@ -73,14 +74,13 @@
                                                 class="img-fluid rounded-circle" width="40px"></td>
                                                 <td>{{ $item->typeRooms->room_type }}</td>
                                                 <td>{{ $item->name }}</td>
+                                                <td>{{ $item->room_code }}</td>
                                                 <td>{{ number_format($item->price) }}/night</td>
                                                 <td>{{ $item->people }}</td>
                                                 <td class="{{ $item->isBooked ? 'active' : 'draft' }}">
                                                     <span>{{ $item->isBooked ? 'On' : 'Off' }}</span>
                                                 </td>
-                                                <td class="{{ $item->status ? 'active' : 'draft' }}">
-                                                    <span>{{ $item->status ? 'On' : 'Off' }}</span>
-                                                </td>
+                                                <td>{{$item->created_at}}</td>
                                             <td>
                                                 <a href="{{ route('rooms.edit', $item) }}"><i
                                                         class="fas fa-edit"></i></a>

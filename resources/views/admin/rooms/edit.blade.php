@@ -40,7 +40,7 @@
                     </div><!-- end row -->
                     <div class="hotel-listing-form">
                         <form class="text-center" role="form" method="POST" enctype="multipart/form-data"
-                        action="{{ route('rooms.update', $room) }}">
+                            action="{{ route('rooms.update', $room) }}">
                             @csrf
                             @method('PUT')
                             <input type="hidden" name="id" value="{{ $room->id }}">
@@ -49,7 +49,8 @@
                                     <div class="form-group">
                                         <label for="inputGroupSelect07" class="">Mã phòng:</label>
                                         <input type="text" class="form-control" required id="inputGroupSelect07"
-                                            name="room_code" value="{{ old('room_code') ? old('room_code') : $room->room_code }}">
+                                            name="room_code"
+                                            value="{{ old('room_code') ? old('room_code') : $room->room_code }}">
                                         @error('room_code')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
@@ -77,7 +78,9 @@
                                             <select class="custom-select" id="inputGroupSelect01" name="type_id">
                                                 <option selected>Choose...</option>
                                                 @foreach ($type_rooms as $item)
-                                                    <option value="{{ $item->id }}" {{($room->type_id === $item->id)?'selected':''}}>{{ $item->room_type }}</option>
+                                                    <option value="{{ $item->id }}"
+                                                        {{ $room->type_id === $item->id ? 'selected' : '' }}>
+                                                        {{ $item->room_type }}</option>
                                                 @endforeach
                                             </select>
                                             <i class="fas fa-angle-down"></i>
@@ -100,8 +103,8 @@
                                     <div class="form-group ">
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh</label>
                                         <input type="file" class="form-control" id="file-input" name="photo"
-                                        value="{{ old('photo') ? old('photo') : $room->image }}">
-                                            <img src="{{ asset('storage/images/' . $room->image) }}" id="img-preview"
+                                            value="{{ old('photo') ? old('photo') : $room->image }}">
+                                        <img src="{{ asset('storage/images/' . $room->image) }}" id="img-preview"
                                             alt="" width="100px">
                                         @error('photo')
                                             <span class="help-block" style="color: red">{{ $message }}</span>
@@ -111,18 +114,18 @@
                                 <div class="col-md">
                                     <div class="form-group ">
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh chi tiết</label>
-                                        <input type="file" class="form-control" id="img-preview"
-                                            name="photos[]" onchange="preview(this)" multiple>
-                                            <div class="row mt-3" id="sub-image-preview">
-                                              @foreach ($listimages as $item)
-                                                  <img class="card-img-bottom"
-                                                      src="{{ asset('storage/images/' . $item->image) }}" alt=""
-                                                      width="100px">
-                                              @endforeach
-                                              @error('photo')
-                                                  <span class="help-block">{{ $message }}</span>
-                                              @enderror
-                                          </div>
+                                        <input type="file" class="form-control" id="img-preview" name="photos[]"
+                                            onchange="preview(this)" multiple>
+                                        <div class="row mt-3" id="sub-image-preview">
+                                            @foreach ($listimages as $item)
+                                                <img class="card-img-bottom"
+                                                    src="{{ asset('storage/images/' . $item->image) }}" alt=""
+                                                    width="100px">
+                                            @endforeach
+                                            @error('photo')
+                                                <span class="help-block">{{ $message }}</span>
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
@@ -135,8 +138,10 @@
                                                     thái:</label>
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect03">
-                                                <option name="isBooked" value="1" {{($room->isBooked === $item->id)?'selected':''}}>On</option>
-                                                <option name="isBooked" value="0" {{($room->isBooked === $item->id)?'selected':''}}>Off</option>
+                                                <option name="isBooked" value="1"
+                                                    {{ $room->isBooked === $item->id ? 'selected' : '' }}>On</option>
+                                                <option name="isBooked" value="0"
+                                                    {{ $room->isBooked === $item->id ? 'selected' : '' }}>Off</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -149,8 +154,10 @@
                                                 <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect03">
-                                                <option name="status" value="1" {{($room->status === $item->id)?'selected':''}}>On</option>
-                                                <option name="status" value="0" {{($room->status === $item->id)?'selected':''}}>Off</option>
+                                                <option name="status" value="1"
+                                                    {{ $room->status === $item->id ? 'selected' : '' }}>On</option>
+                                                <option name="status" value="0"
+                                                    {{ $room->status === $item->id ? 'selected' : '' }}>Off</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -170,9 +177,9 @@
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
                             <div class="form-group">
-                                <textarea name="descripton" id="editor1" rows="10" cols="80" value="{{ old('descripton') ? old('descripton') : $room->descripton }}"></textarea>
-                                {{-- <textarea class="form-control textarea text-left p-3 h-100" id="exampleFormControlTextarea1" rows="5"
-                              placeholder="Room Details" name="descripton"></textarea> --}}
+                                <textarea name="descripton" id="editor1" rows="10" cols="80"
+                                    value="{{ old('descripton') ? old('descripton') : $room->descripton }}">
+                                </textarea>
                             </div><!-- end form-group -->
                             <ul class="list-inline">
                                 <li class="list-inline-item">
@@ -203,27 +210,27 @@
         CKEDITOR.replace('editor1');
     </script>
     <script>
-      const input = document.getElementById('file-input');
-      const image = document.getElementById('img-preview');
-    
-      input.addEventListener('change', (e) => {
-        if (e.target.files.length) {
-            const src = URL.createObjectURL(e.target.files[0]);
-            image.src = src;
-        }
-      });
-    
-      function preview(elem, output = '') {
+        const input = document.getElementById('file-input');
+        const image = document.getElementById('img-preview');
+
+        input.addEventListener('change', (e) => {
+            if (e.target.files.length) {
+                const src = URL.createObjectURL(e.target.files[0]);
+                image.src = src;
+            }
+        });
+
+        function preview(elem, output = '') {
             Array.from(elem.files).map((file) => {
                 const blobUrl = window.URL.createObjectURL(file)
                 output +=
                     `<div class="col-lg-3 js-add-image"  id="img-add">
                         <div class="card text-left bg-dark border-danger">
-                            <img class="card-img-bottom" src=${blobUrl} alt="">
+                            <img class="card-img-bottom" src=${blobUrl} alt="" width = "100px">
                         </div>
                     </div>`
-                })
-                document.getElementById('sub-image-preview').innerHTML = output
-            }
-        </script>
+            })
+            document.getElementById('sub-image-preview').innerHTML = output
+        }
+    </script>
 @endsection
