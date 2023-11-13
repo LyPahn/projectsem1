@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('main-content')
+@section('main-content')x`
     <section>
         <div class="content listing-content">
             <div class="in-content-wrapper">

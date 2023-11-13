@@ -1,93 +1,107 @@
 @extends('admin.master')
 @section('main-content')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Quản lý đặt phòng
-
-            </h1>
-            {{-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-      </ol> --}}
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Default box -->
-            <div class="col-xs-12">
+    <section>
+        <div class="content listing-content">
+            <div class="in-content-wrapper">
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="heading-messages">
+                            <h3>Hotel Listing</h3>
+                        </div><!-- End heading-messages -->
+                    </div><!-- End column -->
+                    <div class="col-md-4">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+                            </div>
+                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>All
+                            </div>
+                        </div><!-- end breadcrumb -->
+                    </div><!-- End column -->
+                </div><!-- end row -->
                 <div class="box">
-                    <div class="box-header">
-                        <a href="{{ route('booking.create') }}" class="btn btn-success">+ Đặt phòng</a>
-                        <a href="{{ route('booking.trash') }}" class="btn btn-primary "><i class="fa-solid fa-trash"></i>Thùng
-                            rác</a>
-
-                        <div class="box-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control pull-right"
-                                    placeholder="Search">
-
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
+                    <div class="row no-gutters">
+                        <div class="col text-left">
+                            <div class="add-new">
+                                <a href="{{ route('booking.create') }}">Thêm mới<i class="fas fa-plus"></i></a>
+                                <a href="{{ route('booking.trash') }}">Thùng rác<i class="fas"></i></a>
+                            </div><!-- End add-new-->
+                        </div><!-- End column-->
+                        <div class="col text-right">
+                            <div class="tools-btns">
+                                <a href="#"><i class="fas fa-print" data-toggle="tooltip" data-html="true"
+                                        title="Print"></i></a>
+                                <a href="#"><i class="fas fa-file-pdf" data-toggle="tooltip" data-html="true"
+                                        title="Pdf"></i></a>
+                                <a href="#"><i class="fas fa-file-excel" data-toggle="tooltip" data-html="true"
+                                        title="Excel"></i></a>
+                            </div><!-- End tool-btns-->
+                        </div><!-- End text-right-->
+                    </div><!-- end row -->
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
                         </div>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body table-responsive no-padding">
-                        @if ($message = Session::get('success'))
-                            <div class="alert alert-success alert-block">
-
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-
-                                <strong>{{ $message }}</strong>
-
-                            </div>
-                        @endif
-                        <table class="table table-hover">
-                            <tbody>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên phòng đã đặt</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>status</th>
-                                    <th>check_in</th>
-                                    <th>check_out</th>
-                                    <th>Tùy chọn</th>
-                                </tr>
-                                @forelse ($bookings  as $item)
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->rooms->name }}</td>
-                                    <td>{{ $item->users->name }}</td>
-                                    <td>{{ $item->status }}</td>
-                                    <td>{{ $item->check_in }}</td>
-                                    <td>{{ $item->check_out }}</td>
-                                    <td>
-                                        <a href="{{ route('booking.edit', $item) }}" class="btn btn-success"><i class="fa-solid fa-wrench"></i></a>
-                                        <form action="{{ route('booking.destroy', $item) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"
-                                                onclick="return confirm('chắc chắn chứ')"><i class="fa-solid fa-trash"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @empty
-                                    <p>CHưa có dữ liệu</p>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </div>
-            <!-- /.box -->
-
-        </section>
-        <!-- /.content -->
-    </div>
+                    @endif
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <table id="example" class="display table-hover table-responsive-xl listing">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tên phòng đã đặt</th>
+                                        <th>Tên khách hàng</th>
+                                        <th>status</th>
+                                        <th>check_in</th>
+                                        <th>check_out</th>
+                                        <th>Tùy chọn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($bookings as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->rooms->name }}</td>
+                                            <td>{{ $item->users->name }}</td>
+                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->check_in }}</td>
+                                            <td>{{ $item->check_out }}</td>
+                                            <td>
+                                                <a href="{{ route('booking.edit', $item) }}"><i class="fas fa-edit"></i></a>
+                                                <form action="{{ route('booking.destroy', $item) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" onclick="return confirm('chắc chắn chứ')"
+                                                        style="border: 0"><i class="fas fa-trash-alt"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div><!-- end column -->
+                    </div><!-- end row -->
+                </div><!-- end box -->
+            </div><!-- end in-content-wrapper -->
+        </div><!-- end listing-content -->
+    </section>
+@endsection
+@section('add-js')
+    <script src="{{ asset('assets') }}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap.min4.2.1.js"></script>
+    <script src="{{ asset('assets') }}/vendors/datatables/datatables.min.js"></script>
+    <script src="{{ asset('assets') }}/js/customscriptfile.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 @endsection

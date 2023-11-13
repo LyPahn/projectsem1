@@ -6,7 +6,7 @@
           <div class="row no-gutters">
               <div class="col">
                   <div class="heading-messages">
-                      <h3>Hotel Listing</h3>
+                      <h3>Trash Listing</h3>
                   </div><!-- End heading-messages -->
               </div><!-- End column -->
               <div class="col-md-4">
@@ -24,14 +24,9 @@
                       <table id="example" class="display table-hover table-responsive-xl listing">
                           <thead>
                               <tr>
-                                <th>STT</th>
                                 <th>Img</th>
-                                <th>Hạng phòng</th>
-                                <th>Tên phòng</th>
-                                <th>Mã phòng</th>
-                                <th>Giá</th>
-                                <th>Số lượng khách</th>
-                                <th>Trạng thái phòng</th>
+                                <th>Tittle</th>
+                                <th>Trạng thái</th>
                                 <th>Ngày tạo</th>
                                 <th>Tùy chọn</th>
                               </tr>
@@ -39,23 +34,19 @@
                           <tbody>
                               @forelse ($deleted_at as $item)
                                   <tr>
-                                      <<td>{{ $loop->iteration }}</td>
                                       <td><img src="{{ asset('storage/images/' . $item->image) }}" alt="table-img"
                                           class="img-fluid rounded-circle" width="40px"></td>
-                                          <td>{{ $item->typeRooms->room_type }}</td>
-                                          <td>{{ $item->name }}</td>
-                                          <td>{{ $item->room_code }}</td>
-                                          <td>{{ number_format($item->price) }}/night</td>
-                                          <td>{{ $item->people }}</td>
-                                          <td class="{{ $item->isBooked ? 'active' : 'draft' }}">
-                                              <span>{{ $item->isBooked ? 'On' : 'Off' }}</span>
-                                          </td>
+                                          <td>{{ $item->tittle }}</td>
+                                          <td>{!! $item->status
+                                            ? '<span class="label label-danger"> ẩn hiển thị</span>'
+                                            : '<span class="label label-success">Hiển thị</span>' !!}</td>
+                                            </td>
                                           <td>{{$item->created_at}}</td>
                                           <td>
                                             <a class=" btn btn-info"
-                                                href="{{ route('rooms.restore', $item->id) }}">Khôi phục</i></a>
+                                                href="{{ route('blog.restore', $item->id) }}">Khôi phục</i></a>
                                             <a class=" btn btn-danger"
-                                                href="{{ route('rooms.forceDeleted', $item->id) }}">Xóa vĩnh
+                                                href="{{ route('blog.forceDeleted', $item->id) }}">Xóa vĩnh
                                                 viễn</a>
                                         </td>
                                   </tr>

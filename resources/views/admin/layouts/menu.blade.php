@@ -45,9 +45,7 @@
                 </a>
                 <div class="collapse sub-menu" id="Hotel-Listing">
 					<a class="items-list1" href="{{ route('rooms_type.index') }}">Danh sách hạng phòng</a>
-                    <a class="items-list1" href="{{ route('rooms_type.create') }}">Thêm mới hạng phòng</a>
 					<a class="items-list1" href="{{ route('rooms.index') }}">Danh sách phòng</a>
-                    <a class="items-list1" href="{{ route('rooms.create') }}">Thêm mới phòng</a>
                 </div>
             </li>
 			<li class="nav-item">
@@ -69,17 +67,14 @@
                     <span><i class="fa fa-chevron-down arrow"></i></span>
                 </a>
                 <div class="collapse sub-menu" id="booking">
-                    <a class="items-list1" href="bookings.html">All</a>
-                    <a class="items-list1" href="bookings-approved.html">Approved</a>
-                    <a class="items-list1" href="bookings-pending.html">Pending</a>
-                    <a class="items-list1" href="bookings-cancelled.html">Cancelled</a>
+                    <a class="items-list1" href="{{route('booking.index')}}">Danh sách</a>
                 </div><!-- End sub-menu -->
             </li>
             <li class="nav-item">
-                <a href="reviews.html" class="items-list">
-                    <span><i class="fas fa-sync-alt" data-toggle="tooltip" data-html="true"
+                <a href="{{route('blog.index')}}" class="items-list">
+                    <span><i class="far fa-bookmark" data-toggle="tooltip" data-html="true"
                             title="Reviews"></i></span>
-                    <span class="items-list-text">Reviews</span>
+                    <span class="items-list-text">BLOG</span>
                 </a>
             </li>
             <li class="nav-item">

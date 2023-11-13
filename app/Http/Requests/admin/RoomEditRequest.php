@@ -24,7 +24,7 @@ class RoomEditRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'photo' => ['required','image'],
+            'photo' => ['image'],
             'price' => ['required','numeric'],
             'room_code' => 'required | unique:rooms,room_code,'.$this->id,
             'people' => 'required | min:0 | max:5'
@@ -35,7 +35,6 @@ class RoomEditRequest extends FormRequest
     {
         return[
             'name.required'=> 'Không được để trống',
-            'photo.required' => 'Không được để trống',
             'photo.image' => 'Đuôi ảnh không hợp lệ',
             'price.required' => 'Không được để trống',
             'price.numeric' => 'Sai định dạng',

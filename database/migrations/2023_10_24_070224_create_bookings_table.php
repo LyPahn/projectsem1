@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable()->default(12);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('name', 100);
             $table->unsignedBigInteger('room_id')->nullable()->default(12);
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->tinyInteger('status')->default(1);
+            $table->bigInteger('adluts')->nullable()->default(12);
+            $table->bigInteger('children')->nullable()->default(12);
             $table->date('check_in');
             $table->date('check_out');
             $table->text('description')->nullable();

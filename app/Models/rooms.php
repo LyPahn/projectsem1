@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class rooms extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','name','image','type_id','isBooked','price','people' , 'status','room_code'];
+    use SoftDeletes;
+    protected $fillable = ['id','name','image','type_id','isBooked','price','people' , 'status','room_code',];
     
     /**
      * Get the user that owns the rooms

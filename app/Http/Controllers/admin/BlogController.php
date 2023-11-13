@@ -88,7 +88,25 @@ class BlogController extends Controller
      */
     public function destroy(string $id)
     {
-        Blog::where('id',$id)->delete();
-        return redirect()->route('blog.index')->with('success','Xoá thành công');
+        // if (rooms::where('type_id', $id) === '') {
+        //     return redirect()->back()->with('error', 'Hãy xoá phòng trước khi xoá hạng phòng');
+        // }
+        Blog::where('id', $id)->delete();
+        return redirect()->route('blog.index')->with('success', 'Xoá thành công');
+    }
+    public function trash()
+    {
+        $deleted_at = Blog::onlyTrashed()->get();
+        return view('admin.blog.trash', compact('deleted_at'));
+    }
+    public function restore($id)
+    {
+        Blog::withTrashed()->where('id', $id)->restore();
+        return redirect()->route('blog.index');
+    }
+    public function forceDeleted($id)
+    {
+        Blog::withTrashed()->where('id', $id)->forceDelete();
+        return redirect()->route('blog.index');
     }
 }

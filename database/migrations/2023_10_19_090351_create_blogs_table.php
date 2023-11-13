@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image', 255);
             $table->string('link_blog', 255);
             $table->tinyInteger('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
