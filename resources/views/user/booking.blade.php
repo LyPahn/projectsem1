@@ -49,12 +49,13 @@
                     <div class="col-12 col-md-12 col-lg-8 col-xl-8">  
                         <div class="space-left">                    
                             <div class="innerpage-heading">
-                                <h1>Reservation</h1>
+                                <h1>Đặt phòng</h1>
                             </div><!-- end innerpage-heading -->
                             
-                            <form>
+                            <form method="POST" action="{{route('UserBooking.store')}}">
+                                @csrf
                                 <div class="row">
-                                
+                                    <input type="hidden" name="room_id" value="{{$room->id}}">
                                     {{-- <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="form-group">    
                                             <input type="text" class="form-control" placeholder="First Name" required/>
@@ -64,35 +65,35 @@
                                     
                                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Tên người đặt" required/>
+                                            <input type="text" name="name" class="form-control" placeholder="Tên người đặt" required/>
                                             <span><i class="fa fa-user"></i></span>
                                         </div>
                                     </div><!-- end columns -->
                                     
                                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="form-group">    
-                                            <input type="email" class="form-control" placeholder="Email" required/>
+                                            <input type="email" name="email" class="form-control" placeholder="Email" required/>
                                             <span><i class="fa fa-envelope"></i></span>
                                         </div>
                                     </div><!-- end columns -->
                                     
                                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Số điện thoại" required/>
+                                            <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" required/>
                                             <span><i class="fa fa-phone"></i></span>
                                         </div>
                                     </div><!-- end columns -->
                                     
                                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="form-group">    
-                                            <input type="date" class="form-control dpd1" placeholder="Check-in" required/>
+                                            <input type="date" name="check_in" class="form-control dpd1" placeholder="Check-in" required/>
                                             <span><i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div><!-- end columns -->
                                     
                                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="form-group">
-                                            <input type="date" class="form-control dpd2" placeholder="Check-out" required/>
+                                            <input type="date" class="form-control dpd2" placeholder="Check-out" name="check_out" required/>
                                             <span><i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div><!-- end columns -->
@@ -100,11 +101,12 @@
                                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="form-group">
                                             <span><i class="fa fa-angle-down"></i></span>
-                                            <select class="form-control">
-                                            <option selected>Người lớn</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
+                                            <select class="form-control" name="adluts">
+                                            <option value="0" selected>Người lớn</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
                                             </select>
                                         </div>
                                     </div><!-- end columns -->
@@ -112,11 +114,12 @@
                                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="form-group">
                                             <span><i class="fa fa-angle-down"></i></span>
-                                            <select class="form-control">
-                                                <option selected>Trẻ em</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
+                                            <select class="form-control" name="children">
+                                                <option value="0" selected>Trẻ em</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
                                             </select>
                                         </div>
                                     </div><!-- end columns -->
@@ -124,12 +127,12 @@
                                     
                                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="5" placeholder="Enter Message"></textarea>
+                                            <textarea class="form-control" name="description" rows="5" placeholder="Enter Message"></textarea>
                                         </div>
                                     </div><!-- end columns -->
                                     
                                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                                        <a href="#" class="btn btn-yellow">Đặt ngay</a>
+                                        <button type="submit" class="btn btn_primary">Đặt ngay</button>
                                     </div><!-- end columns -->
                                     
                                 </div><!-- end row -->

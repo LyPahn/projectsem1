@@ -35,6 +35,7 @@ Route::post('/registerPost', [UserController::class, 'registerPost'])->name('reg
 Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 Route::get('/detail/{id}',[HomeController::class, 'roomDetail'])->name('room.detail');
 route::get('/booking/{room}',[UserBookingController::class,'index'])->name('UserBooking.index');
+route::post('/booking',[UserBookingController::class,'store'])->name('UserBooking.store');
 Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
 Route::post('/logonPost', [AdminController::class, 'logonstore'])->name('logon.store');
 Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');
