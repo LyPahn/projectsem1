@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
+            $table->string('email', 100);
+            $table->string('phone', 100);
             $table->unsignedBigInteger('room_id')->nullable()->default(12);
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->tinyInteger('status')->default(1);
-            $table->bigInteger('adluts')->nullable()->default(12);
-            $table->bigInteger('children')->nullable()->default(12);
+            $table->integer('adluts');
+            $table->integer('children');
             $table->date('check_in');
             $table->date('check_out');
             $table->text('description')->nullable();

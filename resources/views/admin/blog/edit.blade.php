@@ -93,7 +93,7 @@
                           </div><!-- end column -->
                         </div><!-- end form-row -->
                         <div class="form-group">
-                            <textarea name="descripton" id="editor1" rows="10" cols="80"></textarea>
+                            <textarea name="description" id="editor1" rows="10" cols="80"  value="{{ old('description') ? old('description') : $blog->description }}"></textarea>
                             {{-- <textarea class="form-control textarea text-left p-3 h-100" id="exampleFormControlTextarea1" rows="5"
                                 placeholder="Room Details" name="descripton"></textarea> --}}
                         </div><!-- end form-group -->

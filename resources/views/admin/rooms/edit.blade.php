@@ -78,9 +78,7 @@
                                             <select class="custom-select" id="inputGroupSelect01" name="type_id">
                                                 <option selected>Choose...</option>
                                                 @foreach ($type_rooms as $item)
-                                                    <option value="{{ $item->id }}"
-                                                        {{ $room->type_id === $item->id ? 'selected' : '' }}>
-                                                        {{ $item->room_type }}</option>
+                                                    <option value="{{ $item->id }}" {{ $room->type_id === $item->id ? 'selected' : '' }}>{{ $item->room_type }}</option>
                                                 @endforeach
                                             </select>
                                             <i class="fas fa-angle-down"></i>
@@ -137,11 +135,9 @@
                                                 <label class="input-group-text" for="inputGroupSelect03">Trạng
                                                     thái:</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect03">
-                                                <option name="isBooked" value="1"
-                                                    {{ $room->isBooked === $item->id ? 'selected' : '' }}>On</option>
-                                                <option name="isBooked" value="0"
-                                                    {{ $room->isBooked === $item->id ? 'selected' : '' }}>Off</option>
+                                            <select class="custom-select" id="inputGroupSelect03" name="isBooked">
+                                                <option value="1" {{ $room->isBooked === $item->id ? 'selected' : '' }}>On</option>
+                                                <option  value="0" {{ $room->isBooked === $item->id ? 'selected' : '' }}>Off</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -177,8 +173,8 @@
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
                             <div class="form-group">
-                                <textarea name="descripton" id="editor1" rows="10" cols="80"
-                                    value="{{ old('descripton') ? old('descripton') : $room->descripton }}">
+                                <textarea name="description" id="editor1" rows="10" cols="80"
+                                    value="{{ old('description') ? old('description') : $room->description }}">
                                 </textarea>
                             </div><!-- end form-group -->
                             <ul class="list-inline">

@@ -10,7 +10,7 @@ class bookings extends Model
 {
     use HasFactory;
     use softDeletes;
-    protected $fillable = ['user_id','room_id','status','description','check_in','check_out'];
+    protected $fillable = ['name','room_id','status','description','check_in','check_out','adluts','children','email','phone'];
 
     /**
      * Get the user that owns the rooms

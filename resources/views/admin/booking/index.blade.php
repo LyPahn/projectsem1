@@ -68,8 +68,9 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->rooms->name }}</td>
-                                            <td>{{ $item->users->name }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{!! $item->status
+                                                ? 'Còn trống' : 'Đã đặt' !!}</td>
                                             <td>{{ $item->check_in }}</td>
                                             <td>{{ $item->check_out }}</td>
                                             <td>
