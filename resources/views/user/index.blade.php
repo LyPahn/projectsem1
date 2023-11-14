@@ -1023,55 +1023,26 @@
                 </div><!-- end page-heading -->
 
                 <div class="row">
-
+                    @forelse ($blog as $item)
+                        
                     <div class="col-12 col-md-6 col-lg-4 col-xl-4">
                         <div class="latest-block">
                             <div class="latest-img">
-                                <img src="{{asset('fe')}}/images/blog-1.jpg" class="img-fluid" alt="Blog-Image" />
+                                <img src="{{asset('storage/images/'.$item->image)}}" class="img-fluid" alt="Blog-Image" width="100%" />
 
                                 <div class="latest-info">
-                                    <p><span><i class="fa fa-calendar"></i></span> 29 April, 2017</p>
-                                    <h2>Lorem ipsum dolor sit amet</h2>
-                                    <a href="blog-details-left-sidebar.html">View More</a>
+                                    <p><span><i class="fa fa-calendar"></i></span> {{$item->created_at}}</p>
+                                    <h2>{{$item->tittle}}</h2>
+                                    <a href="{{$item->link_blog}}">Xem thêm</a>
                                 </div><!-- end latest-info -->
                             </div><!-- end latest-img -->
                         </div><!-- end latest-block -->
                     </div><!-- end columns -->
-
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-                        <div class="latest-block">
-                            <div class="latest-img">
-                                <img src="{{asset('fe')}}/images/blog-2.jpg" class="img-fluid" alt="Blog-Image" />
-
-                                <div class="latest-info">
-                                    <p><span><i class="fa fa-calendar"></i></span> 29 April, 2017</p>
-                                    <h2>Lorem ipsum dolor sit amet</h2>
-                                    <a href="blog-details-left-sidebar.html">View More</a>
-                                </div><!-- end latest-info -->
-                            </div><!-- end latest-img -->
-                        </div><!-- end latest-block -->
-                    </div><!-- end columns -->
-
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-                        <div class="latest-block">
-                            <div class="latest-img">
-                                <img src="{{asset('fe')}}/images/blog-3.jpg" class="img-fluid" alt="Blog-Image" />
-
-                                <div class="latest-info">
-                                    <p><span><i class="fa fa-calendar"></i></span> 29 April, 2017</p>
-                                    <h2>Lorem ipsum dolor sit amet</h2>
-                                    <a href="blog-details-left-sidebar.html">View More</a>
-                                </div><!-- end latest-info -->
-                            </div><!-- end latest-img -->
-                        </div><!-- end latest-block -->
-                    </div><!-- end columns -->
+                    @empty
+                        
+                    @endforelse
 
                 </div><!-- end row -->
-
-                <div class="butn text-center">
-                    <a href="blog-listings-left-sidebar.html" class="btn btn-lg btn-padding btn-g-border">View
-                        More</a>
-                </div><!-- end butn -->
 
             </div><!-- end columns -->
         </div><!-- end row -->

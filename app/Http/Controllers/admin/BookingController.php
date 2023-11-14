@@ -17,7 +17,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = bookings::all();
+        $bookings = bookings::orderBy('created_at' , 'desc')->get();
         return view('admin.booking.index',compact('bookings'));
     }
 

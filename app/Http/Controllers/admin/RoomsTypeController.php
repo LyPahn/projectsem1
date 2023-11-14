@@ -15,7 +15,7 @@ class RoomsTypeController extends Controller
      */
     public function index()
     {
-        $listTypeRooms = type_rooms::all();
+        $listTypeRooms = type_rooms::orderBy('created_at' , 'desc')->get();
         return view('admin.rooms_type.index', compact('listTypeRooms'));
     }
 

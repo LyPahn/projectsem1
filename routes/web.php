@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\RoomsController;
 use App\Http\Controllers\Admin\RoomsTypeController;
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\user\BookingController as UserBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::post('/loginPost', [UserController::class, 'loginPost'])->name('login.sto
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/registerPost', [UserController::class, 'registerPost'])->name('register.store');
 Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
-Route::get('detail/{id}',[HomeController::class, 'roomDetail'])->name('room.detail');
+Route::get('/detail/{id}',[HomeController::class, 'roomDetail'])->name('room.detail');
+route::get('/booking/{room}',[UserBookingController::class,'index'])->name('UserBooking.index');
 Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
 Route::post('/logonPost', [AdminController::class, 'logonstore'])->name('logon.store');
 Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');

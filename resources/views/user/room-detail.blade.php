@@ -218,7 +218,7 @@
 							
 							<div id="description">
 								{{$detail->description}}
-								<a href="reservation-left-sidebar.html" class="btn btn-yellow btn-lg btn-block">Đặt phòng</a>
+								<a href="{{route('UserBooking.index',$item->id)}}" class="btn btn-yellow btn-lg btn-block">Đặt phòng</a>
 							</div><!-- end description -->
 							
 						</div><!-- end room-description -->
