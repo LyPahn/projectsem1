@@ -1,117 +1,124 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Mirrored from kiswa.net/themes/star-hotel/demo/demo-ltr/registration-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 07:29:59 GMT -->
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+    <title>Registration 2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="{{asset('fe')}}/images/favicon.png" type="{{asset('fe')}}/image/x-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i"
+        rel="stylesheet">
+
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="{{asset('fe')}}/css/bootstrap.min4.3.1.css">
+
+    <!-- Font Awesome Stylesheet -->
+    <link rel="stylesheet" href="{{asset('fe')}}/css/font-awesome.min.css">
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="{{asset('fe')}}/css/style.css">
+    <link rel="stylesheet" id="cpswitch" href="{{asset('fe')}}/css/yellow.css">
+    <link rel="stylesheet" href="{{asset('fe')}}/css/responsive.css">
 </head>
 
+
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <section class="vh-100" style="background-color: #eee;">
-                    <div class="container h-100">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col-lg-12 col-xl-11">
-                                <div class="card text-black" style="border-radius: 25px;">
-                                    <div class="card-body p-md-5">
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+    <!--====== LOADER =====-->
+    <div class="loader"></div>
 
-                                                <form class="mx-1 mx-md-4" method="POST" action="{{route('register.store')}}">
-                                                    @csrf
-                                                    <div class="d-flex flex-row align-items-center mb-4">
-                                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                        <div class="form-outline flex-fill mb-0">
-                                                            <label class="form-label" for="form3Example1c">Họ và Tên</label>
-                                                            <input type="text" id="form3Example1c" name="name" class="form-control" />
-                                                                @error('name')
-                                                                    <p class="text-danger">{{$message}}</p>
-                                                                @enderror
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="d-flex flex-row align-items-center mb-4">
-                                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                        <div class="form-outline flex-fill mb-0">
-                                                            <label class="form-label" for="form3Example3c">Email</label>
-                                                            <input type="email" id="form3Example3c" name="email" class="form-control" />
-                                                                @error('email')
-                                                                    <p class="text-danger">{{$message}}</p>
-                                                                @enderror
-                                                        </div>
-                                                    </div>
+    <!--===== FULL-PAGE-BODY ====-->
+    <section class="full-page-body">
+        <div class="full-page-wrapper">
+            <div class="full-page-content">
+                <div class="container">
+                    <div class="row">
 
-                                                    <div class="d-flex flex-row align-items-center mb-4">
-                                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                        <div class="form-outline flex-fill mb-0">
-                                                            <label class="form-label" for="form3Example4c">Mật khẩu</label>
-                                                            <input type="password" id="form3Example4c" name="password" class="form-control" />
-                                                                @error('password')
-                                                                    <p class="text-danger">{{$message}}</p>
-                                                                @enderror
-                                                        </div>
-                                                    </div>
+                        <div class="col-lg-5 col-xl-6 full-page-txt">
+                            <div class="about-intro-text mg-top-50">
+                                <h4>Welcome to Star Hotel</h4>
+                                <h2>Provide the best quality services in hoteling</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget commodo
+                                    orci. Integer varius nibh eu mattis porta. Pellentesque dictum sem eget cursus
+                                    semper. Nullam quis blandit lorem.</p>
+                            </div><!-- end about-intro-text -->
+                        </div><!-- end columns -->
 
-                                                    <div class="d-flex flex-row align-items-center mb-4">
-                                                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                                                        <div class="form-outline flex-fill mb-0">
-                                                            <label class="form-label" for="form3Example4cd">Xác thực mật khẩu</label>
-                                                            <input type="password" id="form3Example4cd" name="Rpassword" class="form-control" />
-                                                                @error('Rpassword')
-                                                                    <p class="text-danger">{{$message}}</p>
-                                                                @enderror
-                                                                @if ($message = Session::get('error'))
-                                                                    <p class="text-danger">{{$message}}</p>
-                                                                @endif
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                        <button type="submit"
-                                                            class="btn btn-primary btn-lg">Register</button>
-                                                    </div>
-
-                                                </form>
-
-                                            </div>
-                                            <div
-                                                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                                                    class="img-fluid" alt="Sample image">
-
-                                            </div>
-                                        </div>
+                        <div class="col-lg-7 col-xl-6 full-page-form">
+                            <div class="custom-form">
+                                <h3>Registration</h3>
+                                <form method="POST" action="{{ route('register.store') }}">
+                                    @csrf
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Username"
+                                            name="name" required />
+                                        <span><i class="fa fa-user"></i></span>
+                                        @error('name')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email"
+                                            name="email" required />
+                                        <span><i class="fa fa-envelope"></i></span>
+                                        @error('email')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Password"
+                                            name="password" required />
+                                        <span><i class="fa fa-lock"></i></span>
+                                        @error('password')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Confirm Password"
+                                            name="Rpassword" required />
+                                        <span><i class="fa fa-lock"></i></span>
+                                        @error('Rpassword')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                        @if ($message = Session::get('error'))
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @endif
+                                    </div>
+
+                                    <button class="btn btn-yellow btn-block" type="submit">Register</button>
+                                </form>
+
+                                <div class="other-links">
+                                    <p class="link-line">Already Have An Account ? <a href="login-2.html">Login
+                                            Here</a></p>
+                                </div><!-- end other-links -->
+                            </div><!-- end custom-form -->
+                        </div><!-- end columns -->
+
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end full-page-content -->
+        </div><!-- end full-page-wrapper -->
+    </section><!-- end full-page-body -->
+
+
+    <!-- Page Scripts Starts -->
+    <script src="{{asset('fe')}}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{asset('fe')}}/js/bootstrap.min4.3.1.js"></script>
+    <script src="{{asset('fe')}}/js/custom-navigation.js"></script>
+    <!-- Page Scripts Ends -->
+
 </body>
+
+<!-- Mirrored from kiswa.net/themes/star-hotel/demo/demo-ltr/registration-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 07:29:59 GMT -->
 
 </html>
