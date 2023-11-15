@@ -11,7 +11,7 @@
                 <div class="sidebar-header">
                     <img src="{{ asset('assets') }}/images/commenter-1.jpg" alt="sidebar-header-img"
                         class="img-fluid rounded-circle">
-                    <h5>John Doe</h5>
+                    <h5>{{Auth::user()->name}}</h5>
                     <small>
                         <p>Incharge</p>
                     </small>

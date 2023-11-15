@@ -223,7 +223,7 @@
                                             Me</label>
                                     </div><!-- end checkbox -->
 
-                                    <button class="btn btn-yellow btn-block">Login</button>
+                                    <button type="submit" class="btn btn-yellow btn-block">Login</button>
                                 </form>
 
                                 <div class="other-links">
