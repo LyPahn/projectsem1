@@ -60,7 +60,8 @@
                                         <th>Tên phòng</th>
                                         <th>Mã phòng</th>
                                         <th>Giá</th>
-                                        <th>Số lượng khách</th>
+                                        <th>Số lượng người lớn</th>
+                                        <th>Số lượng trẻ em</th>
                                         <th>Trạng thái phòng</th>
                                         <th>Ngày tạo</th>
                                         <th>Tùy chọn</th>
@@ -76,7 +77,8 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->room_code }}</td>
                                                 <td>{{ number_format($item->price) }}/night</td>
-                                                <td>{{ $item->people }}</td>
+                                                <td>{{ $item->adluts }}</td>
+                                                <td>{{ $item->children }}</td>
                                                 <td class="{{ $item->isBooked ? 'active' : 'draft' }}">
                                                     <span>{{ $item->isBooked ? 'On' : 'Off' }}</span>
                                                 </td>

@@ -165,8 +165,18 @@
                                     <div class="form-group">
                                         <label for="inputGroupSelect07" class="">Số người:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
-                                            name="people" value="{{ old('people') ? old('people') : $room->people }}">
-                                        @error('people')
+                                            name="adluts" value="{{ old('adluts') ? old('adluts') : $room->adluts }}">
+                                        @error('adluts')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Số người:</label>
+                                        <input type="number" class="form-control" required id="inputGroupSelect07"
+                                            name="children" value="{{ old('children') ? old('children') : $room->people }}">
+                                        @error('children')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div><!-- end form-group -->

@@ -152,10 +152,20 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">Số người:</label>
+                                        <label for="inputGroupSelect07" class="">Số người lớn:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
-                                            name="people" value="{{ old('people') }}">
-                                        @error('people')
+                                            name="adluts" value="{{ old('adluts') }}">
+                                        @error('adluts')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Số trẻ em:</label>
+                                        <input type="number" class="form-control" required id="inputGroupSelect07"
+                                            name="children" value="{{ old('children') }}">
+                                        @error('children')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div><!-- end form-group -->

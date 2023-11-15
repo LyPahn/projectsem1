@@ -23,7 +23,13 @@ class BookingStoreRequest extends FormRequest
     {
         return [
             'check_in' => ['required'],
-            'check_out' => ['required']
+            'check_out' => ['required'],
+            'phone' => ['required'],
+            'email' => ['required'],
+            'adluts' => ['required'],
+            'children' => ['required'],
+            'room_id' => ['required']
+
         ];
     }
 
@@ -32,7 +38,11 @@ class BookingStoreRequest extends FormRequest
         return[
             'check_in.required'=> 'Không được để trống',
             'check_out.required'=> 'Không được để trống',  
-            'check_out.gt'=> 'Không được bé hơn check_in',  
+            'phone.required'=> 'Không được để trống',  
+            'email.required'=> 'Không được để trống',  
+            'adluts.required'=> 'Không được để trống',  
+            'children.required'=> 'Không được để trống',  
+            'room_id.required'=> 'Không được để trống',  
         ];
     }
 }

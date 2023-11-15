@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('main-content')
-<section>
+    <section>
         <div class="content add-details">
             <div class="in-content-wrapper">
                 <div class="row no-gutters">
@@ -44,8 +44,8 @@
                             @csrf
                             <div class="form-group">
                                 <label for="inputGroupSelect07" class="">Tên khách hàng:</label>
-                                <input type="text" class="form-control" required id="inputGroupSelect07"
-                                    name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" required id="inputGroupSelect07" name="name"
+                                    value="{{ old('name') }}">
                                 @error('name')
                                     <span class="help-block " style="color: red">{{ $message }}</span>
                                 @enderror
@@ -80,8 +80,8 @@
                                                 <label class="input-group-text" for="inputGroupSelect01">Trạng thái:</label>
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect01" name="status">
-                                                <option  value="1" selected>Còn trống</option>
-                                                <option value="0">đã đặt</option>
+                                                <option value="1">Còn trống</option>
+                                                <option value="0"  selected>đã đặt</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -94,13 +94,16 @@
                                                 <label class="input-group-text" for="inputGroupSelect01">Phòng:</label>
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect01" name="room_id">
-                                                <option selected>Choose...</option>
+                                                <option selected value="">Chọn...</option>
                                                 @foreach ($rooms as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
+                                        @error('room_id')
+                                                <span class="help-block " style="color: red">{{ $message }}</span>
+                                            @enderror
                                     </div><!-- end form-group -->
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
@@ -146,7 +149,7 @@
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div><!-- end form-group -->
-                                </div><!-- end column -->    
+                                </div><!-- end column -->
                             </div><!-- end form-row -->
                             <div class="form-group">
                                 <textarea name="description" id="editor1" rows="10" cols="80"></textarea>
@@ -167,7 +170,7 @@
                 </div><!-- end box -->
             </div><!-- end in-content-wrapper -->
         </div><!-- end add-details -->
-</section>
+    </section>
 @endsection
 @section('add-js')
     <script src="{{ asset('assets') }}/js/jquery-3.3.1.min.js"></script>
@@ -175,10 +178,10 @@
     <script src="{{ asset('assets') }}/js/bootstrap.min4.2.1.js"></script>
     <script src="{{ asset('assets') }}/vendors/dropzone-5.5.0/dist/min/dropzone.min.js"></script>
     <script src="{{ asset('assets') }}/js/customscriptfile.js"></script>
-    <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
-<script>
-  // Replace the <textarea id="editor1"> with a CKEditor 4
-  // instance, using default configuration.
-  CKEDITOR.replace( 'editor1' );
-</script>
+    <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        CKEDITOR.replace('editor1');
+    </script>
 @endsection
