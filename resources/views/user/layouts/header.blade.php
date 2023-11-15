@@ -63,13 +63,13 @@
                         <a class="nav-link" href="{{route('user.listRoom')}}">Danh sách phòng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Giới thiệu</a>
+                        <a class="nav-link" href="{{route('user.about')}}">Giới thiệu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Dịch vụ</a>
+                        <a class="nav-link" href="{{route('user.service')}}">Dịch vụ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-form-2">Liên hệ</a>
+                        <a class="nav-link" href="{{route('user.contact')}}">Liên hệ</a>
                     </li>
                 </ul>
             </div><!-- end navbar collapse -->

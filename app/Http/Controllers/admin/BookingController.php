@@ -37,10 +37,10 @@ class BookingController extends Controller
     public function store(BookingStoreRequest $request)
     {   
         try {
-            $request->validate([
-                'check_in' => 'required|date',
-                'check_out' => ['required', 'date', new CheckOutDateGreaterThanCheckInDate('check_in')],
-            ]);
+            // $request->validate([
+            //     'check_in' => 'required|date',
+            //     'check_out' => ['required', 'date', new CheckOutDateGreaterThanCheckInDate('check_in')],
+            // ]);
             bookings::create($request->all());
             return redirect()->route('booking.index')->with('success','Thêm mới thành công');
             

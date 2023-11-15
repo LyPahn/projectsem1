@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Booking;
 
+use App\Rules\CheckOutDateGreaterThanCheckInDate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BookingStoreRequest extends FormRequest
@@ -24,6 +25,8 @@ class BookingStoreRequest extends FormRequest
         return [
             'check_in' => ['required'],
             'check_out' => ['required'],
+            'check_in' => 'required|date',
+                'check_out' => ['required', 'date', new CheckOutDateGreaterThanCheckInDate('check_in')],
             'phone' => ['required'],
             'email' => ['required'],
             'adluts' => ['required'],

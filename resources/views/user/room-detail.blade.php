@@ -273,23 +273,5 @@
 	</section> <!-- end innerpage-wrapper -->
 	
 	
-	<!--============== NEWSLETTER ===============-->
-	<section id="newsletter" class="banner-padding"> 
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center">
-					<h2>Our Newsletter</h2>
-					<p>Sign up here to receive interesting updates</p>	
-					<form>
-						<div class="form-group">
-							<div class="input-group">
-								<input type="email" class="form-control input-lg" placeholder="your email id" required/>
-								<span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-paper-plane"></i></button></span>
-							</div>
-						</div>
-					</form>
-				</div><!-- end columns -->
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</section><!-- end newsletter -->
+	
 @endsection

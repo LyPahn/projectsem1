@@ -1048,27 +1048,4 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end blog -->
-
-
-<!--============== NEWSLETTER ===============-->
-<section id="newsletter" class="banner-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center">
-                <h2>Nhận thông báo từ chúng tôi</h2>
-                <p>Đăng ký tại đây để nhận được những cập nhật thú vị</p>
-                <form>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="email" class="form-control input-lg" placeholder="Email của bạn"
-                                required />
-                            <span class="input-group-btn"><button class="btn btn-lg"><i
-                                        class="fa fa-paper-plane"></i></button></span>
-                        </div>
-                    </div>
-                </form>
-            </div><!-- end columns -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end newsletter -->
 @endsection

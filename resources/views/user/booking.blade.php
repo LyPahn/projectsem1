@@ -41,7 +41,7 @@
                                 
                                 <p>{{$room->description}}</p>
                                 
-                                <p class="selected-room-price">From <span>{{number_format($room->price)}}đ</span> / Đêm</p>
+                                <p class="selected-room-price">Giá <span>{{number_format($room->price)}}đ</span> / Đêm</p>
                             </div><!-- end selected-room-detail -->
                         </div><!-- end selected-room-block -->
                     </div><!-- end columns -->
@@ -132,7 +132,7 @@
                                     </div><!-- end columns -->
                                     
                                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                                        <button type="submit" class="btn btn_primary">Đặt ngay</button>
+                                        <button type="submit" class=" btn-success">Đặt ngay</button>
                                     </div><!-- end columns -->
                                     
                                 </div><!-- end row -->

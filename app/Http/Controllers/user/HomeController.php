@@ -35,4 +35,14 @@ class HomeController extends Controller
         return view('user.room-detail',compact('detail','news','img' , 'similar'));
     }
 
+    public function about(){
+        return view('user.about');
+    }
+    public function service(){
+        return view('user.service');
+    }
+    public function contact(){
+        return view('user.contact');
+    }
+
 }

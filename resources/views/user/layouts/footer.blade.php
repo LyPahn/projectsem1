@@ -1,3 +1,23 @@
+<!--============== NEWSLETTER ===============-->
+<section id="newsletter" class="banner-padding"> 
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                <h2>Nhận thông báo từ chúng tôi</h2>
+                <p>Đăng ký tại đây để nhận được những cập nhật thú vị</p>	
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="email" class="form-control input-lg" placeholder="your email id" required/>
+                            <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-paper-plane"></i></button></span>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end newsletter -->
+
 <!--========== FOOTER ==========-->
 <section>
     <div id="footer-top" class="banner-padding">
@@ -6,9 +26,8 @@
 
                 <div class="col-12 col-md-6 col-lg-4 col-xl-4 text-left" id="more-about">
                     <h2 class="footer-heading"><span>STAR</span>HOTEL</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                        nostrud exerci tation ullamcorper suscipit.</p>
+                    <p>Khách sạn STAR HOTEL
+                        tự hào là một trong những khách sạn 5 sao có chất lượng dịch vụ cao cấp nhất khu vực Đông Nam Á kể từ khi hoạt động vào tháng 10 năm 2013.</p>
                     <ul class="social-links list-inline list-unstyled">
                         <li class="list-inline-item"><a href="#"><span><i class="fa fa-facebook"></i></span></a>
                         </li>
@@ -26,9 +45,6 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Rooms</a></li>
-                        <li><a href="#">Dinning</a></li>
-                        <li><a href="#">Staff</a></li>
-                        <li><a href="#">Blog's</a></li>
                     </ul>
                 </div><!-- end useful-links -->
 
@@ -45,8 +61,8 @@
                 </div><!-- end visit-us -->
 
                 <div class="col-12 col-md-6 col-lg-3 col-xl-3 text-left" id="f-newsletter">
-                    <h4 class="footer-heading">Newsletter</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed nonummy nibh euismod.</p>
+                    <h4 class="footer-heading">Thông tin mới</h4>
+                    <p>Đăng ký tại đây để nhận được những cập nhật thú vị</p>
                     <form>
                         <div class="form-group">
                             <div class="input-group">

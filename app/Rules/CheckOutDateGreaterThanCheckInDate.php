@@ -26,6 +26,6 @@ class CheckOutDateGreaterThanCheckInDate implements Rule
 
     public function message()
     {
-        return 'ngày trả phòng ko đc bé hơn ngày nhận phòng';
+        return 'ngày trả phòng không được bé hơn ngày nhận phòng';
     }
 }
