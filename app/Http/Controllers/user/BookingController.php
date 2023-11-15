@@ -11,7 +11,7 @@ use Symfony\Contracts\Service\Attribute\Required;
 class BookingController extends Controller
 {
     public function index($id){
-        $room = rooms::find($id);   
+        $room = rooms::find($id); 
         return view('user.booking',compact('room'));
     }
 
