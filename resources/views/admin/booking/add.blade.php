@@ -42,14 +42,38 @@
                         <form class="text-center" role="form" method="POST" enctype="multipart/form-data"
                             action="{{ route('booking.store') }}">
                             @csrf
-                            <div class="form-group">
-                                <label for="inputGroupSelect07" class="">Tên khách hàng:</label>
-                                <input type="text" class="form-control" required id="inputGroupSelect07" name="name"
-                                    value="{{ old('name') }}">
-                                @error('name')
-                                    <span class="help-block " style="color: red">{{ $message }}</span>
-                                @enderror
-                            </div><!-- end form-group -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Tên khách hàng:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07" name="name"
+                                            value="{{ old('name') }}">
+                                        @error('name')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Phòng:</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="room_id">
+                                                <option selected value="">Chọn...</option>
+                                                @foreach ($rooms as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                        @error('room_id')
+                                                <span class="help-block " style="color: red">{{ $message }}</span>
+                                            @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
@@ -72,41 +96,7 @@
                                     </div><!-- end form-group -->
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
-                            <div class="form-row">
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Trạng thái:</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="status">
-                                                <option value="1">Còn trống</option>
-                                                <option value="0"  selected>đã đặt</option>
-                                            </select>
-                                            <i class="fas fa-angle-down"></i>
-                                        </div>
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Phòng:</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="room_id">
-                                                <option selected value="">Chọn...</option>
-                                                @foreach ($rooms as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            <i class="fas fa-angle-down"></i>
-                                        </div>
-                                        @error('room_id')
-                                                <span class="help-block " style="color: red">{{ $message }}</span>
-                                            @enderror
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
-                            </div><!-- end form-row -->
+                            
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">

@@ -123,12 +123,11 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03">Trạng
-                                                    thái:</label>
+                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect03">
-                                                <option name="isBooked" value="1" selected>On</option>
-                                                <option name="isBooked" value="0">Off</option>
+                                                <option name="propose" value="1" selected>On</option>
+                                                <option name="propose" value="0">Off</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -138,11 +137,11 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
+                                                <label class="input-group-text" for="inputGroupSelect03">Trạng thái</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect03">
-                                                <option name="status" value="1" selected>On</option>
-                                                <option name="status" value="0">Off</option>
+                                            <select class="custom-select" id="inputGroupSelect03" name="status">
+                                                <option  value="1" selected>Còn trống</option>
+                                                <option  value="0">Đã đặt</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>

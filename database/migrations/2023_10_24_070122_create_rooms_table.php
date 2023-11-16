@@ -17,13 +17,13 @@ return new class extends Migration
             $table->string('name', 50)->default();
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type_rooms')->onDelete('cascade');
-            $table->tinyInteger('isBooked')->default(1);
             $table->double('price');
+            $table->tinyInteger('status')->default(1);
             $table->integer('adluts');
             $table->integer('children');
             $table->string('image', 255);
             $table->text('description')->nullable()->default();
-            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('propose')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

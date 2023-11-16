@@ -54,10 +54,10 @@
                             <table id="example" class="display table-hover table-responsive-xl listing">
                                 <thead>
                                     <tr>
-                                        <th>STT</th>
+                                        <th>Mã phòng</th>
                                         <th>Tên phòng đã đặt</th>
                                         <th>Tên khách hàng</th>
-                                        <th>status</th>
+                                        <th>Số điện tho</th>
                                         <th>check_in</th>
                                         <th>check_out</th>
                                         <th>Tùy chọn</th>
@@ -66,15 +66,15 @@
                                 <tbody>
                                     @forelse ($bookings as $item)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->rooms->room_code}}</td>
                                             <td>{{ $item->rooms->name }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{!! $item->status
-                                                ? 'Còn trống' : 'Đã đặt' !!}</td>
+                                            <td>{{$item->phone}}</td>
                                             <td>{{ $item->check_in }}</td>
                                             <td>{{ $item->check_out }}</td>
                                             <td>
-                                                <a href="{{ route('booking.edit', $item) }}"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('booking.edit', $item) }}"><i
+                                                    class="fas fa-edit"></i></a>
                                                 <form action="{{ route('booking.destroy', $item) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')

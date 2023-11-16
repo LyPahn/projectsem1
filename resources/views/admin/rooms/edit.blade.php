@@ -120,7 +120,7 @@
                                                     src="{{ asset('storage/images/' . $item->image) }}" alt=""
                                                     width="100px">
                                             @endforeach
-                                            @error('photo')
+                                            @error('photo[]')
                                                 <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -132,12 +132,11 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03">Trạng
-                                                    thái:</label>
+                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect03" name="isBooked">
-                                                <option value="1" {{ $room->isBooked === $item->id ? 'selected' : '' }}>On</option>
-                                                <option  value="0" {{ $room->isBooked === $item->id ? 'selected' : '' }}>Off</option>
+                                            <select class="custom-select" id="inputGroupSelect03" name="propose">
+                                                <option  value="1" selected>On</option>
+                                                <option  value="0">Off</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -147,13 +146,11 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
+                                                <label class="input-group-text" for="inputGroupSelect03">Trạng thái</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect03">
-                                                <option name="status" value="1"
-                                                    {{ $room->status === $item->id ? 'selected' : '' }}>On</option>
-                                                <option name="status" value="0"
-                                                    {{ $room->status === $item->id ? 'selected' : '' }}>Off</option>
+                                            <select class="custom-select" id="inputGroupSelect03" name="status">
+                                                <option  value="1" selected>Còn trống</option>
+                                                <option  value="0">Đã đặt</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -163,7 +160,7 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">Số người:</label>
+                                        <label for="inputGroupSelect07" class="">Số người lớn:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
                                             name="adluts" value="{{ old('adluts') ? old('adluts') : $room->adluts }}">
                                         @error('adluts')
@@ -173,9 +170,9 @@
                                 </div><!-- end column -->
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">Số người:</label>
+                                        <label for="inputGroupSelect07" class="">Số trẻ em:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
-                                            name="children" value="{{ old('children') ? old('children') : $room->people }}">
+                                            name="children" value="{{ old('children') ? old('children') : $room->children }}">
                                         @error('children')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror

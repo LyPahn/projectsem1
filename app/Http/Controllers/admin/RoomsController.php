@@ -20,7 +20,17 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = rooms::orderBy('created_at' , 'desc')->get();
-        return view('admin.rooms.index', compact('rooms'));
+        $bookings = bookings::all();
+        $status = '';
+        foreach ($rooms as $key => $value1) {
+            foreach ($bookings as $key => $value) {
+
+                if ($value1->id == $value->room_id) {
+                    $status = 0;
+                }
+            };
+        };
+        return view('admin.rooms.index', compact('rooms','bookings','status'));
     }
 
     /**
@@ -85,7 +95,7 @@ class RoomsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(RoomEditRequest $request, rooms $room)
+    public function update(Request $request, rooms $room)
     {         
         
         if(!$request->photo==""){
@@ -109,10 +119,12 @@ class RoomsController extends Controller
                     ]);
                 }
             }
+            return redirect()->route('rooms.index')->with('success','Cập nhật thành công');
         } catch (\Throwable $th) {
+            dd($th);
             return redirect()->back()->with('error','Cập nhật thất bại');
         }
-        return redirect()->route('rooms.index')->with('success','Cập nhật thành công');
+        
     }
 
     /**

@@ -25,9 +25,11 @@ class RoomEditRequest extends FormRequest
         return [
             'name' => ['required'],
             'photo' => ['image'],
+            'photo[]' => ['image'],
             'price' => ['required','numeric'],
             'room_code' => 'required | unique:rooms,room_code,'.$this->id,
-            'people' => 'required | min:0 | max:5'
+            'adluts' => ['required' , 'min:1' , 'max:5'],
+            'children' => ['required' , 'min:1' , 'max:5'],
         ];
     }
 
@@ -36,13 +38,18 @@ class RoomEditRequest extends FormRequest
         return[
             'name.required'=> 'Không được để trống',
             'photo.image' => 'Đuôi ảnh không hợp lệ',
+            'photo[].image' => 'Đuôi ảnh không hợp lệ',
             'price.required' => 'Không được để trống',
             'price.numeric' => 'Sai định dạng',
             'room_code.required' => 'Không được để trống',
             'room_code.unique' => 'Mã phòng đã tồn tại',
-            'people.required' => 'Không được để trống',
-            'people.min' => 'Số người phải lớn hơn 0',
-            'people.max' => 'Số người phải nhỏ hơn 5'
+            'adluts.required' => 'Không được để trống',
+            'adluts.min' => 'Tối thiểu 1 người',
+            'adluts.max' => 'Tối đa 5 người',
+            'children.required' => 'Không được để trống',
+            'children.min' => 'Tối thiểu 1 người',
+            'children.max' => 'Tối đa 5 người',
+
         ];
     }
 }

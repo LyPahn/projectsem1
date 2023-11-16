@@ -54,11 +54,10 @@
                             <table id="example" class="display table-hover table-responsive-xl listing">
                                 <thead>
                                     <tr>
-                                        <th>STT</th>
+                                        <th>Mã phòng</th>
                                         <th>Img</th>
                                         <th>Hạng phòng</th>
                                         <th>Tên phòng</th>
-                                        <th>Mã phòng</th>
                                         <th>Giá</th>
                                         <th>Số lượng người lớn</th>
                                         <th>Số lượng trẻ em</th>
@@ -70,17 +69,26 @@
                                 <tbody>
                                     @forelse ($rooms as $item)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->room_code }}</td>
                                             <td><img src="{{ asset('storage/images/' . $item->image) }}" alt="table-img"
                                                 class="img-fluid rounded-circle" width="40px"></td>
                                                 <td>{{ $item->typeRooms->room_type }}</td>
                                                 <td>{{ $item->name }}</td>
-                                                <td>{{ $item->room_code }}</td>
                                                 <td>{{ number_format($item->price) }}/night</td>
                                                 <td>{{ $item->adluts }}</td>
                                                 <td>{{ $item->children }}</td>
-                                                <td class="{{ $item->isBooked ? 'active' : 'draft' }}">
-                                                    <span>{{ $item->isBooked ? 'On' : 'Off' }}</span>
+                                                <td >
+                                                    @if (isset($status))
+                                                        @if ($status == 0)
+                                                        <span>Đã đặt</span>        
+                                                        @else
+                                                        <span>{{ $item->status ? 'Còn trống' : 'Đã đặt' }}</span>        
+                                                        @endif
+                                                    
+                                                    @else
+                                                    
+                                                    @endif
+                                                    
                                                 </td>
                                                 <td>{{$item->created_at}}</td>
                                             <td>

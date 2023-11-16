@@ -43,14 +43,35 @@
                             action="{{ route('booking.update', $booking) }}">
                             @csrf
                             @method('PUT')
-                            <div class="form-group">
-                                <label for="inputGroupSelect07" class="">Tên khách hàng:</label>
-                                <input type="text" class="form-control" required id="inputGroupSelect07"
-                                    name="name" value="{{ old('name') ? old('name') : $booking->name }}">
-                                @error('name')
-                                    <span class="help-block " style="color: red">{{ $message }}</span>
-                                @enderror
-                            </div><!-- end form-group -->
+                            <div class="form-row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                    <label for="inputGroupSelect07" class="">Tên khách hàng:</label>
+                                    <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="name" value="{{ old('name') ? old('name') : $booking->name }}">
+                                        @error('name')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Phòng:</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="room_id">
+                                                <option selected>Choose...</option>
+                                                @foreach ($rooms as $item)
+                                                    <option value="{{ $item->id }}" {{ $booking->room_id === $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                            </div><!-- end form-row -->
+                            
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
@@ -73,38 +94,7 @@
                                     </div><!-- end form-group -->
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
-                            <div class="form-row">
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Trạng thái:</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="status">
-                                                <option value="1" {{ $booking->status ? 'selected' : '' }}>Còn trống</option>
-                                                <option value="0" {{ !$booking->status ? 'selected' : '' }}>đã đặt</option>
-                                            </select>
-                                            <i class="fas fa-angle-down"></i>
-                                        </div>
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Phòng:</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="room_id">
-                                                <option selected>Choose...</option>
-                                                @foreach ($rooms as $item)
-                                                    <option value="{{ $item->id }}" {{ $booking->room_id === $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            <i class="fas fa-angle-down"></i>
-                                        </div>
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
-                            </div><!-- end form-row -->
+                            
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">

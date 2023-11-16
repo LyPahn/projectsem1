@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('phone', 100);
             $table->unsignedBigInteger('room_id')->nullable()->default(12);
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
-            $table->tinyInteger('status')->nullable()->default(1);
             $table->integer('adluts');
             $table->integer('children');
             $table->date('check_in');

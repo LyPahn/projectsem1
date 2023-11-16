@@ -28,14 +28,14 @@
                                 <div class="contact-block">
                                     <span><i class="fa fa-envelope"></i></span>
                                     <p>Nếu bạn đang di chuyển và vẫn muốn đặt câu hỏi, chỉ cần gửi email cho chúng tôi.</p>
-                                    <p class="support">support@starhotel.com</p>
+                                    <p class="support">lyphanc@gmail.com</p>
                                 </div><!-- end contact-block -->
                             </li>
                             <li>
                                 <div class="contact-block">
                                     <span><i class="fa fa-phone"></i></span>
-                                    <p>If you're on the go and still want to ask a question, just give us a call.</p>
-                                    <p class="support">+123–4567 890</p>
+                                    <p>If you're on the go and still want to ask a question, just give us a call..</p>
+                                    <p class="support">+0865921904</p>
                                 </div><!-- end contact-block -->
                             </li>
                             <li>
