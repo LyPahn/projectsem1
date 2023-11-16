@@ -16,69 +16,6 @@
 	</section><!-- end page-cover -->
 	
 	
-	<!--============= SEARCH-BAR =============-->
-	<section class="search-bar">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-12 col-lg-12 col-xl-12">
-				
-					<form>
-						<div class="row">
-							<div class="col-12 col-md-12 col-lg-10 col-xl-10">
-								<div class="row">
-									<div class="col-12 col-md-6 col-lg-3 col-xl-3">
-										<div class="form-group">    
-											<input type="text" class="form-control dpd1" placeholder="Check-in" id="datepicker1" required/>
-											<span><i class="fa fa-calendar"></i></span>
-										</div>
-									</div><!-- end columns -->
-									
-									<div class="col-12 col-md-6 col-lg-3 col-xl-3">
-										<div class="form-group">
-											<input type="text" class="form-control dpd2" placeholder="Check-out" id="datepicker2" required/>
-											<span><i class="fa fa-calendar"></i></span>
-										</div>
-									</div><!-- end columns -->
-									
-									<div class="col-12 col-md-6 col-lg-3 col-xl-3">
-										<div class="form-group">
-											<span><i class="fa fa-angle-down"></i></span>
-											<select class="form-control">
-												<option selected>Người lớn</option>
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-											</select>
-										</div>
-									</div><!-- end columns -->
-									
-									<div class="col-12 col-md-6 col-lg-3 col-xl-3">
-										<div class="form-group">
-											<span><i class="fa fa-angle-down"></i></span>
-											<select class="form-control">
-												<option selected>Trẻ em</option>
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-											</select>
-										</div>
-									</div><!-- end columns -->
-								</div>
-							</div>
-							
-							<div class="col-12 col-md-12 col-lg-2 col-xl-2 text-center avail">
-								<a href="#" class="btn btn-default btn-black">Tìm kiếm</a>
-							</div><!-- end columns -->
-							
-						</div><!-- end row -->
-					</form>
-					
-				</div><!-- end columns -->
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</section><!-- end search-bar -->
-	
-	
 	<!--=============INNERPAGE-WRAPPER ===========-->
 	<section id="room-details-page" class="innerpage-wrapper">
 	

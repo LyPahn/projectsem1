@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\RoomsController;
 use App\Http\Controllers\Admin\RoomsTypeController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\user\BookingController as UserBookingController;
+use App\Http\Controllers\user\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 Route::get('/detail/{id}',[HomeController::class, 'roomDetail'])->name('room.detail');
 route::get('/booking/{room}',[UserBookingController::class,'index'])->name('UserBooking.index');
 route::post('/booking',[UserBookingController::class,'store'])->name('UserBooking.store');
+route::post('/search',[SearchController::class,'store'])->name('user.search');
 Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
 Route::post('/logonPost', [AdminController::class, 'logonstore'])->name('logon.store');
 Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');

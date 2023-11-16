@@ -194,7 +194,7 @@
 
                         <div class="col-lg-7 col-xl-6 full-page-form">
                             <div class="custom-form">
-                                <h3>Login</h3>
+                                <h3>Logon</h3>
                                 <form class="text-left" method="POST" action="{{ route('logon.store') }}">
                                     @csrf
                                     @if ($message = Session::get('err'))
