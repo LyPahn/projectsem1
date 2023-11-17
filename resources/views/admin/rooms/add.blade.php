@@ -43,16 +43,7 @@
                             action="{{ route('rooms.store') }}">
                             @csrf
                             <div class="form-row">
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">Mã phòng:</label>
-                                        <input type="text" class="form-control" required id="inputGroupSelect07"
-                                            name="room_code" value="{{ old('room_code') }}">
-                                        @error('room_code')
-                                            <span class="help-block " style="color: red">{{ $message }}</span>
-                                        @enderror
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
+                                
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="inputGroupSelect07" class="">Tên phòng:</label>
@@ -121,6 +112,16 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
+                                        <label for="inputGroupSelect07" class="">Mã phòng:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="room_code" value="{{ old('room_code') }}">
+                                        @error('room_code')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div><!-- end form-group -->
+                                </div><!-- end column -->
+                                <div class="col-md">
+                                    <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
@@ -133,20 +134,7 @@
                                         </div>
                                     </div><!-- end form-group -->
                                 </div><!-- end column -->
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03">Trạng thái</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect03" name="status">
-                                                <option  value="1" selected>Còn trống</option>
-                                                <option  value="0">Đã đặt</option>
-                                            </select>
-                                            <i class="fas fa-angle-down"></i>
-                                        </div>
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
+
                             </div><!-- end form-row -->
                             <div class="form-row">
                                 <div class="col-md">
@@ -180,7 +168,7 @@
                                     <button type="submit" class="btn">Submit</button>
                                 </li>
                                 <li class="list-inline-item">
-                                    <button type="submit" class="btn">Cancel</button>
+                                    <button class="btn"><a href="{{route('rooms.index')}}" style="color: #fff">Cancel</a></button>
                                 </li>
                             </ul>
 

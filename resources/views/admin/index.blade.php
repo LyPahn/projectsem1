@@ -6,12 +6,12 @@
                 <div class="row no-gutters">
                     <div class="col">
                         <div class="heading-messages">
-                            <h3>Dashboard</h3>
+                            <h3>Trang chủ</h3>
                         </div><!-- End heading-messages -->
                     </div><!-- End column -->
                     <div class="col-md-4">
                         <div class="breadcrumb">
-                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Dashboard</a>
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Trang chủ</a>
                             </div>
                         </div><!-- End Breadcrumbs-->
                     </div><!-- End column -->
@@ -22,13 +22,13 @@
                         <div class="row">
                             <div class="col-xl">
                                 <div class="dashboard-box">
-                                    <h4>Projects Completed</h4>
+                                    <h4>Đơn đã hoàn thành</h4>
                                     <h1 class="pbh1"><i class="fas fa-briefcase pb1i"></i>2400</h1>
                                     <div class="progress">
                                         <div class="progress-bar pb1" role="progressbar" aria-valuenow="25"
                                             aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <p>60% Increase From Last Year</p>
+                                    <p>Tăng 60% so với năm ngoái</p>
                                 </div>
                             </div>
                             <div class="col-md">

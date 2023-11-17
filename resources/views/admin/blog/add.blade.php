@@ -101,7 +101,7 @@
                                 <button type="submit" class="btn">Submit</button>
                             </li>
                             <li class="list-inline-item">
-                                <button type="submit" class="btn">Cancel</button>
+                                <button class="btn"><a href="{{route('blog.index')}}" style="color: #fff">Cancel</a></button>
                             </li>
                         </ul>
 

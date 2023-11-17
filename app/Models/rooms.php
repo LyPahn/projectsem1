@@ -10,7 +10,7 @@ class rooms extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['id','name','image','type_id','isBooked','price','adluts','children', 'status','room_code', 'propose', ];
+    protected $fillable = ['id','name','image','type_id','price','adluts','children', 'room_code', 'propose' ];
     
     /**
      * Get the user that owns the rooms
@@ -31,4 +31,16 @@ class rooms extends Model
     {
         return $this->hasMany(images::class, 'room_id', 'id');
     }
+
+    /**
+     * Get the user that owns the rooms
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function booking()
+    {
+        return $this->hasOne(bookings::class, 'room_id','id');
+    }
+
 }

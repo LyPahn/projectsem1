@@ -47,17 +47,6 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">Mã phòng:</label>
-                                        <input type="text" class="form-control" required id="inputGroupSelect07"
-                                            name="room_code"
-                                            value="{{ old('room_code') ? old('room_code') : $room->room_code }}">
-                                        @error('room_code')
-                                            <span class="help-block " style="color: red">{{ $message }}</span>
-                                        @enderror
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
-                                <div class="col-md">
-                                    <div class="form-group">
                                         <label for="inputGroupSelect07" class="">Tên phòng:</label>
                                         <input type="text" class="form-control" required id="inputGroupSelect07"
                                             name="name" value="{{ old('name') ? old('name') : $room->name }}">
@@ -78,7 +67,9 @@
                                             <select class="custom-select" id="inputGroupSelect01" name="type_id">
                                                 <option selected>Choose...</option>
                                                 @foreach ($type_rooms as $item)
-                                                    <option value="{{ $item->id }}" {{ $room->type_id === $item->id ? 'selected' : '' }}>{{ $item->room_type }}</option>
+                                                    <option value="{{ $item->id }}"
+                                                        {{ $room->type_id === $item->id ? 'selected' : '' }}>
+                                                        {{ $item->room_type }}</option>
                                                 @endforeach
                                             </select>
                                             <i class="fas fa-angle-down"></i>
@@ -130,27 +121,24 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect03" name="propose">
-                                                <option  value="1" selected>On</option>
-                                                <option  value="0">Off</option>
-                                            </select>
-                                            <i class="fas fa-angle-down"></i>
-                                        </div>
+                                        <label for="inputGroupSelect07" class="">Mã phòng:</label>
+                                        <input type="text" class="form-control" required id="inputGroupSelect07"
+                                            name="room_code"
+                                            value="{{ old('room_code') ? old('room_code') : $room->room_code }}">
+                                        @error('room_code')
+                                            <span class="help-block " style="color: red">{{ $message }}</span>
+                                        @enderror
                                     </div><!-- end form-group -->
                                 </div><!-- end column -->
                                 <div class="col-md">
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03">Trạng thái</label>
+                                                <label class="input-group-text" for="inputGroupSelect03">Đề xuất:</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect03" name="status">
-                                                <option  value="1" selected>Còn trống</option>
-                                                <option  value="0">Đã đặt</option>
+                                            <select class="custom-select" id="inputGroupSelect03" name="propose">
+                                                <option value="1" selected>On</option>
+                                                <option value="0">Off</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -172,7 +160,8 @@
                                     <div class="form-group">
                                         <label for="inputGroupSelect07" class="">Số trẻ em:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
-                                            name="children" value="{{ old('children') ? old('children') : $room->children }}">
+                                            name="children"
+                                            value="{{ old('children') ? old('children') : $room->children }}">
                                         @error('children')
                                             <span class="help-block " style="color: red">{{ $message }}</span>
                                         @enderror
@@ -180,8 +169,8 @@
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
                             <div class="form-group">
-                                <textarea name="description" id="editor1" rows="10" cols="80"
-                                    value="{{ old('description') ? old('description') : $room->description }}">
+                                <textarea name="description" id="editor1" rows="10" cols="80">
+                                    {{ old('description') ? old('description') : $room->description }}
                                 </textarea>
                             </div><!-- end form-group -->
                             <ul class="list-inline">
@@ -189,7 +178,7 @@
                                     <button type="submit" class="btn">Submit</button>
                                 </li>
                                 <li class="list-inline-item">
-                                    <button type="submit" class="btn">Cancel</button>
+                                    <button class="btn"><a href="{{route('rooms.index')}}" style="color: #fff">Cancel</a></button>
                                 </li>
                             </ul>
 

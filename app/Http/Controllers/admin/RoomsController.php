@@ -20,17 +20,9 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = rooms::orderBy('created_at' , 'desc')->get();
-        $bookings = bookings::all();
-        $status = '';
-        foreach ($rooms as $key => $value1) {
-            foreach ($bookings as $key => $value) {
-
-                if ($value1->id == $value->room_id) {
-                    $status = 0;
-                }
-            };
-        };
-        return view('admin.rooms.index', compact('rooms','bookings','status'));
+        // $bookings = bookings::all();
+        
+        return view('admin.rooms.index', compact('rooms'));
     }
 
     /**

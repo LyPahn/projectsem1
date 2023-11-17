@@ -74,21 +74,11 @@
                                                 class="img-fluid rounded-circle" width="40px"></td>
                                                 <td>{{ $item->typeRooms->room_type }}</td>
                                                 <td>{{ $item->name }}</td>
-                                                <td>{{ number_format($item->price) }}/night</td>
+                                                <td>{{ number_format($item->price) }}/Đêm</td>
                                                 <td>{{ $item->adluts }}</td>
                                                 <td>{{ $item->children }}</td>
                                                 <td >
-                                                    @if (isset($status))
-                                                        @if ($status == 0)
-                                                        <span>Đã đặt</span>        
-                                                        @else
-                                                        <span>{{ $item->status ? 'Còn trống' : 'Đã đặt' }}</span>        
-                                                        @endif
-                                                    
-                                                    @else
-                                                    
-                                                    @endif
-                                                    
+                                                    <span>{{$item->booking ? 'Đã đặt' : 'Còn trống'}}</span>
                                                 </td>
                                                 <td>{{$item->created_at}}</td>
                                             <td>

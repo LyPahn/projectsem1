@@ -7,14 +7,14 @@
 
                     <div class="col">
                         <div class="heading-messages">
-                            <h3>Hotel Listing</h3>
+                            <h3>Hạng phòng</h3>
                         </div><!-- End heading-messages -->
                     </div><!-- End column -->
                     <div class="col-md-4">
                         <div class="breadcrumb">
-                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="{{ route('rooms_type.index') }}">Danh sách</a>
                             </div>
-                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Create
+                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Cập nhật
                             </div>
                         </div><!-- end breadcrumb-->
                     </div><!-- end column -->
@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="details-text">
-                                <h4>Add Details</h4>
+                                <h4>Cập nhật</h4>
                             </div><!-- end details-text -->
                         </div><!-- End column -->
                     </div><!-- end row -->
@@ -49,7 +49,7 @@
                             </div><!-- end form-row -->
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <button type="submit" class="btn">Submit</button>
+                                    <button type="submit" class="btn">Cập nhật</button>
                                 </li>
                                 <li class="list-inline-item">
                                     <button class="btn"><a href="{{ route('rooms_type.index') }}"
