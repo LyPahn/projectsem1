@@ -85,7 +85,7 @@
                 <h2>Giới thiệu về Star Hotel</h2>
                 <p>Khách sạn Star Hotel tự hào là một trong những khách sạn 5 sao có chất lượng dịch vụ cao cấp nhất khu vực Đông Nam Á kể từ khi hoạt động vào tháng 10 năm 2013.</p>
                 <p>Được thiết kế bởi công ty kiến trúc Carlos Zapata Studio nổi tiếng lấy cảm hứng từ hình ảnh con rồng huyền thoại trong dân gian và những đường bờ biển tuyệt đẹp của Việt Nam, khách sạn Star Hotel gây được thiện cảm trong lòng khách hàng bởi một phong cách hiện đại nhưng vẫn mang đậm nét văn hóa truyền thống Việt Nam.</p>
-                <a href="about-1.html" class="btn btn-lg btn-padding">Chi tiết</a>
+                <a href="{{route('user.about')}}" class="btn btn-lg btn-padding">Chi tiết</a>
             </div><!-- end columns -->
 
             <div class="col-12 col-md-6 col-lg-6 col-xl-6">
@@ -127,8 +127,6 @@
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="page-heading">
                     <h2>Phòng <span>mới nhất</span> </h2>
-                    {{-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut laoreet dolore magna aliquam erat volutpat.</p> --}}
                 </div><!-- end page-heading -->
 
                 <div class="owl-carousel owl-theme" id="owl-rooms">
@@ -168,7 +166,7 @@
                         </div>
                     
                     @empty
-                        
+                        <span>Chưa có dữ liệu</span>
                     @endforelse
 
                 </div><!-- end owl-rooms -->

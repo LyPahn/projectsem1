@@ -57,7 +57,11 @@
                                         <th>STT</th>
                                         <th>Tên phòng đã đặt</th>
                                         <th>Tên khách hàng</th>
+<<<<<<< Updated upstream
                                         <th>status</th>
+=======
+                                        <th>Số điện thoại</th>
+>>>>>>> Stashed changes
                                         <th>check_in</th>
                                         <th>check_out</th>
                                         <th>Tùy chọn</th>

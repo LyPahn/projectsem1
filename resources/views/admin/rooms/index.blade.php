@@ -54,16 +54,7 @@
                             <table id="example" class="display table-hover table-responsive-xl listing">
                                 <thead>
                                     <tr>
-<<<<<<< Updated upstream
                                         <th>Mã phòng</th>
-=======
-                                        <th>
-                                            <div class="form-check">
-                                                <input class="form-check-input" id="master-checkbox" onclick="checkbox()" type="checkbox">
-                                            </div>
-                                        </th>
-                                        <th>STT</th>
->>>>>>> Stashed changes
                                         <th>Img</th>
                                         <th>Hạng phòng</th>
                                         <th>Tên phòng</th>
@@ -79,10 +70,7 @@
                                 <tbody>
                                     @forelse ($rooms as $item)
                                         <tr>
-<<<<<<< Updated upstream
                                             <td>{{ $item->room_code }}</td>
-                                            <td><img src="{{ asset('storage/images/' . $item->image) }}" alt="table-img"
-                                                class="img-fluid rounded-circle" width="40px"></td>
                                                 <td>{{ $item->typeRooms->room_type }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ number_format($item->price) }}/night</td>
