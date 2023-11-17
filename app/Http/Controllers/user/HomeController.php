@@ -13,12 +13,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $room = rooms::where('status' , 1)->orderBy('created_at' , 'desc')->get()->take(9);
-        // $tab = tab::where('status',0)->get();
+        $room = rooms::orderBy('created_at' , 'desc')->get()->take(9);
+        
         $blog = Blog::where('status',0)->orderBy('created_at' , 'desc')->take(3)->get();
-        $banner = Banner::where('status',0)->take(3)->get();
-        $news = Blog::where('status',0)->take(2)->get();
-        return view('user.index',compact('blog','banner','news' ,'room'));
+        return view('user.index',compact('blog' ,'room'));
     }
 
     public function listRoom(){
