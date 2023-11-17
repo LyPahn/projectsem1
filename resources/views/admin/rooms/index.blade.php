@@ -55,7 +55,6 @@
                                 <thead>
                                     <tr>
                                         <th>Mã phòng</th>
-                                        <th>Img</th>
                                         <th>Hạng phòng</th>
                                         <th>Tên phòng</th>
                                         <th>Giá</th>
@@ -70,8 +69,6 @@
                                     @forelse ($rooms as $item)
                                         <tr>
                                             <td>{{ $item->room_code }}</td>
-                                            <td><img src="{{ asset('storage/images/' . $item->image) }}" alt="table-img"
-                                                class="img-fluid rounded-circle" width="40px"></td>
                                                 <td>{{ $item->typeRooms->room_type }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ number_format($item->price) }}/Đêm</td>

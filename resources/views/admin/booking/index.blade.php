@@ -57,7 +57,7 @@
                                         <th>Mã phòng</th>
                                         <th>Tên phòng đã đặt</th>
                                         <th>Tên khách hàng</th>
-                                        <th>Số điện tho</th>
+                                        <th>Số điện thoại</th>
                                         <th>check_in</th>
                                         <th>check_out</th>
                                         <th>Tùy chọn</th>

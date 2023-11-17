@@ -34,7 +34,7 @@
                 <a href="{{ route('admin.index') }}" class="items-list first active">
                     <span><i class="fa fa-home link-icon" data-toggle="tooltip" data-html="true"
                             title="Dashboard"></i></span>
-                    <span class="items-list-text">Dashboard</span>
+                    <span class="items-list-text">Trang chủ</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -63,7 +63,7 @@
                 <a href="#booking" class="items-list" data-toggle="collapse" aria-expanded="false">
                     <span><i class="fas fa-suitcase-rolling" data-toggle="tooltip" data-html="true"
                             title="Bookings"></i></span>
-                    <span class="items-list-text">Booking</span>
+                    <span class="items-list-text">Đơn đặt phòng</span>
                     <span><i class="fa fa-chevron-down arrow"></i></span>
                 </a>
                 <div class="collapse sub-menu" id="booking">
@@ -77,44 +77,7 @@
                     <span class="items-list-text">BLOG</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="bookmarks.html" class="items-list">
-                    <span><i class="far fa-bookmark" data-toggle="tooltip" data-html="true"
-                            title="Messages"></i></span>
-                    <span class="items-list-text">Bookmarks</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#messages" class="items-list" data-toggle="collapse" aria-expanded="false">
-                    <span><i class="far fa-envelope" data-toggle="tooltip" data-html="true"
-                            title="Messages"></i></span>
-                    <span class="items-list-text">Messages</span>
-                    <span><i class="fa fa-chevron-down arrow"></i></span>
-                </a>
-                <div class="collapse sub-menu" id="messages">
-                    <a class="items-list1" href="messages-inbox.html">Inbox</a>
-                    <a class="items-list1" href="messages-compose.html">Compose</a>
-                    <a class="items-list1" href="messages-details.html">Details</a>
-                    <a class="items-list1" href="messages-starred.html">Starred</a>
-                    <a class="items-list1" href="messages-important.html">Important</a>
-                    <a class="items-list1" href="messages-sent.html">Sent</a>
-                    <a class="items-list1" href="messages-drafts.html">Drafts</a>
-                    <a class="items-list1" href="messages-trash.html">Trash</a>
-                </div><!-- End sub-menu -->
-            </li>
-            <li class="nav-item">
-                <a href="#profile" class="items-list" data-toggle="collapse" aria-expanded="false">
-                    <span><i class="fas fa-building" data-toggle="tooltip" data-html="true"
-                            title="Profile"></i></span>
-                    <span class="items-list-text">Profile</span>
-                    <span><i class="fa fa-chevron-down arrow"></i></span>
-                </a>
-                <div class="collapse sub-menu" id="profile">
-                    <a class="items-list1" href="profile-view-profile.html">View Profile</a>
-                    <a class="items-list1" href="profile-edit-profile.html">Edit Profile</a>
-                    <a class="items-list1" href="profile-change-password.html">Change Password
-
->>>>>>> Stashed changes
+     
                     </a>
                 </div><!-- End sub-menu -->
             </li>
