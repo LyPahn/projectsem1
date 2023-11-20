@@ -216,40 +216,4 @@
 
 
 
-<!--===================== LATEST-BLOG ===================-->
-<section id="latest-blog" class="section-padding no-pd-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="page-heading">
-                    <h2><span>Blog</span> mới nhất</h2>
-                    <p>Để giới thiệu kiến ​​thức địa phương của bạn! Sử dụng blog của bạn để kết nối độc giả với các mẹo và hiểu biết địa phương độc quyền từ nhóm của bạn.</p>
-                </div><!-- end page-heading -->
-
-                <div class="row">
-                    @forelse ($blog as $item)
-                        
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-                        <div class="latest-block">
-                            <div class="latest-img">
-                                <img src="{{asset('storage/images/'.$item->image)}}" class="img-fluid" alt="Blog-Image" width="100%" />
-
-                                <div class="latest-info">
-                                    <p><span><i class="fa fa-calendar"></i></span> {{$item->created_at}}</p>
-                                    <h2>{{$item->tittle}}</h2>
-                                    <a href="{{$item->link_blog}}">Xem thêm</a>
-                                </div><!-- end latest-info -->
-                            </div><!-- end latest-img -->
-                        </div><!-- end latest-block -->
-                    </div><!-- end columns -->
-                    @empty
-                        
-                    @endforelse
-
-                </div><!-- end row -->
-
-            </div><!-- end columns -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end blog -->
 @endsection
