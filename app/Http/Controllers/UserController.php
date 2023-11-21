@@ -24,7 +24,7 @@ class UserController extends Controller
         $req->merge(['password'=>Hash::make($req->password)]);
         try {
             User::create($req->all());
-            return redirect()->route('logon');
+            return redirect()->route('login');
         } catch (\Throwable $th) {
             dd($th);
         }

@@ -6,11 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\bookings;
 use App\Models\rooms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class BookingController extends Controller
 {
     public function index($id){
+        if(Auth::user() == ''){
+            return view('user.login');
+        }
         $room = rooms::find($id); 
         return view('user.booking',compact('room'));
     }

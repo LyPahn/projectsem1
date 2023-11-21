@@ -52,11 +52,11 @@
 
                         <div class="col-lg-7 col-xl-6 full-page-form">
                             <div class="custom-form">
-                                <h3>Registration</h3>
+                                <h3>Đăng ký</h3>
                                 <form method="POST" action="{{ route('register.store') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Username"
+                                        <input type="text" class="form-control" placeholder="Tên tài khoản"
                                             name="name" required />
                                         <span><i class="fa fa-user"></i></span>
                                         @error('name')
@@ -74,7 +74,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password"
+                                        <input type="password" class="form-control" placeholder="Mật khẩu"
                                             name="password" required />
                                         <span><i class="fa fa-lock"></i></span>
                                         @error('password')
@@ -83,7 +83,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Confirm Password"
+                                        <input type="password" class="form-control" placeholder="Xác nhận mật khẩu"
                                             name="Rpassword" required />
                                         <span><i class="fa fa-lock"></i></span>
                                         @error('Rpassword')
@@ -94,12 +94,11 @@
                                         @endif
                                     </div>
 
-                                    <button class="btn btn-yellow btn-block" type="submit">Register</button>
+                                    <button class="btn btn-yellow btn-block" type="submit">Đăng ký</button>
                                 </form>
 
                                 <div class="other-links">
-                                    <p class="link-line">Already Have An Account ? <a href="login-2.html">Login
-                                            Here</a></p>
+                                    <p class="link-line">Bạn đã có tài khoản ? <a href="{{route('login')}}">Đăng nhập</a></p>
                                 </div><!-- end other-links -->
                             </div><!-- end custom-form -->
                         </div><!-- end columns -->

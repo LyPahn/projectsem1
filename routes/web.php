@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AccountController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\AdminController;
@@ -47,12 +48,6 @@ Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',[DashBoardController::class,'index'])->name('admin.index');
-    Route::resource('banner', BannerController::class);
-    // route::resource('tabs',TabController::class);
-    Route::resource('blog', BlogController::class);
-    Route::get('/blog_trash', [BlogController::class, 'trash'])->name('blog.trash');
-    Route::get('/blog_restore/{id}', [BlogController::class, 'restore'])->name('blog.restore');
-    Route::get('/blog_forceDelete/{id}', [BlogController::class, 'forceDeleted'])->name('blog.forceDeleted');
     Route::resource('rooms', RoomsController::class);
     Route::get('/rooms_trash', [RoomsController::class, 'trash'])->name('rooms.trash');
     Route::get('/rooms_restore/{id}', [RoomsController::class, 'restore'])->name('rooms.restore');
@@ -65,4 +60,5 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/trash_booking', [BookingController::class, 'trash'])->name('booking.trash');
     Route::get('/restore_booking/{id}', [BookingController::class, 'restore'])->name('booking.restore');
     Route::get('/forceDelete_booking/{id}', [BookingController::class, 'forceDeleted'])->name('booking.forceDeleted');
+    route::resource('account', AccountController::class);
 });

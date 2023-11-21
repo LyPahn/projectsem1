@@ -1,84 +1,128 @@
 <!doctype html>
 <html lang="en">
-
+    
+<!-- Mirrored from kiswa.net/themes/star-hotel/demo/demo-ltr/login-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 07:28:13 GMT -->
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Login 1</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="icon" href="{{asset('fe')}}/images/favicon.png" type="image/x-icon">
+        
+        <!-- Google Fonts -->	
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+        
+        <!-- Bootstrap Stylesheet -->	
+        <link rel="stylesheet" href="{{asset('fe')}}/css/bootstrap.min4.3.1.css">
+        
+        <!-- Font Awesome Stylesheet -->
+        <link rel="stylesheet" href="{{asset('fe')}}/css/font-awesome.min.css">
+            
+        <!-- Custom Stylesheets -->	
+        <link rel="stylesheet" href="{{asset('fe')}}/css/style.css">
+        <link rel="stylesheet" id="cpswitch" href="{{asset('fe')}}/css/yellow.css">
+        <link rel="stylesheet" href="{{asset('fe')}}/css/responsive.css">
+    </head>
+    
+    
+    <body>
+        
+        <!--====== LOADER =====-->
+        <div class="loader"></div>
+        
+        
+        <!--========== TOP-BAR ==========-->
+        <div id="top-bar">
+            <div class="container">
+                <div class="row">          
+                    <div class="col-12 col-md-8 col-lg-8 col-xl-8">
+                        <div id="info">
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item"><span><i class="fa fa-map-marker"></i></span>29 Land St, Lorem City, CA</li>
+                                <li class="list-inline-item"><span><i class="fa fa-phone"></i></span>+00 123 4567</li>
+                            </ul>
+                        </div><!-- end info -->
+                    </div><!-- end columns -->
+                    
+                    <div class="col-12 col-md-4 col-lg-4 col-xl-4">
+                        <div id="links">
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item"><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
+                                <li class="list-inline-item"><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+                                <li class="list-inline-item"><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
+                                <li class="list-inline-item"><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a></li>
+                                <li class="list-inline-item">
+                                    <form>
+                                        <div class="form-group">
+                                            <span><i class="fa fa-angle-down"></i></span>
+                                            <select class="form-control">
+                                                <option value="">EN</option>
+                                                <option value="">UR</option>
+                                                <option value="">FR</option>
+                                                <option value="">IT</option>
+                                            </select>
+                                        </div><!-- end form-group -->
+                                    </form>
+                                </li>
+                            </ul>
+                        </div><!-- end links -->
+                    </div><!-- end columns -->				
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div><!-- end top-bar -->
+        
+        
+        <!--================== INNERPAGE-WRAPPER ================-->
+        <section id="custom-form-wrapper" class="innerpage-wrapper">
+        
+        	<div id="login" class="innerpage-section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="custom-form">
+                                <h3>Đăng nhập</h3>
+                                <form class="text-left" action="{{route('login.store')}}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                         <input type="text" class="form-control" placeholder="Email" name="email"  required/>
+                                         <span><i class="fa fa-user"></i></span>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                         <input type="password" class="form-control" placeholder="Mật khẩu" name="password" required/>
+                                         <span><i class="fa fa-lock"></i></span>
+                                    </div>
+                                    
+                                    <div class="custom-check">
+                                    	<input type="checkbox" id="check" name="checkbox"/>
+                                         <label for="check"><span><i class="fa fa-check"></i></span>Remember Me</label>
+                                    </div><!-- end checkbox -->
+                                    
+                                    <button class="btn btn-yellow btn-block" type="submit">Đăng nhập</button>
+                                </form>
+                                
+                                <div class="other-links">
+                                    <p class="link-line">New Here ? <a href="{{route('register')}}">Signup</a></p>
+                                    <a class="simple-link" href="forgot-password-1.html">Forgot Password ?</a>
+                                </div><!-- end other-links -->
+                            </div><!-- end custom-form -->
+                            
+                        </div><!-- end columns -->
+                    </div><!-- end row -->
+                </div><!-- end container -->         
+            </div><!-- end login -->
+            
+        </section><!-- end innerpage-wrapper -->
+        
+        
+        
+        
+        <!-- Page Scripts Starts -->
+        <script src="{{asset('fe')}}/js/jquery-3.3.1.min.js"></script>
+        <script src="{{asset('fe')}}/js/bootstrap.min4.3.1.js"></script>
+        <script src="{{asset('fe')}}/js/custom-navigation.js"></script>
+        <!-- Page Scripts Ends -->
+        
+	</body>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 m-auto pt-5">
-                <h2 class="text-center mb-5">LOGIN</h2>
-                <form method="POST" action="{{ route('login.store') }}">
-
-                    @csrf
-                    @if ($message = Session::get('err'))
-                        <div class="alert alert-danger alert-block">
-
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-
-                            <strong>{{ $message }}</strong>
-
-                        </div>
-                    @endif
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        <input type="text" id="form2Example1" class="form-control" name="email" />
-                        <label class="form-label" for="form2Example1">Email address</label>
-                    </div>
-
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" name="password" />
-                        <label class="form-label" for="form2Example2">Password</label>
-                    </div>
-
-                    <!-- 2 column grid layout for inline styling -->
-                    <div class="row mb-4">
-                        <div class="col d-flex justify-content-center">
-                            <!-- Checkbox -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="form2Example31" />
-                                <label class="form-check-label" for="form2Example31"> Remember me </label>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <!-- Simple link -->
-                            <a href="#!">Forgot password?</a>
-                        </div>
-                    </div>
-
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-                    <!-- Register buttons -->
-                    <div class="text-center">
-                        <p>Not a member? <a href="{{ route('register') }}">Register</a></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-</body>
-
+<!-- Mirrored from kiswa.net/themes/star-hotel/demo/demo-ltr/login-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 07:28:13 GMT -->
 </html>

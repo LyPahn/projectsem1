@@ -71,6 +71,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('user.contact')}}">Liên hệ</a>
                     </li>
+                    @if (Auth::user() == '')
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{route('login')}}">Đăng nhập</a>
+                    </li>
+                    @else
+                    <li class="nav-item dropdown"><a href="#" class="nav-link" style="color: #fff;" data-toggle="dropdown">{{Auth::user()->name}}<span><i
+                        class="fa fa-angle-down"></i></span></a>
+            <ul class="dropdown-menu mshow">
+                <li><a class="dropdown-item" href="dining-1.html" style="color: #fff;">Quản lý tài khoản</a></li>
+                <li><a class="dropdown-item" href="{{route('user.logout')}}" style="color: #fff;">Đăng xuất</a></li>
+            </ul>
+        </li>
+                    @endif
+                    
                 </ul>
             </div><!-- end navbar collapse -->
         </div><!-- end container -->

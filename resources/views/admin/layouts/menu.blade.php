@@ -70,10 +70,6 @@
                     <a class="items-list1" href="{{route('booking.index')}}">Danh sách</a>
                 </div><!-- End sub-menu -->
             </li>
-     
-                    </a>
-                </div><!-- End sub-menu -->
-            </li>
         </ul>
     </div><!-- End side-menu -->
     <div class="side-bar-bottom">
