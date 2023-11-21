@@ -10,7 +10,7 @@ class rooms extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['id','name','image','type_id','price','adluts','children', 'room_code', 'propose' ];
+    protected $fillable = ['id','name','image','type_id','price','adluts','children', 'room_code', 'propose' , 'description' ];
     
     /**
      * Get the user that owns the rooms

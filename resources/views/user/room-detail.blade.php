@@ -154,7 +154,7 @@
 							</div><!-- end room-facilities -->
 							
 							<div id="description">
-								{{$detail->description}}
+								{!!$detail->description!!}
 								<a href="{{route('UserBooking.index',$detail->id)}}" class="btn btn-yellow btn-lg btn-block">Đặt phòng</a>
 							</div><!-- end description -->
 							

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('adluts');
             $table->integer('children');
             $table->string('image', 255);
-            $table->text('description')->nullable()->default();
+            $table->text('description')->nullable();
             $table->tinyInteger('propose')->default(1);
             $table->softDeletes();
             $table->timestamps();
