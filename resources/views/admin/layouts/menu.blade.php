@@ -70,13 +70,6 @@
                     <a class="items-list1" href="{{route('booking.index')}}">Danh sách</a>
                 </div><!-- End sub-menu -->
             </li>
-            <li class="nav-item">
-                <a href="{{route('blog.index')}}" class="items-list">
-                    <span><i class="far fa-bookmark" data-toggle="tooltip" data-html="true"
-                            title="Reviews"></i></span>
-                    <span class="items-list-text">BLOG</span>
-                </a>
-            </li>
      
                     </a>
                 </div><!-- End sub-menu -->

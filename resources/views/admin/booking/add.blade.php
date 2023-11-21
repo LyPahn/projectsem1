@@ -7,14 +7,14 @@
 
                     <div class="col">
                         <div class="heading-messages">
-                            <h3>Hotel Listing</h3>
+                            <h3>Đơn đặt phòng</h3>
                         </div><!-- End heading-messages -->
                     </div><!-- End column -->
                     <div class="col-md-4">
                         <div class="breadcrumb">
-                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="{{route('booking.index')}}">Danh sách</a>
                             </div>
-                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Create
+                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Thêm mới
                             </div>
                         </div><!-- end breadcrumb-->
                     </div><!-- end column -->
@@ -77,7 +77,7 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">phone:</label>
+                                        <label for="inputGroupSelect07" class="">Số điện thoại:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
                                             name="phone" value="{{ old('phone') }}">
                                         @error('phone')
@@ -100,7 +100,7 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">adluts</label>
+                                        <label for="inputGroupSelect07" class="">Sô người lớn:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
                                             name="adluts" value="{{ old('adluts') }}">
                                         @error('adluts')
@@ -110,7 +110,7 @@
                                 </div><!-- end column -->
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">children</label>
+                                        <label for="inputGroupSelect07" class="">Số trẻ em:</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
                                             name="children" value="{{ old('children') }}">
                                         @error('children')
@@ -148,10 +148,10 @@
                             </div><!-- end form-group -->
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <button type="submit" class="btn">Submit</button>
+                                    <button type="submit" class="btn">Thêm mới</button>
                                 </li>
                                 <li class="list-inline-item">
-                                    <button class="btn"><a href="{{route('booking.index')}}" style="color: #fff">Cancel</a></button>
+                                    <button class="btn"><a href="{{route('booking.index')}}" style="color: #fff">Trở về</a></button>
                                 </li>
                             </ul>
 

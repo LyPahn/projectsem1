@@ -6,14 +6,14 @@
           <div class="row no-gutters">
               <div class="col">
                   <div class="heading-messages">
-                      <h3>Hotel Listing</h3>
+                      <h3>Thùng rác đơn phòng</h3>
                   </div><!-- End heading-messages -->
               </div><!-- End column -->
               <div class="col-md-4">
                   <div class="breadcrumb">
-                      <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+                      <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="{{route('booking.index')}}">Danh sách</a>
                       </div>
-                      <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>All
+                      <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Thùng rác
                       </div>
                   </div><!-- end breadcrumb -->
               </div><!-- End column -->
@@ -51,7 +51,6 @@
                                   <th>STT</th>
                                   <th>Tên phòng đã đặt</th>
                                   <th>Tên khách hàng</th>
-                                  <th>status</th>
                                   <th>check_in</th>
                                   <th>check_out</th>
                                   <th>Tùy chọn</th>
@@ -63,8 +62,6 @@
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $item->rooms->name }}</td>
                                       <td>{{ $item->name }}</td>
-                                      <td>{!! $item->status
-                                          ? 'Còn trống' : 'Đã đặt' !!}</td>
                                       <td>{{ $item->check_in }}</td>
                                       <td>{{ $item->check_out }}</td>
                                       <td>

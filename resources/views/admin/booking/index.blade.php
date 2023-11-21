@@ -6,14 +6,12 @@
                 <div class="row no-gutters">
                     <div class="col">
                         <div class="heading-messages">
-                            <h3>Hotel Listing</h3>
+                            <h3>Đơn đặt phòng</h3>
                         </div><!-- End heading-messages -->
                     </div><!-- End column -->
                     <div class="col-md-4">
                         <div class="breadcrumb">
-                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
-                            </div>
-                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>All
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Danh sách</a>
                             </div>
                         </div><!-- end breadcrumb -->
                     </div><!-- End column -->
@@ -74,7 +72,7 @@
                                             <td>{{ $item->check_out }}</td>
                                             <td>
                                                 <a href="{{ route('booking.edit', $item) }}"><i
-                                                    class="fas fa-edit"></i></a>
+                                                    class="fas fa-edit" style="color: black"></i></a>
                                                 <form action="{{ route('booking.destroy', $item) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')

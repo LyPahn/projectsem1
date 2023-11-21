@@ -7,14 +7,14 @@
 
                     <div class="col">
                         <div class="heading-messages">
-                            <h3>Hotel Listing</h3>
+                            <h3>Phòng chi tiết</h3>
                         </div><!-- End heading-messages -->
                     </div><!-- End column -->
                     <div class="col-md-4">
                         <div class="breadcrumb">
-                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Listing</a>
+                            <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="{{route('rooms.index')}}">Danh sách</a>
                             </div>
-                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Create
+                            <div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Thêm mới
                             </div>
                         </div><!-- end breadcrumb-->
                     </div><!-- end column -->
@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="details-text">
-                                <h4>Add Details</h4>
+                                <h4>Thêm mới phòng</h4>
                             </div><!-- end details-text -->
                         </div><!-- End column -->
                     </div><!-- end row -->
@@ -165,10 +165,10 @@
                             </div><!-- end form-group -->
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <button type="submit" class="btn">Submit</button>
+                                    <button type="submit" class="btn">Thêm mới</button>
                                 </li>
                                 <li class="list-inline-item">
-                                    <button class="btn"><a href="{{route('rooms.index')}}" style="color: #fff">Cancel</a></button>
+                                    <button class="btn"><a href="{{route('rooms.index')}}" style="color: #fff">Trở lại</a></button>
                                 </li>
                             </ul>
 
