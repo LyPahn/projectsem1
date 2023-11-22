@@ -57,7 +57,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Tên tài khoản"
-                                            name="name" required />
+                                            name="name"  />
                                         <span><i class="fa fa-user"></i></span>
                                         @error('name')
                                             <p class="text-danger">{{ $message }}</p>
@@ -65,8 +65,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email"
-                                            name="email" required />
+                                        <input type="text" class="form-control" placeholder="Email"
+                                            name="email"  />
                                         <span><i class="fa fa-envelope"></i></span>
                                         @error('email')
                                             <p class="text-danger">{{ $message }}</p>
@@ -75,7 +75,7 @@
 
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Mật khẩu"
-                                            name="password" required />
+                                            name="password"  />
                                         <span><i class="fa fa-lock"></i></span>
                                         @error('password')
                                             <p class="text-danger">{{ $message }}</p>
@@ -84,7 +84,7 @@
 
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Xác nhận mật khẩu"
-                                            name="Rpassword" required />
+                                            name="Rpassword"  />
                                         <span><i class="fa fa-lock"></i></span>
                                         @error('Rpassword')
                                             <p class="text-danger">{{ $message }}</p>

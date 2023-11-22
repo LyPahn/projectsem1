@@ -33,11 +33,14 @@ route::get('/room-detail',[HomeController::class,'roomDetail'])->name('user.room
 route::get('/gioi-thieu',[HomeController::class,'about'])->name('user.about');
 route::get('/dich-vu',[HomeController::class,'service'])->name('user.service');
 route::get('/lien-he',[HomeController::class,'contact'])->name('user.contact');
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/loginPost', [UserController::class, 'loginPost'])->name('login.store');
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/registerPost', [UserController::class, 'registerPost'])->name('register.store');
-Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+Route::prefix('/login')->middleware('user')->group(function () {  
+    Route::get('/', [UserController::class, 'login'])->name('login');
+    Route::post('/loginPost', [UserController::class, 'loginPost'])->name('login.store');
+    Route::get('/register', [UserController::class, 'register'])->name('register');
+    Route::get('/account_actived/{dataUser}/{token}', [UserController::class, 'actived'])->name('user.actived');
+    Route::post('/registerPost', [UserController::class, 'registerPost'])->name('register.store');
+    Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+});
 Route::get('/detail/{id}',[HomeController::class, 'roomDetail'])->name('room.detail');
 route::get('/booking/{room}',[UserBookingController::class,'index'])->name('UserBooking.index');
 route::post('/booking',[UserBookingController::class,'store'])->name('UserBooking.store');

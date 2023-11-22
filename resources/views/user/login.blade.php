@@ -82,6 +82,18 @@
                                 <h3>Đăng nhập</h3>
                                 <form class="text-left" action="{{route('login.store')}}" method="POST">
                                     @csrf
+                                    @if ($message = Session::get('success'))
+                                        <div class="alert alert-success alert-block" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                            <strong>{{$message}}</strong>
+                                        </div>
+                                    @endif
+                                    @if ($message = Session::get('err'))
+                                        <div class="alert alert-danger alert-block" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                            <strong>{{$message}}</strong>
+                                        </div>
+                                    @endif
                                     <div class="form-group">
                                          <input type="text" class="form-control" placeholder="Email" name="email"  required/>
                                          <span><i class="fa fa-user"></i></span>
