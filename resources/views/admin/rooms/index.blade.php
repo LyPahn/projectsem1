@@ -79,7 +79,7 @@
                                             <td>
                                                 <a href="{{ route('rooms.edit', $item) }}"><i
                                                         class="fas fa-edit" style="color: black"></i></a>
-                                                <form action="{{ route('rooms.destroy', $item->id) }}" method="post">
+                                                <form action="{{ route('rooms.destroy', $item) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" onclick="return confirm('chắc chắn chứ')"

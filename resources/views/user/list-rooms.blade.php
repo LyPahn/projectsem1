@@ -24,9 +24,9 @@
                 @if (isset($roomSearch) == '')
                 <div class="row">
                     @forelse ($room as $item)
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="room-block">
-                                <div class="room-img w-100">
+                        <div class="col-12 col-md-6 col-lg-4" style="height: 350px">
+                            <div class="room-block h-100">
+                                <div class="room-img" style="height: 250px">
                                     <img src="{{ asset('storage/images/' . $item->image) }}" class="img-fluid" width="100%"
                                         alt="room-image" />
                                     <div class="room-title">

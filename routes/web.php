@@ -49,6 +49,9 @@ Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
 Route::post('/logonPost', [AdminController::class, 'logonstore'])->name('logon.store');
 Route::get('/logout-admin', [AdminController::class, 'logout'])->name('logout');
 
+route::fallback(function(){
+    return view('error.404');
+});
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',[DashBoardController::class,'index'])->name('admin.index');
     Route::resource('rooms', RoomsController::class);
