@@ -112,11 +112,11 @@
                     @forelse ($room as $item)
                         
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12" style="height: 350px">
                                 <div class="grid">
                                     <div class="room-block">
-                                        <div class="room-img">
-                                            <img src="{{asset('storage/images/'.$item->image)}}" class="img-fluid" alt="room-image" />
+                                        <div class="room-img" style="height: 250px">
+                                            <img src="{{asset('storage/images/'.$item->image)}}" class="img-fluid" alt="room-image" width="100%" />
                                             <div class="room-title">
                                                 <a href="#">
                                                     <h3>{{$item->name}}</h3>

@@ -40,6 +40,8 @@ class UserController extends Controller
     public function loginPost(LoginPostRequest $req) {
         if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
             return redirect()->route('user.index');
+
+            
         }
             return redirect()->back()->with('err','Sai tài khoản hoặc mật khẩu');
     }

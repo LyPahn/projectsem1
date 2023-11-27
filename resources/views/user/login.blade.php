@@ -104,10 +104,6 @@
                                          <span><i class="fa fa-lock"></i></span>
                                     </div>
                                     
-                                    <div class="custom-check">
-                                    	<input type="checkbox" id="check" name="checkbox"/>
-                                         <label for="check"><span><i class="fa fa-check"></i></span>Remember Me</label>
-                                    </div><!-- end checkbox -->
                                     
                                     <button class="btn btn-yellow btn-block" type="submit">Đăng nhập</button>
                                 </form>

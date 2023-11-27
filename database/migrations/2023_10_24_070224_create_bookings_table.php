@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('email', 100);
             $table->string('phone', 100);
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('room_id')->nullable()->default(12);
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->integer('adluts');
