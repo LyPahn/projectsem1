@@ -1,15 +1,11 @@
 <?php
 
-use App\Http\Controllers\admin\AccountController;
-use App\Http\Controllers\admin\BannerController;
-use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\Admin\AccController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\admin\DashBoardController;
-use App\Http\Controllers\admin\TabController;
 use App\Http\Controllers\user\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
 use App\Http\Controllers\Admin\RoomsController;
 use App\Http\Controllers\Admin\RoomsTypeController;
 use App\Http\Controllers\Admin\BookingController;
@@ -66,5 +62,5 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/trash_booking', [BookingController::class, 'trash'])->name('booking.trash');
     Route::get('/restore_booking/{id}', [BookingController::class, 'restore'])->name('booking.restore');
     Route::get('/forceDelete_booking/{id}', [BookingController::class, 'forceDeleted'])->name('booking.forceDeleted');
-    route::resource('account', AccountController::class);
+    route::resource('account', AccController::class);
 });

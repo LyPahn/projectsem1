@@ -51,12 +51,11 @@
 			<li class="nav-item">
 				<a href="#users" class="items-list" data-toggle="collapse" aria-expanded="false">
 					<span><i class="fas fa-user-tie" data-toggle="tooltip" data-html="true" title="Users"></i></span>
-					<span class="items-list-text">Users</span>
+					<span class="items-list-text">Tài khoản admin</span>
 					<span><i class="fa fa-chevron-down arrow"></i></span>
 				</a>
 				<div class="collapse sub-menu" id="users">
-					<a class="items-list1" href="users-create-user.html">Create User</a>
-					<a class="items-list1" href="users-list.html">List</a>
+					<a class="items-list1" href="{{route('account.index')}}">Danh sách</a>
 				</div><!-- End sub-menu -->
 			</li>
             <li class="nav-item">
