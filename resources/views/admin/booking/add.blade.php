@@ -59,8 +59,8 @@
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text" for="inputGroupSelect01">Phòng:</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="room_id">
-                                                <option selected value="">Chọn...</option>
+                                            <select class="custom-select js-example-basic-single" id="inputGroupSelect01" name="room_id">
+                                                
                                                 @foreach ($rooms as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -169,7 +169,14 @@
     <script src="{{ asset('assets') }}/vendors/dropzone-5.5.0/dist/min/dropzone.min.js"></script>
     <script src="{{ asset('assets') }}/js/customscriptfile.js"></script>
     <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
+        // In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
         // Replace the <textarea id="editor1"> with a CKEditor 4
         // instance, using default configuration.
         CKEDITOR.replace('editor1');
