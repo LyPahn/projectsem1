@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\typeRoom\TypeRoomEditRequest;
 use App\Http\Requests\typeRoom\TypeRoomStoreRequest;
 use App\Models\rooms;
 use Illuminate\Http\Request;
@@ -55,7 +56,7 @@ class RoomsTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TypeRoomStoreRequest $request, type_rooms $rooms_type)
+    public function update(TypeRoomEditRequest $request, type_rooms $rooms_type)
     {
         try {
             //code...
@@ -71,11 +72,13 @@ class RoomsTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        if (rooms::where('type_id', $id) != '') {
+        if (rooms::where('type_id', $id) == type_rooms::where('id' , $id)) {
             return redirect()->back()->with('error', 'Hãy xoá phòng trước khi xoá hạng phòng');
+        }else{
+
+            type_rooms::where('id', $id)->delete();
+            return redirect()->route('rooms_type.index')->with('success', 'Xoá thành công');
         }
-        type_rooms::where('id', $id)->delete();
-        return redirect()->route('rooms_type.index')->with('success', 'Xoá thành công');
     }
     public function trash()
     {

@@ -29,8 +29,6 @@ class BookingStoreRequest extends FormRequest
                 'check_out' => ['required', 'date', new CheckOutDateGreaterThanCheckInDate('check_in')],
             'phone' => ['required'],
             'email' => ['required'],
-            'adluts' => ['required'],
-            'children' => ['required'],
             'room_id' => ['required']
 
         ];
@@ -43,8 +41,6 @@ class BookingStoreRequest extends FormRequest
             'check_out.required'=> 'Không được để trống',  
             'phone.required'=> 'Không được để trống',  
             'email.required'=> 'Không được để trống',  
-            'adluts.required'=> 'Không được để trống',  
-            'children.required'=> 'Không được để trống',  
             'room_id.required'=> 'Không được để trống',  
         ];
     }

@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $room = rooms::orderBy('created_at' , 'desc')->get()->take(9);
+        $room = rooms::orderBy('created_at' , 'desc')->get()->take(3);
         return view('user.index',compact('room'));
     }
 

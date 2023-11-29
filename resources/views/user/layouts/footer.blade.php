@@ -40,23 +40,23 @@
                 </div><!-- end more-about -->
 
                 <div class="col-12 col-md-6 col-lg-2 col-xl-2 text-left" id="company">
-                    <h4 class="footer-heading">Company</h4>
+                    <h4 class="footer-heading">Chi tiết</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Rooms</a></li>
+                        <li><a href="{{route('user.index')}}">Trang chủ</a></li>
+                        <li><a href="{{route('user.about')}}">Giới thiệu</a></li>
+                        <li><a href="{{route('user.listRoom')}}">Danh sách phòng</a></li>
                     </ul>
                 </div><!-- end useful-links -->
 
                 <div class="col-12 col-md-6 col-lg-3 col-xl-3 text-left" id="f-services">
-                    <h4 class="footer-heading">Services</h4>
+                    <h4 class="footer-heading">Dịch vụ</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">Restaurant</a></li>
+                        <li><a href="#">Bữa sáng</a></li>
                         <li><a href="#">Spa</a></li>
-                        <li><a href="#">Meeting Rooms</a></li>
-                        <li><a href="#">Free Wifi</a></li>
-                        <li><a href="#">Rooms</a></li>
-                        <li><a href="#">Food & Drinks</a></li>
+                        <li><a href="#">Phòng họp</a></li>
+                        <li><a href="#">Wifi miễn phí</a></li>
+                        <li><a href="#">Phòng</a></li>
+                        <li><a href="#">Đồ ăn và đồ uống</a></li>
                     </ul>
                 </div><!-- end visit-us -->
 
@@ -66,7 +66,7 @@
                     <form>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Your Email" />
+                                <input type="email" class="form-control" placeholder="Nhập email" />
                                 <span class="input-group-btn"><button class="btn"><span><i
                                                 class="fa fa-paper-plane"></i></span></button></span>
                             </div>

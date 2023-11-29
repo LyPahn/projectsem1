@@ -20,7 +20,6 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = rooms::orderBy('created_at' , 'desc')->get();
-        // $bookings = bookings::all();
         
         return view('admin.rooms.index', compact('rooms'));
     }
@@ -125,7 +124,7 @@ class RoomsController extends Controller
     public function destroy(string $id)
     {
         try {
-            if(bookings::where('room_id', $id) != ''){
+            if(bookings::where('room_id', $id) == rooms::where('id' , $id)){
                 return redirect()->back()->with('error','Phòng đã đặt không thể xoá');
             }
             rooms::where('id',$id)->delete();

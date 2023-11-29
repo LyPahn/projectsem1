@@ -75,7 +75,7 @@
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">phone:</label>
+                                        <label for="inputGroupSelect07" class="">Số điện thoại</label>
                                         <input type="number" class="form-control" required id="inputGroupSelect07"
                                             name="phone" value="{{ old('phone') ? old('phone') : $booking->phone }}">
                                         @error('phone')
@@ -95,28 +95,6 @@
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
                             
-                            <div class="form-row">
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">adluts</label>
-                                        <input type="number" class="form-control" required id="inputGroupSelect07"
-                                            name="adluts" value="{{ old('adluts') ? old('adluts') : $booking->adluts }}">
-                                        @error('adluts')
-                                            <span class="help-block " style="color: red">{{ $message }}</span>
-                                        @enderror
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="inputGroupSelect07" class="">children</label>
-                                        <input type="number" class="form-control" required id="inputGroupSelect07"
-                                            name="children" value="{{ old('children') ? old('children') : $booking->children }}">
-                                        @error('children')
-                                            <span class="help-block " style="color: red">{{ $message }}</span>
-                                        @enderror
-                                    </div><!-- end form-group -->
-                                </div><!-- end column -->
-                            </div><!-- end form-row -->
                             <div class="form-row">
                                 <div class="col-md">
                                     <div class="form-group">
@@ -147,7 +125,7 @@
                                     <button type="submit" class="btn">Thêm mới</button>
                                 </li>
                                 <li class="list-inline-item">
-                                    <button class="btn"><a href="{{route('booking.index')}}" style="color: #fff">Trở vềs</a></button>
+                                    <button class="btn"><a href="{{route('booking.index')}}" style="color: #fff">Trở về</a></button>
                                 </li>
                             </ul>
 
