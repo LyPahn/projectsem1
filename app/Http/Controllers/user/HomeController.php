@@ -18,7 +18,7 @@ class HomeController extends Controller
     }
 
     public function listRoom(){
-        $room = rooms::paginate(9);
+        $room = rooms::orderBy('created_at' , 'desc')->get()->paginate(9);
         return view('user.list-rooms',compact('room'));
     }
 
