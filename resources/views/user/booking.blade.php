@@ -39,7 +39,7 @@
                                     <span><i class="fa fa-star-o"></i></span>
                                 </div><!-- end rating -->
                                 
-                                <p>{{$room->description}}</p>
+                                <p>{!!$room->description!!}</p>
                                 
                                 <p class="selected-room-price">Giá <span>{{number_format($room->price)}}đ</span> / Đêm</p>
                             </div><!-- end selected-room-detail -->
@@ -107,7 +107,7 @@
                                     </div><!-- end columns -->
                                     
                                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                                        <button type="submit" class=" btn-success">Đặt ngay</button>
+                                        <button type="submit" class="btn btn-yellow" style="padding-top: 0px; ">Đặt ngay</button>
                                     </div><!-- end columns -->
                                     
                                 </div><!-- end row -->
@@ -117,80 +117,7 @@
                 </div><!-- end row -->
             </div><!-- end container -->
         </div><!-- end reservation -->
-        
-        <div id="reservation-details"> 
-            <div class="container-fluid">
-                <div class="row">
-                
-                    <div class="col-12 col-md-12 col-lg-6 col-xl-6 reservation-info">
-                        <div class="reserve-position center">
-                            <div class="innerpage-heading">
-                                <h1>How to make reservation</h1>
-                            </div><!-- end innerpage-heading -->
-                            
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                            <p>
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                            <span class="hotel-name">The Star Hotel</span>
-                        </div><!-- end reserve-position -->
-                    </div><!-- end columns -->
-                    
-                    <div class="col-12 col-md-12 col-lg-6 col-xl-6 reservation-support">
-                        <div class="center">
-                            <div class="innerpage-heading">
-                                <h1>Reservation Support</h1>
-                            </div><!-- end innerpage-heading -->
-                            
-                            <div class="support-list">
-                                <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
-                                <div class="text">
-                                    <p>If you are on the go and still want to ask a question, simply drop us an e-mail.</p>
-                                    <p class="bold">support@starhotel.com</p>
-                                </div><!-- end text -->
-                            </div><!-- end support-list -->
-                            
-                            <div class="support-list">
-                                <div class="icon"><span><i class="fa fa-phone"></i></span></div>
-                                <div class="text phone">
-                                    <p>If you are on the go and still want to ask a question, simply drop us an e-mail.</p>
-                                    <p class="bold">+222 – 5548 656</p>
-                                </div><!-- end text -->
-                            </div><!-- end support-list -->
-                            
-                            <div class="support-list">
-                                <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
-                                <div class="text">
-                                    <p>Street No: 1234/A, Blu Vard Area, Main Double Road,</p>
-                                    <p class="bold">United Kingdom</p>
-                                </div><!-- end text -->
-                            </div><!-- end support-list -->
-                            
-                        </div><!-- end center -->
-                    </div><!-- end columns -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </div><!-- end reervation-details -->
-    
     </section><!-- end innerpage-wrapper -->
     
     
-    <!--============== NEWSLETTER ===============-->
-    <section id="newsletter" class="banner-padding"> 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center">
-                    <h2>Our Newsletter</h2>
-                    <p>Sign up here to receive interesting updates</p>	
-                    <form>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" class="form-control input-lg" placeholder="your email id" required/>
-                                <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-paper-plane"></i></button></span>
-                            </div>
-                        </div>
-                    </form>
-                </div><!-- end columns -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section><!-- end newsletter -->
 @endsection
