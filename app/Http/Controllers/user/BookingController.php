@@ -22,7 +22,7 @@ class BookingController extends Controller
     public function store(request $request){
         try {
             bookings::create($request->all());
-            return redirect()->route('user.listRoom')->with('success','Cảm ơn bạn đã đặt phòng');
+            return redirect()->route('user.thankyou');
         } catch (\Throwable $th) {
             dd($th);
             return redirect()->back()->with('error','Đặt phòng thất bại');

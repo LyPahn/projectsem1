@@ -98,31 +98,6 @@
                                         </div>
                                     </div><!-- end columns -->
                                     
-                                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                        <div class="form-group">
-                                            <span><i class="fa fa-angle-down"></i></span>
-                                            <select class="form-control" name="adluts">
-                                            <option value="0" selected>Người lớn</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            </select>
-                                        </div>
-                                    </div><!-- end columns -->
-                                    
-                                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                        <div class="form-group">
-                                            <span><i class="fa fa-angle-down"></i></span>
-                                            <select class="form-control" name="children">
-                                                <option value="0" selected>Trẻ em</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </div>
-                                    </div><!-- end columns -->
 
                                     
                                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
