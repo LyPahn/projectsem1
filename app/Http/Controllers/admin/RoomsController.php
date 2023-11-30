@@ -124,7 +124,9 @@ class RoomsController extends Controller
     public function destroy(string $id)
     {
         try {
-            if(bookings::where('room_id', $id) == rooms::where('id' , $id)){
+            $rooms = rooms::where('id' , $id)->firstOrFail();
+            $booking = $rooms->booking->count();
+            if($booking){
                 return redirect()->back()->with('error','Phòng đã đặt không thể xoá');
             }
             rooms::where('id',$id)->delete();

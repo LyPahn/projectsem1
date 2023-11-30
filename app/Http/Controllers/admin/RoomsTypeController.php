@@ -72,10 +72,11 @@ class RoomsTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        $room = rooms::where('type_id', $id)->get('type_id');
-        $type_room = type_rooms::where('id' , $id)->get('id');
+        $type_room = type_rooms::where('id' , $id)->firstOrFail();
+        $room = $type_room->rooms->count();
+
         
-        if ($room === $type_room) {
+        if ($room) {
             return redirect()->back()->with('error', 'Hãy xoá phòng trước khi xoá hạng phòng');
         }else{
             type_rooms::where('id', $id)->delete();
