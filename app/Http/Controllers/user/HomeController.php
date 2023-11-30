@@ -18,7 +18,7 @@ class HomeController extends Controller
     }
 
     public function listRoom(){
-        $room = rooms::paginate(12);
+        $room = rooms::paginate(9);
         return view('user.list-rooms',compact('room'));
     }
 

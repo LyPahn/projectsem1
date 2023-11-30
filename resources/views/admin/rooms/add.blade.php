@@ -90,7 +90,7 @@
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh</label>
                                         <input type="file" class="form-control" id="file-input" name="photo"
                                             value="{{ old('photo') }}">
-                                        <img src="" id="img-preview" alt="">
+                                        <img src="" id="img-preview" alt="" width="150px">
                                         @error('photo')
                                             <span class="help-block" style="color: red">{{ $message }}</span>
                                         @enderror
@@ -99,13 +99,13 @@
                                 <div class="col-md">
                                     <div class="form-group ">
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh chi tiết</label>
-                                        <input type="file" class="form-control" id="exampleInputEmail1" name="photos[]"
+                                        <input type="file" class="form-control" id="img-preview" name="photos[]"
                                             onchange="preview(this)" multiple>
-                                        <div class="row mt-3" id="sub-image-preview">
+                                            <div class="row md-3" id="sub-image-preview">
+                                            </div>
                                             @error('photo')
-                                                <span class="help-block" style="color: red">{{ $message }}</span>
+                                            <span class="help-block" style="color: red">{{ $message }}</span>
                                             @enderror
-                                        </div>
                                     </div>
                                 </div><!-- end column -->
                             </div><!-- end form-row -->
@@ -188,5 +188,29 @@
   // Replace the <textarea id="editor1"> with a CKEditor 4
   // instance, using default configuration.
   CKEDITOR.replace( 'editor1' );
+</script>
+<script>
+    const input = document.getElementById('file-input');
+    const image = document.getElementById('img-preview');
+
+    input.addEventListener('change', (e) => {
+        if (e.target.files.length) {
+            const src = URL.createObjectURL(e.target.files[0]);
+            image.src = src;
+        }
+    });
+
+    function preview(elem, output = '') {
+        Array.from(elem.files).map((file) => {
+            const blobUrl = window.URL.createObjectURL(file)
+            output +=
+                `<div class="col-lg-3 js-add-image"  id="img-add">
+                    <div class="card text-left  border-danger">
+                        <img class="card-img-bottom" src=${blobUrl} alt="" width = "150px">
+                    </div>
+                </div>`
+        })
+        document.getElementById('sub-image-preview').innerHTML = output
+    }
 </script>
 @endsection

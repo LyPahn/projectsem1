@@ -33,13 +33,6 @@
                                         <a href="{{ route('room.detail',$item->id) }}">
                                             <h3>{{ $item->name }}</h3>
                                         </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
                                     </div><!-- end room-title -->
                                 </div><!-- end room-img -->
 
@@ -72,13 +65,6 @@
                                         <a href="{{ route('room.detail',$item->id) }}">
                                             <h3>{{ $item->name }}</h3>
                                         </a>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star-o"></i></span>
-                                        </div><!-- end rating -->
                                     </div><!-- end room-title -->
                                 </div><!-- end room-img -->
 

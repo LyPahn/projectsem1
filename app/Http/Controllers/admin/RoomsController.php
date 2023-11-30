@@ -125,7 +125,7 @@ class RoomsController extends Controller
     {
         try {
             $rooms = rooms::where('id' , $id)->firstOrFail();
-            $booking = $rooms->booking->count();
+            $booking = $rooms->bookings->count();
             if($booking){
                 return redirect()->back()->with('error','Phòng đã đặt không thể xoá');
             }

@@ -38,9 +38,9 @@
         <div class="full-page-wrapper">
             <div class="full-page-content">
                 <div class="container">
-                    <div class="row">
+                    <div class="row justify-content-center">
 
-                        <div class="col-lg-5 col-xl-6 full-page-txt">
+                        {{-- <div class="col-lg-5 col-xl-6 full-page-txt">
                             <div class="about-intro-text mg-top-50">
                                 <h4>Welcome to Star Hotel</h4>
                                 <h2>Provide the best quality services in hoteling</h2>
@@ -48,9 +48,9 @@
                                     orci. Integer varius nibh eu mattis porta. Pellentesque dictum sem eget cursus
                                     semper. Nullam quis blandit lorem.</p>
                             </div><!-- end about-intro-text -->
-                        </div><!-- end columns -->
+                        </div><!-- end columns --> --}}
 
-                        <div class="col-lg-7 col-xl-6 full-page-form">
+                        <div class="col-lg-6 col-xl-6 full-page-form">
                             <div class="custom-form">
                                 <h3>Đăng ký</h3>
                                 <form method="POST" action="{{ route('register.store') }}">

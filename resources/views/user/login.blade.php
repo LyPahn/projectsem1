@@ -109,8 +109,7 @@
                                 </form>
                                 
                                 <div class="other-links">
-                                    <p class="link-line">New Here ? <a href="{{route('register')}}">Signup</a></p>
-                                    <a class="simple-link" href="forgot-password-1.html">Forgot Password ?</a>
+                                    <p class="link-line">Bạn chưa có tài khoản ? <a href="{{route('register')}}">Đăng ký</a></p>
                                 </div><!-- end other-links -->
                             </div><!-- end custom-form -->
                             

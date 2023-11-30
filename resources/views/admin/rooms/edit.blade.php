@@ -93,8 +93,8 @@
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh</label>
                                         <input type="file" class="form-control" id="file-input" name="photo"
                                             value="{{ old('photo') ? old('photo') : $room->image }}">
-                                        <img src="{{ asset('storage/images/' . $room->image) }}" id="img-preview"
-                                            alt="" width="100px">
+                                        <img class="m-1" src="{{ asset('storage/images/' . $room->image) }}" id="img-preview"
+                                            alt="" width="150px">
                                         @error('photo')
                                             <span class="help-block" style="color: red">{{ $message }}</span>
                                         @enderror
@@ -105,11 +105,11 @@
                                         <label for="disabledTextInput" class="fs-4 text-uppercase">Ảnh chi tiết</label>
                                         <input type="file" class="form-control" id="img-preview" name="photos[]"
                                             onchange="preview(this)" multiple>
-                                        <div class="row mt-3" id="sub-image-preview">
+                                        <div class="row md-3 m-1" id="sub-image-preview">
                                             @foreach ($listimages as $item)
-                                                <img class="card-img-bottom"
+                                                <img class=" p-1 card-img-bottom"
                                                     src="{{ asset('storage/images/' . $item->image) }}" alt=""
-                                                    width="100px">
+                                                    width="150px">
                                             @endforeach
                                             @error('photo[]')
                                                 <span class="help-block">{{ $message }}</span>
@@ -216,11 +216,11 @@
             Array.from(elem.files).map((file) => {
                 const blobUrl = window.URL.createObjectURL(file)
                 output +=
-                    `<div class="col-lg-3 js-add-image"  id="img-add">
-                        <div class="card text-left bg-dark border-danger">
-                            <img class="card-img-bottom" src=${blobUrl} alt="" width = "100px">
-                        </div>
-                    </div>`
+                `<div class="col-lg-3 js-add-image"  id="img-add">
+                    <div class="card text-left  border-danger">
+                        <img class="card-img-bottom" src=${blobUrl} alt="" width = "150px">
+                    </div>
+                </div>`
             })
             document.getElementById('sub-image-preview').innerHTML = output
         }
